@@ -1,0 +1,1 @@
+Utilize um laço for para imprimir todos os números de 10 até 100, mas pulando de 10 em 10 (ex: 10, 20, 30...).

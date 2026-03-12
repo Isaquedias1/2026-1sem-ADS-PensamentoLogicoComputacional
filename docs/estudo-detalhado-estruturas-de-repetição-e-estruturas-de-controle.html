@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Aula 3 Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula</title>
+  <meta name="description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="generator" content="bookdown 0.46.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Aula 3 Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="your book url like https://bookdown.org/yihui/bookdown/images/cover.jpg" />
+  <meta property="og:description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="github-repo" content="miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aula 3 Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula" />
+  
+  <meta name="twitter:description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="twitter:image" content="your book url like https://bookdown.org/yihui/bookdown/images/cover.jpg" />
+
+<meta name="author" content="Professor Miguél Suares" />
+
+
+<meta name="date" content="2026-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introdução-a-lógica-de-programação.html"/>
+<link rel="next" href="tipos-de-variáveis.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2026-ADS- Disciplina de Pensamento Computacional - Ênfase em Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre estas anotações</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acesso-ao-gitbook-celular"><i class="fa fa-check"></i><b>0.1</b> ACESSO AO GITBOOK CELULAR</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#leitores-de-formato-de-arquivo-epub-para-smartphone"><i class="fa fa-check"></i><b>0.2</b> Leitores de formato de arquivo EPUB para SmartPhone</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#android"><i class="fa fa-check"></i><b>0.2.1</b> ANDROID</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#livros-texto-da-disciplina"><i class="fa fa-check"></i><b>0.3</b> Livros Texto da Disciplina</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#fundamentos-matem%C3%A1ticos-para-a-ci%C3%AAncia-da-computa%C3%A7%C3%A3o-matem%C3%A1tica-discreta-e-suas-aplica%C3%A7%C3%B5es-da-autora-judith-l.-gersting"><i class="fa fa-check"></i><b>0.3.1</b> “Fundamentos matemáticos para a ciência da computação Matemática Discreta e Suas Aplicações” da autora “<strong>Judith L. Gersting</strong>”</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#calend%C3%A1rio-das-aulas"><i class="fa fa-check"></i><b>0.4</b> Calendário das aulas</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#fevereiro-de-2026"><i class="fa fa-check"></i><b>0.5</b> Fevereiro de 2026</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#mar%C3%A7o-de-2026"><i class="fa fa-check"></i><b>0.6</b> Março de 2026</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#abril-de-2026"><i class="fa fa-check"></i><b>0.7</b> Abril de 2026</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#maio-de-2026"><i class="fa fa-check"></i><b>0.8</b> Maio de 2026</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#junho-de-2026"><i class="fa fa-check"></i><b>0.9</b> Junho de 2026</a></li>
+<li class="chapter" data-level="0.10" data-path="index.html"><a href="index.html#alunos-2026---1o-semestre"><i class="fa fa-check"></i><b>0.10</b> Alunos 2026 - 1o Semestre</a>
+<ul>
+<li class="chapter" data-level="0.10.1" data-path="index.html"><a href="index.html#campus-ch%C3%A1cara-santo-ant%C3%B4nio"><i class="fa fa-check"></i><b>0.10.1</b> Campus Chácara Santo Antônio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="aula-inaugural.html"><a href="aula-inaugural.html"><i class="fa fa-check"></i><b>1</b> Aula Inaugural</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="aula-inaugural.html"><a href="aula-inaugural.html#come%C3%A7ando-a-programar"><i class="fa fa-check"></i><b>1.1</b> Começando a Programar:</a></li>
+<li class="chapter" data-level="1.2" data-path="aula-inaugural.html"><a href="aula-inaugural.html#exerc%C3%ADcios-de-introdu%C3%A7%C3%A3o-a-l%C3%B3gica-de-programa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>1.2</b> Exercícios de Introdução a Lógica de Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html"><i class="fa fa-check"></i><b>2</b> Introdução a Lógica de Programação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#programas-compilados"><i class="fa fa-check"></i><b>2.1</b> Programas Compilados</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-cc"><i class="fa fa-check"></i><b>2.1.1</b> Linguagem C/C++</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-java"><i class="fa fa-check"></i><b>2.1.2</b> Linguagem JAVA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#programas-interpretados"><i class="fa fa-check"></i><b>2.2</b> Programas Interpretados</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-python"><i class="fa fa-check"></i><b>2.2.1</b> Linguagem PYTHON</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-javascript"><i class="fa fa-check"></i><b>2.2.2</b> Linguagem JAVASCRIPT</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#in%C3%ADcio-de-desenvolvimento-opera%C3%A7%C3%B5es-b%C3%A1sicas-de-linguagens-de-alto-n%C3%ADvel"><i class="fa fa-check"></i><b>2.3</b> Início de Desenvolvimento: Operações básicas de linguagens de alto-nível</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#escrever-na-tela-sa%C3%ADda-de-dados"><i class="fa fa-check"></i><b>2.3.1</b> Escrever na tela (Saída de Dados)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#ler-do-teclado-entrada-de-dados"><i class="fa fa-check"></i><b>2.3.2</b> Ler do Teclado (Entrada de Dados)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#repetir-opera%C3%A7%C3%B5es-la%C3%A7os-de-repeti%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.3.3</b> Repetir Operações (Laços de Repetição)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#decidir-estruturas-condicionais"><i class="fa fa-check"></i><b>2.3.4</b> Decidir (Estruturas Condicionais )</a></li>
+<li class="chapter" data-level="2.3.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#procedimentos-e-fun%C3%A7%C3%B5es-modulariza%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.3.5</b> Procedimentos e Funções (Modularização)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#o-que-s%C3%A3o-algoritmos"><i class="fa fa-check"></i><b>2.4</b> O que são Algoritmos ?</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-01"><i class="fa fa-check"></i><b>2.4.1</b> Exemplo-01:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-02"><i class="fa fa-check"></i><b>2.4.2</b> Exemplo-02:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-03"><i class="fa fa-check"></i><b>2.4.3</b> Exemplo-03:</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-04"><i class="fa fa-check"></i><b>2.4.4</b> Exemplo-04:</a></li>
+<li class="chapter" data-level="2.4.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-05"><i class="fa fa-check"></i><b>2.4.5</b> Exemplo-05:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-python"><i class="fa fa-check"></i><b>2.5</b> Executando os Algoritmos Através de uma Linguagem: PYTHON</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-06"><i class="fa fa-check"></i><b>2.5.1</b> Exemplo-06:</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-07"><i class="fa fa-check"></i><b>2.5.2</b> Exemplo-07:</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-08"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo-08:</a></li>
+<li class="chapter" data-level="2.5.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-09"><i class="fa fa-check"></i><b>2.5.4</b> Exemplo-09:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-c"><i class="fa fa-check"></i><b>2.6</b> Executando os Algoritmos Através de uma Linguagem: C</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-10"><i class="fa fa-check"></i><b>2.6.1</b> Exemplo-10:</a></li>
+<li class="chapter" data-level="2.6.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-11"><i class="fa fa-check"></i><b>2.6.2</b> Exemplo-11:</a></li>
+<li class="chapter" data-level="2.6.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-12"><i class="fa fa-check"></i><b>2.6.3</b> Exemplo-12:</a></li>
+<li class="chapter" data-level="2.6.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-13"><i class="fa fa-check"></i><b>2.6.4</b> Exemplo-13:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-java"><i class="fa fa-check"></i><b>2.7</b> Executando os Algoritmos Através de uma Linguagem: JAVA</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-14"><i class="fa fa-check"></i><b>2.7.1</b> Exemplo-14:</a></li>
+<li class="chapter" data-level="2.7.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-15"><i class="fa fa-check"></i><b>2.7.2</b> Exemplo-15:</a></li>
+<li class="chapter" data-level="2.7.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-16"><i class="fa fa-check"></i><b>2.7.3</b> Exemplo-16:</a></li>
+<li class="chapter" data-level="2.7.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-17"><i class="fa fa-check"></i><b>2.7.4</b> Exemplo-17:</a></li>
+<li class="chapter" data-level="2.7.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#ferramentas"><i class="fa fa-check"></i><b>2.7.5</b> Ferramentas:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exerc%C3%ADcios-de-estruturas-de-controle---repeti%C3%A7%C3%A3o-e-decis%C3%A3o"><i class="fa fa-check"></i><b>2.8</b> Exercícios de Estruturas de Controle - Repetição e Decisão</a></li>
+<li class="chapter" data-level="2.9" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exerc%C3%ADcios-de-estruturas-de-repeit%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.9</b> Exercícios de Estruturas de Repeitção:</a></li>
+<li class="chapter" data-level="2.10" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exerc%C3%ADcios-de-estruturas-de-controle"><i class="fa fa-check"></i><b>2.10</b> Exercícios de Estruturas de Controle:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><i class="fa fa-check"></i><b>3</b> Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-repeti%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.1</b> ESTRUTURAS DE REPETIÇÃO</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-while-enquanto"><i class="fa fa-check"></i><b>3.1.1</b> O Laço WHILE (“enquanto”)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-for-para-cada"><i class="fa fa-check"></i><b>3.1.2</b> O Laço FOR (“para cada”)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-controle"><i class="fa fa-check"></i><b>3.2</b> ESTRUTURAS DE CONTROLE</a></li>
+<li class="chapter" data-level="3.3" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis"><i class="fa fa-check"></i><b>3.3</b> Exercícios de Tipos de Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>4</b> Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#exerc%C3%ADcios-de-procedimentos-e-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>4.1</b> Exercícios de Procedimentos e Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html"><i class="fa fa-check"></i><b>5</b> Procedimentos e Funções</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#exerc%C3%ADcios-de-listas-e-dicion%C3%A1rios"><i class="fa fa-check"></i><b>5.1</b> Exercícios de Listas e Dicionários</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html"><i class="fa fa-check"></i><b>6</b> Listas e Dicionários</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#exerc%C3%ADcios-de-entrada-e-sa%C3%ADda"><i class="fa fa-check"></i><b>6.1</b> Exercícios de Entrada e Saída</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html"><i class="fa fa-check"></i><b>7</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#exerc%C3%ADcios-de-depura%C3%A7%C3%A3o-e-teste-de-algorimos"><i class="fa fa-check"></i><b>7.1</b> Exercícios de Depuração e Teste de Algorimos</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="depuração-e-teste-de-algorimos.html"><a href="depuração-e-teste-de-algorimos.html"><i class="fa fa-check"></i><b>8</b> Depuração e Teste de Algorimos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="depuração-e-teste-de-algorimos.html"><a href="depuração-e-teste-de-algorimos.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-objetos---parte-1"><i class="fa fa-check"></i><b>8.1</b> Exercícios de Programação Orientada a Objetos - Parte 1</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="programação-orientada-a-objetos---parte-1.html"><a href="programação-orientada-a-objetos---parte-1.html"><i class="fa fa-check"></i><b>9</b> Programação Orientada a Objetos - Parte 1</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="programação-orientada-a-objetos---parte-1.html"><a href="programação-orientada-a-objetos---parte-1.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-objetos---parte-2"><i class="fa fa-check"></i><b>9.1</b> Exercícios de Programação Orientada a Objetos - Parte 2</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="programação-orientada-a-objetos---parte-2.html"><a href="programação-orientada-a-objetos---parte-2.html"><i class="fa fa-check"></i><b>10</b> Programação Orientada a Objetos - Parte 2</a></li>
+<li class="chapter" data-level="11" data-path="programação-orientada-a-eventos---graphical-user-interfaces.html"><a href="programação-orientada-a-eventos---graphical-user-interfaces.html"><i class="fa fa-check"></i><b>11</b> Programação Orientada a Eventos - Graphical User Interfaces</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programação-orientada-a-eventos---graphical-user-interfaces.html"><a href="programação-orientada-a-eventos---graphical-user-interfaces.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-eventos---graphical-user-interfaces"><i class="fa fa-check"></i><b>11.1</b> Exercícios de Programação Orientada a Eventos - Graphical User Interfaces</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com Biblioteca R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Aula 3</span> Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estudo-detalhado-estruturas-de-repeti%C3%A7%C3%A3o-e-estruturas-de-controle" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estruturas-de-repetição" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> ESTRUTURAS DE REPETIÇÃO<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-repeti%C3%A7%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="03-aula03/media/07-repetir_comando.jpg" /></p>
+<p>Computadores são ótimos em fazer tarefas repetitivas sem reclamar. Em vez de escrever o mesmo código dez vezes, usamos um laço (loop) que executa o bloco de comandos enquanto uma condição for mantida.</p>
+<ul>
+<li><p><strong>Tipos comuns:</strong> <code>while</code> (enquanto) e <code>for</code> (para).</p></li>
+<li><p><strong>Exemplo:</strong> Listar todos os nomes de uma lista de contatos ou repetir um alerta até que o usuário clique em “OK”.</p></li>
+</ul>
+<div id="o-laço-while-enquanto" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> O Laço WHILE (“enquanto”)<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-while-enquanto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Utilizado quando não sabemos exatamente quantas vezes o código será executado, mas sabemos a condição de parada.</p>
+<p>Pode criar a repetição ifinitamente, caso a condição de parada ninca for falsa.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-1" tabindex="-1"></a></span>
+<span id="cb41-2"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-2" tabindex="-1"></a>contador <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb41-3"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-3" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-4" tabindex="-1"></a><span class="cf">while</span> contador <span class="op">&lt;=</span> <span class="dv">5</span>:</span>
+<span id="cb41-5"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Repetição número </span><span class="sc">{</span>contador<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb41-6"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb41-6" tabindex="-1"></a>    contador <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Incremento fundamental</span></span></code></pre></div>
+</div>
+<div id="o-laço-for-para-cada" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> O Laço FOR (“para cada”)<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-for-para-cada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Em Python, o for é muito potente pois ele percorre sequências (listas, strings, intervalos). É a forma mais comum de computar (iterar) sobre dados.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-1" tabindex="-1"></a><span class="co"># Exemplo com lista</span></span>
+<span id="cb42-2"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-2" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-3" tabindex="-1"></a>frutas <span class="op">=</span> [<span class="st">&quot;Maçã&quot;</span>, <span class="st">&quot;Banana&quot;</span>, <span class="st">&quot;Uva&quot;</span>]</span>
+<span id="cb42-4"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-4" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-5" tabindex="-1"></a><span class="cf">for</span> fruta <span class="kw">in</span> frutas:</span>
+<span id="cb42-6"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb42-6" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Eu gosto de </span><span class="sc">{</span>frutas<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<p>OBS: aqui vamos usar também a função RANGE() que gera uma sequência de 0 a 4.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb43-1" tabindex="-1"></a></span>
+<span id="cb43-2"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb43-2" tabindex="-1"></a><span class="co"># Exemplo utilizando a função range</span></span>
+<span id="cb43-3"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb43-3" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb43-4" tabindex="-1"></a><span class="cf">for</span> meu_contador <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb43-5"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb43-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Índice: </span><span class="sc">{</span>meu_contador<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="estruturas-de-controle" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> ESTRUTURAS DE CONTROLE<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-controle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="03-aula03/media/08-decidir_condicao.jpg" /></p>
+<p>A inteligência de um código nasce aqui. Essa operação permite que o programa tome caminhos diferentes baseando-se em uma condição lógica (verdadeira ou falsa).</p>
+<ul>
+<li><p><strong>Lógica:</strong> <strong>SE</strong> (condição) então faça A; <strong>SENÃO</strong>, faça B.</p></li>
+<li><p><strong>Exemplo:</strong> Se a nota for maior que 7, o aluno está “Aprovado”; caso contrário, “Reprovado”.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-1" tabindex="-1"></a><span class="co"># 1. Recebe a nota (usamos float para permitir números com vírgula, como 7.5)</span></span>
+<span id="cb44-2"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-2" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-3" tabindex="-1"></a>nota <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&quot;Digite a nota do aluno: &quot;</span>))</span>
+<span id="cb44-4"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-4" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-5" tabindex="-1"></a><span class="co"># 2. Verifica a condição de aprovação</span></span>
+<span id="cb44-6"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-6" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-7" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;</span> <span class="dv">7</span>:</span>
+<span id="cb44-8"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-8" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Aprovado&quot;</span>)</span>
+<span id="cb44-9"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-9" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb44-10"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#cb44-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Reprovado&quot;</span>)</span></code></pre></div></li>
+</ul>
+
+</div>
+<div id="exercícios-de-tipos-de-variáveis" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercícios de Tipos de Variáveis<a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introdução-a-lógica-de-programação.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipos-de-variáveis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional/edit/main/03-2026-03-11_Estruturas_de_Controle-01.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["2026-1sem-ADS-PensamentoLogicoComputacional.pdf", "2026-1sem-ADS-PensamentoLogicoComputacional.epub", "2026-1sem-ADS-PensamentoLogicoComputacional.word", "2026-1sem-ADS-PensamentoLogicoComputacional.html"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

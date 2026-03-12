@@ -1,0 +1,3 @@
+Escreva na tela todas as frutas existentes na variável do tipo "lista".
+
+A variável do tipo lista contém ["Maçã", "Banana", "Uva"]

@@ -1,0 +1,9 @@
+Aplicar uma operação matemática simples dentro de cada iteração.
+
+Peça ao usuário para digitar um número inteiro. 
+Use um laço for para exibir a tabuada desse número de 1 a 10.
+
+Captura de input() fora do loop e cálculo direto (numero * i) dentro do corpo do for
+
+
+

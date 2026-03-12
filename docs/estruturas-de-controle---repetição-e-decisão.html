@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Miguél Suares" />
 
 
-<meta name="date" content="2026-03-04" />
+<meta name="date" content="2026-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -222,7 +222,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Controle - Repetição e Decisão</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis"><i class="fa fa-check"></i><b>3.1</b> Exercícios de Tipos de Variáveis</a></li>
+<li class="chapter" data-level="3.1" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#estruturas-de-repeti%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.1</b> ESTRUTURAS DE REPETIÇÃO</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#o-la%C3%A7o-while-enquanto"><i class="fa fa-check"></i><b>3.1.1</b> O Laço WHILE (“enquanto”)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#o-la%C3%A7o-for-para-cada"><i class="fa fa-check"></i><b>3.1.2</b> O Laço FOR (“para cada”)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#estruturas-de-controle"><i class="fa fa-check"></i><b>3.2</b> ESTRUTURAS DE CONTROLE</a></li>
+<li class="chapter" data-level="3.3" data-path="estruturas-de-controle---repetição-e-decisão.html"><a href="estruturas-de-controle---repetição-e-decisão.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis"><i class="fa fa-check"></i><b>3.3</b> Exercícios de Tipos de Variáveis</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>4</b> Tipos de Variáveis</a>
 <ul>
@@ -275,9 +281,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="estruturas-de-controle---repetição-e-decisão" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Aula 3</span> Estruturas de Controle - Repetição e Decisão<a href="estruturas-de-controle---repetição-e-decisão.html#estruturas-de-controle---repeti%C3%A7%C3%A3o-e-decis%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estruturas-de-repetição" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> ESTRUTURAS DE REPETIÇÃO<a href="estruturas-de-controle---repetição-e-decisão.html#estruturas-de-repeti%C3%A7%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="media/07-repetir_comando.jpg" /></p>
+<p>Computadores são ótimos em fazer tarefas repetitivas sem reclamar. Em vez de escrever o mesmo código dez vezes, usamos um laço (loop) que executa o bloco de comandos enquanto uma condição for mantida.</p>
+<ul>
+<li><p><strong>Tipos comuns:</strong> <code>while</code> (enquanto) e <code>for</code> (para).</p></li>
+<li><p><strong>Exemplo:</strong> Listar todos os nomes de uma lista de contatos ou repetir um alerta até que o usuário clique em “OK”.</p></li>
+</ul>
+<div id="o-laço-while-enquanto" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> O Laço WHILE (“enquanto”)<a href="estruturas-de-controle---repetição-e-decisão.html#o-la%C3%A7o-while-enquanto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Utilizado quando não sabemos exatamente quantas vezes o código será executado, mas sabemos a condição de parada.</p>
+<p>Pode criar a repetição ifinitamente, caso a condição de parada ninca for falsa.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="estruturas-de-controle---repetição-e-decisão.html#cb25-1" tabindex="-1"></a>contador <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb25-2"><a href="estruturas-de-controle---repetição-e-decisão.html#cb25-2" tabindex="-1"></a><span class="cf">while</span> contador <span class="op">&lt;=</span> <span class="dv">5</span>:</span>
+<span id="cb25-3"><a href="estruturas-de-controle---repetição-e-decisão.html#cb25-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Repetição número </span><span class="sc">{</span>contador<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb25-4"><a href="estruturas-de-controle---repetição-e-decisão.html#cb25-4" tabindex="-1"></a>    contador <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Incremento fundamental</span></span></code></pre></div>
+</div>
+<div id="o-laço-for-para-cada" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> O Laço FOR (“para cada”)<a href="estruturas-de-controle---repetição-e-decisão.html#o-la%C3%A7o-for-para-cada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Em Python, o for é muito potente pois ele percorre sequências (listas, strings, intervalos). É a forma mais comum de computar (iterar) sobre dados.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-1" tabindex="-1"></a><span class="co"># Exemplo com lista</span></span>
+<span id="cb26-2"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-3" tabindex="-1"></a>frutas <span class="op">=</span> [<span class="st">&quot;Maçã&quot;</span>, <span class="st">&quot;Banana&quot;</span>, <span class="st">&quot;Uva&quot;</span>]</span>
+<span id="cb26-4"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-5" tabindex="-1"></a><span class="cf">for</span> fruta <span class="kw">in</span> frutas:</span>
+<span id="cb26-6"><a href="estruturas-de-controle---repetição-e-decisão.html#cb26-6" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Eu gosto de </span><span class="sc">{</span>frutas<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<p>OBS: aqui vamos usar também a função RANGE() que gera uma sequência de 0 a 4.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="estruturas-de-controle---repetição-e-decisão.html#cb27-1" tabindex="-1"></a><span class="co"># Exemplo com range</span></span>
+<span id="cb27-2"><a href="estruturas-de-controle---repetição-e-decisão.html#cb27-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb27-3"><a href="estruturas-de-controle---repetição-e-decisão.html#cb27-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Índice: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="estruturas-de-controle" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> ESTRUTURAS DE CONTROLE<a href="estruturas-de-controle---repetição-e-decisão.html#estruturas-de-controle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="media/08-decidir_condicao.jpg" /></p>
+<p>A inteligência de um código nasce aqui. Essa operação permite que o programa tome caminhos diferentes baseando-se em uma condição lógica (verdadeira ou falsa).</p>
+<ul>
+<li><p><strong>Lógica:</strong> <strong>SE</strong> (condição) então faça A; <strong>SENÃO</strong>, faça B.</p></li>
+<li><p><strong>Exemplo:</strong> Se a nota for maior que 7, o aluno está “Aprovado”; caso contrário, “Reprovado”.</p></li>
+</ul>
 
-<div id="exercícios-de-tipos-de-variáveis" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Exercícios de Tipos de Variáveis<a href="estruturas-de-controle---repetição-e-decisão.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="exercícios-de-tipos-de-variáveis" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Exercícios de Tipos de Variáveis<a href="estruturas-de-controle---repetição-e-decisão.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -318,7 +365,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional/edit/main/03-aula03/03-2026-03-11_Estruturas_de_Controle-01.Rmd",
+    "link": "https://github.com/miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional/edit/main/03-2026-03-11_Estruturas_de_Controle-01.Rmd",
     "text": "Edit"
   },
   "history": {

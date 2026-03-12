@@ -1,0 +1,5 @@
+Utilizar operadores aritméticos dentro de uma condição.
+
+2) Peça ao usuário um número inteiro. 
+O programa deve informar se esse número é Par ou Ímpar.
+

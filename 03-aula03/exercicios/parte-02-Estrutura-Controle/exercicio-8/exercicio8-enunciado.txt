@@ -1,0 +1,4 @@
+Um produto custa R$ 100,00. 
+Se o cliente comprar 10 unidades ou mais, ele ganha 10% de desconto no valor total. 
+Se comprar menos, paga o valor integral. 
+Calcule e mostre o valor final da compra.
