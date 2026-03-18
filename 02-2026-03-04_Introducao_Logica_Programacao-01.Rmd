@@ -1,6 +1,6 @@
 # Introdução a Lógica de Programação
 
-![](images/apresentacao_aula_02_qr-code.png)
+![](02-aula02/images/apresentacao_aula_02_qr-code.png)
 
 ## Programas Compilados
 
@@ -8,11 +8,11 @@ Em uma linguagem compilada, existe um passo prévio chamado **compilação**. Um
 
 ### Linguagem C/C++
 
-![](media/01-programas_compilados.jpg)
+![](02-aula02/media/01-programas_compilados.jpg)
 
 ### Linguagem JAVA
 
-![](media/02-programas_compilados-java.jpg)
+![](02-aula02/media/02-programas_compilados-java.jpg)
 
 ## Programas Interpretados
 
@@ -20,11 +20,11 @@ Em uma linguagem interpretada, o código não é transformado em um arquivo bin�
 
 ### Linguagem PYTHON
 
-![](media/03-programas_interpretados-python.jpg)
+![](02-aula02/media/03-programas_interpretados-python.jpg)
 
 ### Linguagem JAVASCRIPT
 
-![](media/04-programas_interpretados-javascript.jpg)
+![](02-aula02/media/04-programas_interpretados-javascript.jpg)
 
 Resumo das vantagens e desvantagens dos 2 paradigmas:
 
@@ -41,7 +41,7 @@ Resumo das vantagens e desvantagens dos 2 paradigmas:
 ## Início de Desenvolvimento: Operações básicas de linguagens de alto-nível
 
 | Operação | Analogia Humana      | Função Principal                           |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|------------------------------------|
 | Escrever | Falar / Mostrar      | Exibir informações para o usuário.         |
 | Ler      | Ouvir / Observar     | Obter dados externos para o sistema.       |
 | Decidir  | Escolher um caminho  | Criar bifurcações lógicas no fluxo.        |
@@ -50,7 +50,7 @@ Resumo das vantagens e desvantagens dos 2 paradigmas:
 
 ### Escrever na tela (Saída de Dados)
 
-![](media/05-escrever_na_tela.jpg)
+![](02-aula02/media/05-escrever_na_tela.jpg)
 
 É a forma como o programa se comunica com o usuário. Ele "cospe" informações processadas ou mensagens de instrução para que possamos ver o que está acontecendo.
 
@@ -60,7 +60,7 @@ Resumo das vantagens e desvantagens dos 2 paradigmas:
 
 ### Ler do Teclado (Entrada de Dados)
 
-![](images/clipboard-4014759275.png)
+![](02-aula02/media/06-ler_do_teclado.jpg)
 
 É o oposto da escrita. Aqui, o programa "ouve" o usuário. Ele interrompe a execução e espera que você digite algo para salvar essa informação em uma **variável**.
 
@@ -68,7 +68,7 @@ Resumo das vantagens e desvantagens dos 2 paradigmas:
 
 ### Repetir Operações (Laços de Repetição)
 
-![](media/07-repetir_comando.jpg)
+![](02-aula02/media/07-repetir_comando.jpg)
 
 Computadores são ótimos em fazer tarefas repetitivas sem reclamar. Em vez de escrever o mesmo código dez vezes, usamos um laço (loop) que executa o bloco de comandos enquanto uma condição for mantida.
 
@@ -78,7 +78,7 @@ Computadores são ótimos em fazer tarefas repetitivas sem reclamar. Em vez de e
 
 ### Decidir (Estruturas Condicionais )
 
-![](media/08-decidir_condicao.jpg)
+![](02-aula02/media/08-decidir_condicao.jpg)
 
 A inteligência de um código nasce aqui. Essa operação permite que o programa tome caminhos diferentes baseando-se em uma condição lógica (verdadeira ou falsa).
 
@@ -88,7 +88,7 @@ A inteligência de um código nasce aqui. Essa operação permite que o programa
 
 ### Procedimentos e Funções (Modularização)
 
-![](media/09-modularizacao_funcoes.jpg)
+![](02-aula02/media/09-modularizacao_funcoes.jpg)
 
 Imagine que você precisa calcular o imposto de renda em vários lugares do seu código. Em vez de repetir a fórmula toda vez, você cria uma "caixinha" com esse cálculo.
 

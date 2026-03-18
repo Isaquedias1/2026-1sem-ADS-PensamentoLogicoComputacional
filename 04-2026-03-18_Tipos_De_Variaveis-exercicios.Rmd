@@ -1,3 +1,10 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
 ## Exercícios de Tipos de Variáveis
 
 ### Exemplos:
@@ -158,4 +165,6 @@ Explique o resultado.
 
 ---
 
-
+```{r aula-tipos-de-variaveis-04-exercicios, eval=FALSE, include=FALSE}
+rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis-exercicios.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```

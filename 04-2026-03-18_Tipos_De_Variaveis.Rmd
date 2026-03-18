@@ -1,3 +1,11 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 # Tipos de Variáveis
 
 Em programação, variáveis são espaços na memória utilizados para armazenar dados que serão manipulados por um programa.
@@ -364,3 +372,10 @@ Aqui utilizamos:
 -   int() → conversão de tipo
 
 -   \+ → operador aritmético
+
+
+
+```{r aula-tipos-de-variaveis-04, eval=FALSE, include=FALSE}
+rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
