@@ -1,3 +1,386 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 # Tipos de Variáveis
 
+Em programação, variáveis são espaços na memória utilizados para armazenar dados que serão manipulados por um programa.
+
+No Python, não é necessário declarar explicitamente o tipo da variável. O tipo é determinado automaticamente pelo valor atribuído.
+
+``` python
+nome = "Maria"
+idade = 25
+altura = 1.70
+```
+
+Neste exemplo, podemos verificar:
+
+| Variável | Valor   | Tipo                    |
+|----------|---------|-------------------------|
+| nome     | "Maria" | string                  |
+| idade    | 25      | inteiro (int)           |
+| altura   | 1.70    | ponto flutuante (float) |
+
+Podemos verificar o tipo usando:
+
+``` python
+print(type(nome))
+print(type(idade))
+print(type(altura))
+```
+
+## Python - Linguagem fortemente tipada x linguagem fracamente tipada
+
+### Linguagens Fortemente Tipadas
+
+Python é uma linguagem **FORTEMENTE TIPADA:**
+
+Uma linguagem é **fortemente tipada** quando:
+
+Ela **não permite misturar tipos diferentes sem conversão explícita**\
+Obriga o programador a ser claro sobre os tipos
+
+### Características
+
+-   Não faz conversões automáticas “perigosas”
+
+-   Erros aparecem mais cedo (mais segurança)
+
+-   Código mais previsível
+
+Exemplo em python:
+
+Tentativa de misturar 2 variáveis de duas naturezas diferentes (inteiro e texto):
+
+``` python
+numero = 10
+texto = "5"
+
+print(numero + texto)  # ERRO
+```
+
+```         
+TypeError: unsupported operand type(s)
+```
+
+### Linguagens Fracamente Tipadas
+
+Javascript é uma linguagem **FRACAMENTE TIPADA:**
+
+Uma linguagem é **fracamente tipada** quando:
+
+-   Ela **permite misturar tipos automaticamente**\
+-   Faz **conversões implícitas (automáticas)**
+
+### Características
+
+-   Mais flexível
+-   Pode gerar comportamentos inesperados
+-   Conversões automáticas podem confundir
+
+Exemplo em javascript:
+
+``` javascript
+console.log(10 + "5")
+```
+
+resultado
+
+``` javascript
+"105"
+```
+
+O número 10 foi convertido automaticamente para texto (string).
+
+Outro exemplo em javascript:
+
+``` javascript
+console.log("5" - 2)
+```
+
+``` javascript
+3
+```
+
+A o texto "5" foi convertida para número automaticamente para que pudesse ser feita a operação de subtração
+
+Conclusão:
+
+| Característica | Fortemente Tipada | Fracamente Tipada |
+|----|----|----|
+| Conversão automática | Não (ou muito limitada) |  Sim |
+| Segurança | Alta |  Menor |
+| Previsibilidade |  Alta | Pode ser confusa |
+| Facilidade inicial | Média | Alta |
+| Exemplo | C, C++, Python, Java, C# | JavaScript, PHP (em muitos casos) |
+
+## Python - Operadores Aritméticos
+
+Os operadores aritméticos são utilizados para realizar operações matemáticas.
+
+| Operador | Significado      | Exemplo  |
+|----------|------------------|----------|
+| \+       | soma             | 5 + 3    |
+| \-       | subtração        | 5 - 3    |
+| \*       | multiplicação    | 5 \* 3   |
+| /        | divisão          | 10 / 2   |
+| //       | divisão inteira  | 10 // 3  |
+| \%       | resto da divisão | 10 % 3   |
+| \*\*     | potência         | 2 \*\* 3 |
+
+Exemplos em python:
+
+``` python
+a = 10
+b = 3
+
+print("Soma:", a + b)
+print("Subtração:", a - b)
+print("Multiplicação:", a * b)
+print("Divisão:", a / b)
+print("Divisão inteira:", a // b)
+print("Resto:", a % b)
+print("Potência:", a ** b)
+```
+
+Resultado:
+
+``` pseudocode
+Soma: 13
+Subtração: 7
+Multiplicação: 30
+Divisão: 3.3333
+Divisão inteira: 3
+Resto: 1
+Potência: 1000
+```
+
+## Python - Operadores Relacionais (Comparação)
+
+Os operadores relacionais são utilizados para comparar valores. O resultado sempre será True (verdadeiro) ou False (falso).
+
+| Operador | Significado    |
+|----------|----------------|
+| ==       | igual          |
+| !=       | diferente      |
+| \>       | maior que      |
+| \<       | menor que      |
+| \>=      | maior ou igual |
+| \<=      | menor ou igual |
+
+Exemplo:
+
+``` python
+x = 10
+y = 5
+
+print(x == y)
+print(x != y)
+print(x > y)
+print(x < y)
+print(x >= y)
+print(x <= y)
+```
+
+Saída:
+
+``` pseudocode
+False
+True
+True
+False
+True
+False
+```
+
+## Python - Operadores Lógicos
+
+Os operadores lógicos são usados para combinar expressões booleanas.
+
+| Operador | Significado |
+|----------|-------------|
+| and      | E lógico    |
+| or       | OU lógico   |
+| not      | negação     |
+
+Exemplo:
+
+``` python
+idade = 20
+tem_carteira = True
+
+print(idade >= 18 and tem_carteira)
+print(idade >= 18 or tem_carteira)
+print(not tem_carteira)
+```
+
+Saída:
+
+``` pseudocode
+True
+True
+False
+```
+
+## Python - Operadores de Atribuição
+
+Os operadores de atribuição são usados para atribuir valores às variáveis.
+
+| Operador | Exemplo | Equivalente |
+|----------|---------|-------------|
+| =        | x = 5   | atribuição  |
+| +=       | x += 2  | x = x + 2   |
+| -=       | x -= 2  | x = x - 2   |
+| \*=      | x \*= 2 | x = x \* 2  |
+| /=       | x /= 2  | x = x / 2   |
+| %=       | x %= 2  | x = x % 2   |
+
+``` python
+x = 10
+
+x += 5
+print(x)
+
+x *= 2
+print(x)
+
+x -= 4
+print(x)
+```
+
+## Python - Operadores de Identidade
+
+Os operadores de identidade verificam se duas variáveis apontam para o mesmo objeto na memória.
+
+| Operador | Significado            |
+|----------|------------------------|
+| is       | são o mesmo objeto     |
+| is not   | não são o mesmo objeto |
+
+``` python
+a = [1,2,3]
+b = a
+c = [1,2,3]
+
+print(a is b)
+print(a is c)
+```
+
+Saída:
+
+``` pseudocode
+False
+True
+```
+
+Isso acontece porque b referencia o mesmo objeto que a, enquanto c é um novo objeto na memória.
+
+## Python - Operadores de Associação
+
+Verificam se um valor pertence a uma sequência.
+
+| Operador | Significado       |
+|----------|-------------------|
+| in       | está presente     |
+| not in   | não está presente |
+
+``` python
+lista = [10,20,30,40]
+
+print(20 in lista)
+print(5 in lista)
+print(5 not in lista)
+```
+
+Saída:
+
+``` pseudocode
+True
+False
+True
+```
+
+## Python - "Converter" tipo de Variável (Type Casting)
+
+Type Casting é a conversão de um tipo de dado para outro.
+
+Em Python usamos funções como:
+
+| Função  | Conversão    |
+|---------|--------------|
+| int()   | para inteiro |
+| float() | para decimal |
+| str()   | para texto   |
+
+### Conversão para Inteiro (int):
+
+``` python
+
+numero = "10"
+
+numero_int = int(numero)
+
+print(numero_int)
+print(type(numero_int))
+```
+
+### Conversão para número real (float):
+
+``` python
+valor = "3.14"
+
+valor_float = float(valor)
+
+print(valor_float)
+print(type(valor_float))
+```
+
+### Conversão para cadeia de caracteres (string):
+
+``` python
+idade = 25
+
+texto = str(idade)
+
+print(texto)
+print(type(texto))
+```
+
+### Exemplo integrando tudo:
+
+``` python
+numero1 = input("Digite um número: ")
+numero2 = input("Digite outro número: ")
+
+numero1 = int(numero1)
+numero2 = int(numero2)
+
+soma = numero1 + numero2
+
+print("A soma é:", soma)
+```
+
+Aqui utilizamos:
+
+-   input() → leitura de dados
+
+-   int() → conversão de tipo
+
+-   \+ → operador aritmético
+
+
+
+```{r aula-tipos-de-variaveis-04-aula-html, eval=FALSE, include=FALSE}
+rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
+
+```{r aula-tipos-de-variaveis-04-aula-word, eval=FALSE, include=FALSE}
+rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
+```
 

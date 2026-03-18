@@ -5,7 +5,7 @@ output:
     css: style.css
 ---
 
-# Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle 
+# Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle
 
 ## ESTRUTURAS DE REPETIÇÃO
 
@@ -53,7 +53,6 @@ OBS: aqui vamos usar também a função RANGE() que gera uma sequência de 0 a 4
 
 for meu_contador in range(5):
     print(f"Índice: {meu_contador}")
-
 ```
 
 ## ESTRUTURAS DE CONTROLE
@@ -79,6 +78,10 @@ A inteligência de um código nasce aqui. Essa operação permite que o programa
         print("Reprovado")
     ```
 
-```{r 03-estrutura-controle-repeticao, eval=FALSE, include=FALSE}
+```{r 03-estrutura-controle-repeticao-aula-html, eval=FALSE, include=FALSE}
 rmarkdown::render("03-2026-03-11_Estruturas_de_Controle-01.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
+```{r 03-estrutura-controle-repeticao-aula-word, eval=FALSE, include=FALSE}
+rmarkdown::render("03-2026-03-11_Estruturas_de_Controle-01.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
 ```
