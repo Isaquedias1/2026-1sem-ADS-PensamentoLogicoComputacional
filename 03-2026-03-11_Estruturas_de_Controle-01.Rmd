@@ -5,7 +5,7 @@ output:
     css: style.css
 ---
 
-# Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle 
+# Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle
 
 ## ESTRUTURAS DE REPETIÇÃO
 
@@ -53,7 +53,6 @@ OBS: aqui vamos usar também a função RANGE() que gera uma sequência de 0 a 4
 
 for meu_contador in range(5):
     print(f"Índice: {meu_contador}")
-
 ```
 
 ## ESTRUTURAS DE CONTROLE

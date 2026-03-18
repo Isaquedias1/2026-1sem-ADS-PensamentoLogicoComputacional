@@ -1,0 +1,254 @@
+---
+title: 'Plano de Ensino: Pensamento Lógico Computacional com Ênfase em Python'
+author: "Professor Miguél Suares"
+date: "2026-03-16"
+output:
+  html_document: 
+    highlight: tango
+    theme: paper
+    fig_caption: true
+    css: style.css
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = "media/")
+
+library(plantuml)
+
+
+# Detectar o sistema operacional
+so <- Sys.info()[["sysname"]]
+
+if (so == "Linux")
+{
+  plantumlOptions(jar_path = "/usr/share/java/plantuml.jar")  
+}else 
+  if (so == "Windows") 
+  {
+    plantumlOptions(jar_path = "C:/PROGRA~1/COMMON~1/Oracle/Java/libs/plantuml-1.2025.4.jar")
+  }else
+  {
+    print(paste("Sistema não reconhecido:", so))
+  }
+
+
+knitr::knit_engines$set(plantuml = function(options)
+{
+    code <- paste(options$code, collapse = "\n")
+  
+  if (is.null(options$plantuml.path)) 
+  {
+    path <-  "."
+  } else
+    {
+      path <- options$plantuml.path
+    }
+  
+  dir.create(path, showWarnings = FALSE, recursive = TRUE)
+  fig <- paste0(options$label, ".", "svg")
+  fig <- file.path(path, fig)
+  if (options$eval) plot(x = plantuml(code), vector=FALSE, file=fig)
+  knitr::engine_output(options, out = list(knitr::include_graphics(fig)))
+})
+```
+
+# Plano de Ensino
+
+## Pensamento Lógico-Computacional (ênfase em Python)
+
+### Campus `Marquês`
+
+**CURSOS:**
+
+-   `Superior de Tecnologia em Análise e Desenvolvimento de Sistemas`
+
+-   `Tecnologia em Gestão da Tecnologia da Informação`
+
+### TURMAS: `DS1R13` e `TI1P13`
+
+### Identificação da Disciplina
+
+| Item          | Informação                            |
+|---------------|---------------------------------------|
+| Disciplina    | Pensamento Lógico-Computacional       |
+| Linguagem     | Python                                |
+| Curso         | Análise e Desenvolvimento de Sistemas |
+| Semestre      | 2026/1                                |
+| Professor     | Miguel Suarez Xavier Penteado         |
+| Modalidade    | Presencial                            |
+| Periodicidade | 1 aula semanal                        |
+| Dia           | Quarta-feira                          |
+
+------------------------------------------------------------------------
+
+# Ementa
+
+Introdução ao pensamento lógico aplicado à resolução de problemas computacionais. Desenvolvimento de algoritmos utilizando a linguagem Python. Estudo de variáveis, operadores, estruturas de controle, funções, estruturas de dados e conceitos básicos de programação orientada a objetos. Introdução à depuração e teste de algoritmos.
+
+------------------------------------------------------------------------
+
+# Objetivos
+
+## Objetivo Geral
+
+Desenvolver no aluno a capacidade de estruturar soluções computacionais utilizando raciocínio lógico e programação em Python.
+
+## Objetivos Específicos
+
+Ao final da disciplina o aluno deverá ser capaz de:
+
+-   compreender conceitos fundamentais de lógica de programação;
+-   desenvolver algoritmos simples;
+-   utilizar operadores e tipos de dados na linguagem Python 3.x;
+-   implementar estruturas de repetição e decisão;
+-   utilizar funções para modularizar programas ;
+-   manipular listas e dicionários (emulando conceitos de estruturas de dados);
+-   depurar e testar algoritmos;
+-   compreender conceitos básicos de programação orientada a objetos (Encapsulamento, Herança e Polimorfismo).
+
+------------------------------------------------------------------------
+
+# Competências Desenvolvidas
+
+A disciplina busca desenvolver as seguintes competências:
+
+-   pensamento lógico e estruturado;
+-   decomposição de problemas;
+-   construção de algoritmos;
+-   leitura e interpretação de código;
+-   desenvolvimento de programas simples;
+-   capacidade de testar e depurar soluções computacionais.
+
+------------------------------------------------------------------------
+
+# Metodologia de Ensino
+
+A disciplina será conduzida por meio de:
+
+-   aulas expositivas dialogadas;
+-   demonstrações práticas de código em Python;
+-   resolução guiada de exercícios;
+-   Plataforma MS-Teams associada a ferramenta GIT (se possível)
+-   exercícios práticos em sala de aula;
+-   discussão coletiva de soluções.
+
+Durante as aulas os alunos serão incentivados a desenvolver pequenos programas e resolver problemas utilizando lógica computacional.
+
+------------------------------------------------------------------------
+
+# Conteúdo Programático
+
+| Aula    | Conteúdo                                         |
+|---------|--------------------------------------------------|
+| Aula 2  | Introdução à Lógica de Programação               |
+| Aula 3  | Estruturas de Repetição e Estruturas de Controle |
+| Aula 4  | Tipos de Variáveis                               |
+| Aula 5  | Procedimentos e Funções                          |
+| Aula 6  | Listas e Dicionários                             |
+| Aula 7  | Entrada e Saída                                  |
+| Aula 8  | Depuração e Teste de Algoritmos                  |
+| Aula 9  | Programação Orientada a Objetos – Parte 1        |
+| Aula 10 | Programação Orientada a Objetos – Parte 2        |
+| Aula 11 | Programação Orientada a Eventos – Parte 1        |
+
+------------------------------------------------------------------------
+
+# Cronograma de Aulas
+
+## Março de 2026
+
+| Data       | Aula   | Conteúdo                           |
+|------------|--------|------------------------------------|
+| 2026-03-04 | Aula 2 | Introdução à Lógica de Programação |
+| 2026-03-11 | Aula 3 | Estruturas de Controle             |
+| 2026-03-18 | Aula 4 | Tipos de Variáveis                 |
+| 2026-03-25 | Aula 5 | Procedimentos e Funções            |
+
+------------------------------------------------------------------------
+
+## Abril de 2026
+
+| Data       | Aula   | Conteúdo                                  |
+|------------|--------|-------------------------------------------|
+| 2026-04-01 | NP1    | Prova                                     |
+| 2026-04-08 | Aula 6 | Listas e Dicionários                      |
+| 2026-04-15 | Aula 7 | Entrada e Saída                           |
+| 2026-04-22 | Aula 8 | Depuração e Teste de Algoritmos           |
+| 2026-04-29 | Aula 9 | Programação Orientada a Objetos – Parte 1 |
+
+------------------------------------------------------------------------
+
+## Maio de 2026
+
+| Data       | Aula    | Conteúdo                                  |
+|------------|---------|-------------------------------------------|
+| 2026-05-06 | Aula 10 | Programação Orientada a Objetos – Parte 2 |
+| 2026-05-13 | Aula 11 | Programação Orientada a Eventos – Parte 1 |
+| 2026-05-20 | NP2     | Prova                                     |
+| 2026-05-27 | SUB     | Prova Substitutiva                        |
+
+------------------------------------------------------------------------
+
+## Junho de 2026
+
+| Data       | Aula | Conteúdo    |
+|------------|------|-------------|
+| 2026-06-10 | EXA  | Exame Final |
+
+------------------------------------------------------------------------
+
+# Sistema de Avaliação
+
+A avaliação da disciplina será composta por:
+
+| Instrumento | Descrição |
+|------------------------------------|------------------------------------|
+| NP1 | Avaliação parcial sobre conceitos de programs compilados vs interpretados; estruturas de repetição e estruturas de controle; leitura e casting de tipos de variáveis no python; e finalmente funções (entrada de parâmetros e valor de retorno). |
+| NP2 | Todos os conceitos abordados na NP1 somados a "estruturas" Listas e Discionários; Coceitos de Orientação a Objeto (Herança, encapsulamento e Polimorfismo) |
+| SUB | Prova substitutiva |
+| EXA | Exame final |
+
+As avaliações serão compostas por questões conceituais e exercícios práticos envolvendo lógica de programação e implementação de algoritmos em Python.
+
+------------------------------------------------------------------------
+
+# Recursos Didáticos
+
+Serão utilizados os seguintes recursos:
+
+-   slides de aula;
+-   ambiente de desenvolvimento Python;
+-   Ambiente <https://pythontutor.com/> (Visualização de memória PILHA e HEAP)
+-   exercícios práticos;
+-   material didático digital (Equipe MS-TEAMS + GITHUB do aluno );
+-   exemplos de código.
+
+------------------------------------------------------------------------
+
+# Bibliografia
+
+### Bibliografia Básica
+
+NILO, Luciano Ramalho. *Introdução à programação com Python*. São Paulo: Novatec, 2019.
+
+ZAVAGLIA, Fernando Luiz. *Lógica de programação: a construção de algoritmos e estruturas de dados*. São Paulo: Érica, 2017.
+
+FURTADO, Antonio Luiz. *Python: programação para leigos*. Rio de Janeiro: Alta Books, 2021.
+
+### Bibliografia Complementar
+
+RAMALHO, Luciano. *Python fluente*. São Paulo: O'Reilly, 2018.
+
+SILVEIRA, Bruno Rodrigues. *Desenvolvimento web com Python e Flash*. São Paulo: Casa do Código, 2021.
+
+ALVES, Eduardo. *Estruturas de dados com Python*. São Paulo: Novatec, 2022.
+
+VIEIRA, Anderson. *Introdução à ciência da computação com Python*. Rio de Janeiro: LTC, 2020.
+
+ARAÚJO, Gabriel. *Automatize tarefas maçantes com Python*. São Paulo: Novatec, 2020.
+
+
+```{r plano-ensino, eval=FALSE, include=FALSE}
+rmarkdown::render("14-Plano_de_Ensino.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
