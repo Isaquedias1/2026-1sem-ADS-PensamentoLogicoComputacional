@@ -1,3 +1,161 @@
 ## Exercícios de Tipos de Variáveis
 
+### Exemplos:
+
+Operadores Aritméticos + Type Casting
+  
+#### Exemplo 1) Leia dois números digitados pelo usuário (como texto), converta-os para inteiro e mostre:
+
+- Soma
+
+- Multiplicação
+
+- Divisão
+
+```python
+
+numero1 = input("Digite o primeiro número: ")
+numero2 = input("Digite o segundo número: ")
+
+numero1 = int(numero1)
+numero2 = int(numero2)
+
+soma = numero1 + numero2
+multiplicacao = numero1 * numero2
+divisao = numero1 / numero2
+
+print("Soma:", soma)
+print("Multiplicação:", multiplicacao)
+print("Divisão:", divisao)
+
+```
+Saída
+
+```pseudocode
+Digite o primeiro número: 10
+Digite o segundo número: 5
+
+Soma: 15
+Multiplicação: 50
+Divisão: 2.0
+```
+
+Operadores Relacionais + Lógicos
+
+#### Exemplo 2) Crie um programa que leia a idade de uma pessoa e informe se ela:
+
+- Pode dirigir (idade ≥ 18 E possui carteira)
+
+```python
+idade = int(input("Digite sua idade: "))
+tem_carteira = input("Possui carteira? (s/n): ")
+
+tem_carteira = tem_carteira == "s"
+
+pode_dirigir = idade >= 18 and tem_carteira
+
+print("Pode dirigir?", pode_dirigir)
+```
+Saída
+
+```pseudocode
+Digite sua idade: 20
+Possui carteira? (s/n): s
+
+Pode dirigir? True
+```
+
+Operadores de Associação + Identidade
+
+#### Exemplo 3) Dada uma lista de números, verifique:
+
+- Se o número 10 está na lista
+
+- Se duas listas são o mesmo objeto
+
+
+```python
+lista1 = [5, 10, 15, 20]
+lista2 = lista1
+lista3 = [5, 10, 15, 20]
+
+print("10 está na lista?", 10 in lista1)
+
+print("lista1 é lista2?", lista1 is lista2)
+print("lista1 é lista3?", lista1 is lista3)
+```
+Saida
+
+```pseudocode
+10 está na lista? True
+lista1 é lista2? True
+lista1 é lista3? False
+```
+
+
+
+###  Exercícios Propostos
+
+#### Exercício 1 — Operações Básicas
+
+Leia dois números e mostre:
+
+* Soma
+* Subtração
+* Resto da divisão
+
+---
+
+#### Exercício 2 — Comparação de Números
+
+Leia dois números e informe:
+
+* Se são iguais
+* Qual é o maior
+
+---
+
+#### Exercício 3 — Verificação de Intervalo
+
+Leia um número e verifique se ele está entre **10 e 50**.
+
+---
+
+#### Exercício 4 — Operadores Lógicos
+
+Leia a idade e informe se a pessoa:
+
+* É maior de idade (≥18)
+* É idosa (≥60)
+
+---
+
+#### Exercício 5 — Type Casting
+
+Leia um número decimal (string), converta para:
+
+* float
+* int
+
+Mostre ambos os resultados.
+
+---
+
+#### Exercício 6 — Associação em Lista
+
+Crie uma lista com 5 números digitados pelo usuário e verifique se o número **25** está presente.
+
+---
+
+#### Exercício 7 — Identidade vs Igualdade
+
+Crie duas listas iguais e:
+
+* Compare com `==`
+* Compare com `is`
+
+Explique o resultado.
+
+---
+
 
