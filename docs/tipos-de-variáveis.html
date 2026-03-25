@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Miguél Suares" />
 
 
-<meta name="date" content="2026-03-18" />
+<meta name="date" content="2026-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,6 +261,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html"><i class="fa fa-check"></i><b>5</b> Procedimentos e Funções</a>
 <ul>
+<li class="chapter" data-level="5.0.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#cria%C3%A7%C3%A3o-e-chamada-de-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.0.1</b> Criação e Chamada de Funções</a></li>
+<li class="chapter" data-level="5.0.2" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#conceito-de-modulariza%C3%A7%C3%A3o-do-c%C3%B3digo"><i class="fa fa-check"></i><b>5.0.2</b> Conceito de Modularização do Código</a></li>
+<li class="chapter" data-level="5.0.3" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#passagem-de-par%C3%A2metros-e-valores-de-retorno"><i class="fa fa-check"></i><b>5.0.3</b> Passagem de Parâmetros e Valores de Retorno</a></li>
 <li class="chapter" data-level="5.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#exerc%C3%ADcios-de-procedimentos-e-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.1</b> Exercícios de Procedimentos e Funções</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html"><i class="fa fa-check"></i><b>6</b> Listas e Dicionários</a>
@@ -311,9 +314,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Aula 4</span> Tipos de Variáveis<a href="tipos-de-variáveis.html#tipos-de-vari%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Em programação, variáveis são espaços na memória utilizados para armazenar dados que serão manipulados por um programa.</p>
 <p>No Python, não é necessário declarar explicitamente o tipo da variável. O tipo é determinado automaticamente pelo valor atribuído.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="tipos-de-variáveis.html#cb45-1" tabindex="-1"></a>nome <span class="op">=</span> <span class="st">&quot;Maria&quot;</span></span>
-<span id="cb45-2"><a href="tipos-de-variáveis.html#cb45-2" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">25</span></span>
-<span id="cb45-3"><a href="tipos-de-variáveis.html#cb45-3" tabindex="-1"></a>altura <span class="op">=</span> <span class="fl">1.70</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="tipos-de-variáveis.html#cb45-1" tabindex="-1"></a><span class="co"># Exemplo 1 - Python</span></span>
+<span id="cb45-2"><a href="tipos-de-variáveis.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="tipos-de-variáveis.html#cb45-3" tabindex="-1"></a>nome <span class="op">=</span> <span class="st">&quot;Maria&quot;</span></span>
+<span id="cb45-4"><a href="tipos-de-variáveis.html#cb45-4" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb45-5"><a href="tipos-de-variáveis.html#cb45-5" tabindex="-1"></a>altura <span class="op">=</span> <span class="fl">1.70</span></span></code></pre></div>
 <p>Neste exemplo, podemos verificar:</p>
 <table>
 <thead>
@@ -342,9 +347,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Podemos verificar o tipo usando:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="tipos-de-variáveis.html#cb46-1" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(nome))</span>
-<span id="cb46-2"><a href="tipos-de-variáveis.html#cb46-2" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(idade))</span>
-<span id="cb46-3"><a href="tipos-de-variáveis.html#cb46-3" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(altura))</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="tipos-de-variáveis.html#cb46-1" tabindex="-1"></a><span class="co"># Exemplo 1 continuação - Python</span></span>
+<span id="cb46-2"><a href="tipos-de-variáveis.html#cb46-2" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="tipos-de-variáveis.html#cb46-3" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(nome))</span>
+<span id="cb46-4"><a href="tipos-de-variáveis.html#cb46-4" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(idade))</span>
+<span id="cb46-5"><a href="tipos-de-variáveis.html#cb46-5" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(altura))</span></code></pre></div>
 <div id="python---linguagem-fortemente-tipada-x-linguagem-fracamente-tipada" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Python - Linguagem fortemente tipada x linguagem fracamente tipada<a href="tipos-de-variáveis.html#python---linguagem-fortemente-tipada-x-linguagem-fracamente-tipada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="linguagens-fortemente-tipadas" class="section level3 hasAnchor" number="4.1.1">
@@ -363,10 +370,12 @@ Obriga o programador a ser claro sobre os tipos</p>
 </ul>
 <p>Exemplo em python:</p>
 <p>Tentativa de misturar 2 variáveis de duas naturezas diferentes (inteiro e texto):</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="tipos-de-variáveis.html#cb47-1" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb47-2"><a href="tipos-de-variáveis.html#cb47-2" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">&quot;5&quot;</span></span>
-<span id="cb47-3"><a href="tipos-de-variáveis.html#cb47-3" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="tipos-de-variáveis.html#cb47-4" tabindex="-1"></a><span class="bu">print</span>(numero <span class="op">+</span> texto)  <span class="co"># ERRO</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="tipos-de-variáveis.html#cb47-1" tabindex="-1"></a><span class="co"># exemplo 2 - Python</span></span>
+<span id="cb47-2"><a href="tipos-de-variáveis.html#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="tipos-de-variáveis.html#cb47-3" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb47-4"><a href="tipos-de-variáveis.html#cb47-4" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">&quot;5&quot;</span></span>
+<span id="cb47-5"><a href="tipos-de-variáveis.html#cb47-5" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="tipos-de-variáveis.html#cb47-6" tabindex="-1"></a><span class="bu">print</span>(numero <span class="op">+</span> texto)  <span class="co"># Aqui vai dar ERRO</span></span></code></pre></div>
 <pre><code>TypeError: unsupported operand type(s)</code></pre>
 </div>
 <div id="linguagens-fracamente-tipadas" class="section level3 hasAnchor" number="4.1.3">
@@ -387,12 +396,16 @@ Obriga o programador a ser claro sobre os tipos</p>
 <li>Conversões automáticas podem confundir</li>
 </ul>
 <p>Exemplo em javascript:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a href="tipos-de-variáveis.html#cb49-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">10</span> <span class="op">+</span> <span class="st">&quot;5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a href="tipos-de-variáveis.html#cb49-1" tabindex="-1"></a><span class="co">// Exemplo 3 - Liguagem Javascript</span></span>
+<span id="cb49-2"><a href="tipos-de-variáveis.html#cb49-2" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="tipos-de-variáveis.html#cb49-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">10</span> <span class="op">+</span> <span class="st">&quot;5&quot;</span>)</span></code></pre></div>
 <p>resultado</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a href="tipos-de-variáveis.html#cb50-1" tabindex="-1"></a><span class="st">&quot;105&quot;</span></span></code></pre></div>
 <p>O número 10 foi convertido automaticamente para texto (string).</p>
 <p>Outro exemplo em javascript:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a href="tipos-de-variáveis.html#cb51-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">-</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a href="tipos-de-variáveis.html#cb51-1" tabindex="-1"></a><span class="co">// Exemplo 4 - Liguagem Javascript</span></span>
+<span id="cb51-2"><a href="tipos-de-variáveis.html#cb51-2" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="tipos-de-variáveis.html#cb51-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">-</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb52"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb52-1"><a href="tipos-de-variáveis.html#cb52-1" tabindex="-1"></a><span class="dv">3</span></span></code></pre></div>
 <p>A o texto “5” foi convertida para número automaticamente para que pudesse ser feita a operação de subtração</p>
 <p>Conclusão:</p>
@@ -489,16 +502,18 @@ Obriga o programador a ser claro sobre os tipos</p>
 </tbody>
 </table>
 <p>Exemplos em python:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="tipos-de-variáveis.html#cb53-1" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb53-2"><a href="tipos-de-variáveis.html#cb53-2" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb53-3"><a href="tipos-de-variáveis.html#cb53-3" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="tipos-de-variáveis.html#cb53-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Soma:&quot;</span>, a <span class="op">+</span> b)</span>
-<span id="cb53-5"><a href="tipos-de-variáveis.html#cb53-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Subtração:&quot;</span>, a <span class="op">-</span> b)</span>
-<span id="cb53-6"><a href="tipos-de-variáveis.html#cb53-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Multiplicação:&quot;</span>, a <span class="op">*</span> b)</span>
-<span id="cb53-7"><a href="tipos-de-variáveis.html#cb53-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão:&quot;</span>, a <span class="op">/</span> b)</span>
-<span id="cb53-8"><a href="tipos-de-variáveis.html#cb53-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão inteira:&quot;</span>, a <span class="op">//</span> b)</span>
-<span id="cb53-9"><a href="tipos-de-variáveis.html#cb53-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Resto:&quot;</span>, a <span class="op">%</span> b)</span>
-<span id="cb53-10"><a href="tipos-de-variáveis.html#cb53-10" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Potência:&quot;</span>, a <span class="op">**</span> b)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="tipos-de-variáveis.html#cb53-1" tabindex="-1"></a><span class="co"># Exemplo 5 - Liguagem Python - Operadores Aritméticos</span></span>
+<span id="cb53-2"><a href="tipos-de-variáveis.html#cb53-2" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="tipos-de-variáveis.html#cb53-3" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb53-4"><a href="tipos-de-variáveis.html#cb53-4" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb53-5"><a href="tipos-de-variáveis.html#cb53-5" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="tipos-de-variáveis.html#cb53-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Soma:&quot;</span>, a <span class="op">+</span> b)</span>
+<span id="cb53-7"><a href="tipos-de-variáveis.html#cb53-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Subtração:&quot;</span>, a <span class="op">-</span> b)</span>
+<span id="cb53-8"><a href="tipos-de-variáveis.html#cb53-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Multiplicação:&quot;</span>, a <span class="op">*</span> b)</span>
+<span id="cb53-9"><a href="tipos-de-variáveis.html#cb53-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão:&quot;</span>, a <span class="op">/</span> b)</span>
+<span id="cb53-10"><a href="tipos-de-variáveis.html#cb53-10" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão inteira:&quot;</span>, a <span class="op">//</span> b)</span>
+<span id="cb53-11"><a href="tipos-de-variáveis.html#cb53-11" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Resto:&quot;</span>, a <span class="op">%</span> b)</span>
+<span id="cb53-12"><a href="tipos-de-variáveis.html#cb53-12" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Potência:&quot;</span>, a <span class="op">**</span> b)</span></code></pre></div>
 <p>Resultado:</p>
 <pre class="pseudocode"><code>Soma: 13
 Subtração: 7
@@ -546,15 +561,17 @@ Potência: 1000</code></pre>
 </tbody>
 </table>
 <p>Exemplo:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="tipos-de-variáveis.html#cb55-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb55-2"><a href="tipos-de-variáveis.html#cb55-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb55-3"><a href="tipos-de-variáveis.html#cb55-3" tabindex="-1"></a></span>
-<span id="cb55-4"><a href="tipos-de-variáveis.html#cb55-4" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">==</span> y)</span>
-<span id="cb55-5"><a href="tipos-de-variáveis.html#cb55-5" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">!=</span> y)</span>
-<span id="cb55-6"><a href="tipos-de-variáveis.html#cb55-6" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;</span> y)</span>
-<span id="cb55-7"><a href="tipos-de-variáveis.html#cb55-7" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&lt;</span> y)</span>
-<span id="cb55-8"><a href="tipos-de-variáveis.html#cb55-8" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;=</span> y)</span>
-<span id="cb55-9"><a href="tipos-de-variáveis.html#cb55-9" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&lt;=</span> y)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="tipos-de-variáveis.html#cb55-1" tabindex="-1"></a><span class="co"># Exemplo 6 - Liguagem Python - Operadores Relacionais</span></span>
+<span id="cb55-2"><a href="tipos-de-variáveis.html#cb55-2" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="tipos-de-variáveis.html#cb55-3" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb55-4"><a href="tipos-de-variáveis.html#cb55-4" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb55-5"><a href="tipos-de-variáveis.html#cb55-5" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="tipos-de-variáveis.html#cb55-6" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">==</span> y)</span>
+<span id="cb55-7"><a href="tipos-de-variáveis.html#cb55-7" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">!=</span> y)</span>
+<span id="cb55-8"><a href="tipos-de-variáveis.html#cb55-8" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;</span> y)</span>
+<span id="cb55-9"><a href="tipos-de-variáveis.html#cb55-9" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&lt;</span> y)</span>
+<span id="cb55-10"><a href="tipos-de-variáveis.html#cb55-10" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;=</span> y)</span>
+<span id="cb55-11"><a href="tipos-de-variáveis.html#cb55-11" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&lt;=</span> y)</span></code></pre></div>
 <p>Saída:</p>
 <pre class="pseudocode"><code>False
 True
@@ -589,12 +606,14 @@ False</code></pre>
 </tbody>
 </table>
 <p>Exemplo:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="tipos-de-variáveis.html#cb57-1" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb57-2"><a href="tipos-de-variáveis.html#cb57-2" tabindex="-1"></a>tem_carteira <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb57-3"><a href="tipos-de-variáveis.html#cb57-3" tabindex="-1"></a></span>
-<span id="cb57-4"><a href="tipos-de-variáveis.html#cb57-4" tabindex="-1"></a><span class="bu">print</span>(idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">and</span> tem_carteira)</span>
-<span id="cb57-5"><a href="tipos-de-variáveis.html#cb57-5" tabindex="-1"></a><span class="bu">print</span>(idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">or</span> tem_carteira)</span>
-<span id="cb57-6"><a href="tipos-de-variáveis.html#cb57-6" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> tem_carteira)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="tipos-de-variáveis.html#cb57-1" tabindex="-1"></a><span class="co"># Exemplo 7 - Liguagem Python - Operadores lógicos</span></span>
+<span id="cb57-2"><a href="tipos-de-variáveis.html#cb57-2" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="tipos-de-variáveis.html#cb57-3" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb57-4"><a href="tipos-de-variáveis.html#cb57-4" tabindex="-1"></a>tem_carteira <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb57-5"><a href="tipos-de-variáveis.html#cb57-5" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="tipos-de-variáveis.html#cb57-6" tabindex="-1"></a><span class="bu">print</span>(idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">and</span> tem_carteira)</span>
+<span id="cb57-7"><a href="tipos-de-variáveis.html#cb57-7" tabindex="-1"></a><span class="bu">print</span>(idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">or</span> tem_carteira)</span>
+<span id="cb57-8"><a href="tipos-de-variáveis.html#cb57-8" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> tem_carteira)</span></code></pre></div>
 <p>Saída:</p>
 <pre class="pseudocode"><code>True
 True
@@ -644,16 +663,18 @@ False</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="tipos-de-variáveis.html#cb59-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="tipos-de-variáveis.html#cb59-1" tabindex="-1"></a><span class="co"># Exemplo 8 - Liguagem Python - Operadores de Atribuição</span></span>
 <span id="cb59-2"><a href="tipos-de-variáveis.html#cb59-2" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="tipos-de-variáveis.html#cb59-3" tabindex="-1"></a>x <span class="op">+=</span> <span class="dv">5</span></span>
-<span id="cb59-4"><a href="tipos-de-variáveis.html#cb59-4" tabindex="-1"></a><span class="bu">print</span>(x)</span>
-<span id="cb59-5"><a href="tipos-de-variáveis.html#cb59-5" tabindex="-1"></a></span>
-<span id="cb59-6"><a href="tipos-de-variáveis.html#cb59-6" tabindex="-1"></a>x <span class="op">*=</span> <span class="dv">2</span></span>
-<span id="cb59-7"><a href="tipos-de-variáveis.html#cb59-7" tabindex="-1"></a><span class="bu">print</span>(x)</span>
-<span id="cb59-8"><a href="tipos-de-variáveis.html#cb59-8" tabindex="-1"></a></span>
-<span id="cb59-9"><a href="tipos-de-variáveis.html#cb59-9" tabindex="-1"></a>x <span class="op">-=</span> <span class="dv">4</span></span>
-<span id="cb59-10"><a href="tipos-de-variáveis.html#cb59-10" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<span id="cb59-3"><a href="tipos-de-variáveis.html#cb59-3" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb59-4"><a href="tipos-de-variáveis.html#cb59-4" tabindex="-1"></a></span>
+<span id="cb59-5"><a href="tipos-de-variáveis.html#cb59-5" tabindex="-1"></a>x <span class="op">+=</span> <span class="dv">5</span></span>
+<span id="cb59-6"><a href="tipos-de-variáveis.html#cb59-6" tabindex="-1"></a><span class="bu">print</span>(x)</span>
+<span id="cb59-7"><a href="tipos-de-variáveis.html#cb59-7" tabindex="-1"></a></span>
+<span id="cb59-8"><a href="tipos-de-variáveis.html#cb59-8" tabindex="-1"></a>x <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb59-9"><a href="tipos-de-variáveis.html#cb59-9" tabindex="-1"></a><span class="bu">print</span>(x)</span>
+<span id="cb59-10"><a href="tipos-de-variáveis.html#cb59-10" tabindex="-1"></a></span>
+<span id="cb59-11"><a href="tipos-de-variáveis.html#cb59-11" tabindex="-1"></a>x <span class="op">-=</span> <span class="dv">4</span></span>
+<span id="cb59-12"><a href="tipos-de-variáveis.html#cb59-12" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 </div>
 <div id="python---operadores-de-identidade" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Python - Operadores de Identidade<a href="tipos-de-variáveis.html#python---operadores-de-identidade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -676,12 +697,14 @@ False</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="tipos-de-variáveis.html#cb60-1" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb60-2"><a href="tipos-de-variáveis.html#cb60-2" tabindex="-1"></a>b <span class="op">=</span> a</span>
-<span id="cb60-3"><a href="tipos-de-variáveis.html#cb60-3" tabindex="-1"></a>c <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb60-4"><a href="tipos-de-variáveis.html#cb60-4" tabindex="-1"></a></span>
-<span id="cb60-5"><a href="tipos-de-variáveis.html#cb60-5" tabindex="-1"></a><span class="bu">print</span>(a <span class="kw">is</span> b)</span>
-<span id="cb60-6"><a href="tipos-de-variáveis.html#cb60-6" tabindex="-1"></a><span class="bu">print</span>(a <span class="kw">is</span> c)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="tipos-de-variáveis.html#cb60-1" tabindex="-1"></a><span class="co"># Exemplo 9 - Liguagem Python - Operadores de Identidade</span></span>
+<span id="cb60-2"><a href="tipos-de-variáveis.html#cb60-2" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="tipos-de-variáveis.html#cb60-3" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb60-4"><a href="tipos-de-variáveis.html#cb60-4" tabindex="-1"></a>b <span class="op">=</span> a</span>
+<span id="cb60-5"><a href="tipos-de-variáveis.html#cb60-5" tabindex="-1"></a>c <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb60-6"><a href="tipos-de-variáveis.html#cb60-6" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="tipos-de-variáveis.html#cb60-7" tabindex="-1"></a><span class="bu">print</span>(a <span class="kw">is</span> b)</span>
+<span id="cb60-8"><a href="tipos-de-variáveis.html#cb60-8" tabindex="-1"></a><span class="bu">print</span>(a <span class="kw">is</span> c)</span></code></pre></div>
 <p>Saída:</p>
 <pre class="pseudocode"><code>False
 True</code></pre>
@@ -708,11 +731,13 @@ True</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="tipos-de-variáveis.html#cb62-1" tabindex="-1"></a>lista <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>]</span>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="tipos-de-variáveis.html#cb62-1" tabindex="-1"></a><span class="co"># Exemplo 10 - Liguagem Python - Operadores de Associação</span></span>
 <span id="cb62-2"><a href="tipos-de-variáveis.html#cb62-2" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="tipos-de-variáveis.html#cb62-3" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">20</span> <span class="kw">in</span> lista)</span>
-<span id="cb62-4"><a href="tipos-de-variáveis.html#cb62-4" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="kw">in</span> lista)</span>
-<span id="cb62-5"><a href="tipos-de-variáveis.html#cb62-5" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="kw">not</span> <span class="kw">in</span> lista)</span></code></pre></div>
+<span id="cb62-3"><a href="tipos-de-variáveis.html#cb62-3" tabindex="-1"></a>lista <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>]</span>
+<span id="cb62-4"><a href="tipos-de-variáveis.html#cb62-4" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="tipos-de-variáveis.html#cb62-5" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">20</span> <span class="kw">in</span> lista)</span>
+<span id="cb62-6"><a href="tipos-de-variáveis.html#cb62-6" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="kw">in</span> lista)</span>
+<span id="cb62-7"><a href="tipos-de-variáveis.html#cb62-7" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="kw">not</span> <span class="kw">in</span> lista)</span></code></pre></div>
 <p>Saída:</p>
 <pre class="pseudocode"><code>True
 False
@@ -746,43 +771,50 @@ True</code></pre>
 </table>
 <div id="conversão-para-inteiro-int" class="section level3 hasAnchor" number="4.8.1">
 <h3><span class="header-section-number">4.8.1</span> Conversão para Inteiro (int):<a href="tipos-de-variáveis.html#convers%C3%A3o-para-inteiro-int" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="tipos-de-variáveis.html#cb64-1" tabindex="-1"></a></span>
-<span id="cb64-2"><a href="tipos-de-variáveis.html#cb64-2" tabindex="-1"></a>numero <span class="op">=</span> <span class="st">&quot;10&quot;</span></span>
-<span id="cb64-3"><a href="tipos-de-variáveis.html#cb64-3" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="tipos-de-variáveis.html#cb64-4" tabindex="-1"></a>numero_int <span class="op">=</span> <span class="bu">int</span>(numero)</span>
-<span id="cb64-5"><a href="tipos-de-variáveis.html#cb64-5" tabindex="-1"></a></span>
-<span id="cb64-6"><a href="tipos-de-variáveis.html#cb64-6" tabindex="-1"></a><span class="bu">print</span>(numero_int)</span>
-<span id="cb64-7"><a href="tipos-de-variáveis.html#cb64-7" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(numero_int))</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="tipos-de-variáveis.html#cb64-1" tabindex="-1"></a><span class="co"># Exemplo 11 - Liguagem Python - Type Casting (converter um tipo de variável no outro)</span></span>
+<span id="cb64-2"><a href="tipos-de-variáveis.html#cb64-2" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="tipos-de-variáveis.html#cb64-3" tabindex="-1"></a>numero <span class="op">=</span> <span class="st">&quot;10&quot;</span></span>
+<span id="cb64-4"><a href="tipos-de-variáveis.html#cb64-4" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="tipos-de-variáveis.html#cb64-5" tabindex="-1"></a>numero_int <span class="op">=</span> <span class="bu">int</span>(numero)</span>
+<span id="cb64-6"><a href="tipos-de-variáveis.html#cb64-6" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="tipos-de-variáveis.html#cb64-7" tabindex="-1"></a><span class="bu">print</span>(numero_int)</span>
+<span id="cb64-8"><a href="tipos-de-variáveis.html#cb64-8" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(numero_int))</span></code></pre></div>
 </div>
 <div id="conversão-para-número-real-float" class="section level3 hasAnchor" number="4.8.2">
 <h3><span class="header-section-number">4.8.2</span> Conversão para número real (float):<a href="tipos-de-variáveis.html#convers%C3%A3o-para-n%C3%BAmero-real-float" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="tipos-de-variáveis.html#cb65-1" tabindex="-1"></a>valor <span class="op">=</span> <span class="st">&quot;3.14&quot;</span></span>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="tipos-de-variáveis.html#cb65-1" tabindex="-1"></a><span class="co"># Exemplo 12 - Liguagem Python - Type Casting (converter um tipo de variável no outro)</span></span>
 <span id="cb65-2"><a href="tipos-de-variáveis.html#cb65-2" tabindex="-1"></a></span>
-<span id="cb65-3"><a href="tipos-de-variáveis.html#cb65-3" tabindex="-1"></a>valor_float <span class="op">=</span> <span class="bu">float</span>(valor)</span>
+<span id="cb65-3"><a href="tipos-de-variáveis.html#cb65-3" tabindex="-1"></a>valor <span class="op">=</span> <span class="st">&quot;3.14&quot;</span></span>
 <span id="cb65-4"><a href="tipos-de-variáveis.html#cb65-4" tabindex="-1"></a></span>
-<span id="cb65-5"><a href="tipos-de-variáveis.html#cb65-5" tabindex="-1"></a><span class="bu">print</span>(valor_float)</span>
-<span id="cb65-6"><a href="tipos-de-variáveis.html#cb65-6" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(valor_float))</span></code></pre></div>
+<span id="cb65-5"><a href="tipos-de-variáveis.html#cb65-5" tabindex="-1"></a>valor_float <span class="op">=</span> <span class="bu">float</span>(valor)</span>
+<span id="cb65-6"><a href="tipos-de-variáveis.html#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="tipos-de-variáveis.html#cb65-7" tabindex="-1"></a><span class="bu">print</span>(valor_float)</span>
+<span id="cb65-8"><a href="tipos-de-variáveis.html#cb65-8" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(valor_float))</span></code></pre></div>
 </div>
 <div id="conversão-para-cadeia-de-caracteres-string" class="section level3 hasAnchor" number="4.8.3">
 <h3><span class="header-section-number">4.8.3</span> Conversão para cadeia de caracteres (string):<a href="tipos-de-variáveis.html#convers%C3%A3o-para-cadeia-de-caracteres-string" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="tipos-de-variáveis.html#cb66-1" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">25</span></span>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="tipos-de-variáveis.html#cb66-1" tabindex="-1"></a><span class="co"># Exemplo 13 - Liguagem Python - Type Casting (converter um tipo de variável no outro)</span></span>
 <span id="cb66-2"><a href="tipos-de-variáveis.html#cb66-2" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="tipos-de-variáveis.html#cb66-3" tabindex="-1"></a>texto <span class="op">=</span> <span class="bu">str</span>(idade)</span>
+<span id="cb66-3"><a href="tipos-de-variáveis.html#cb66-3" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">25</span></span>
 <span id="cb66-4"><a href="tipos-de-variáveis.html#cb66-4" tabindex="-1"></a></span>
-<span id="cb66-5"><a href="tipos-de-variáveis.html#cb66-5" tabindex="-1"></a><span class="bu">print</span>(texto)</span>
-<span id="cb66-6"><a href="tipos-de-variáveis.html#cb66-6" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(texto))</span></code></pre></div>
+<span id="cb66-5"><a href="tipos-de-variáveis.html#cb66-5" tabindex="-1"></a>texto <span class="op">=</span> <span class="bu">str</span>(idade)</span>
+<span id="cb66-6"><a href="tipos-de-variáveis.html#cb66-6" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="tipos-de-variáveis.html#cb66-7" tabindex="-1"></a><span class="bu">print</span>(texto)</span>
+<span id="cb66-8"><a href="tipos-de-variáveis.html#cb66-8" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(texto))</span></code></pre></div>
 </div>
 <div id="exemplo-integrando-tudo" class="section level3 hasAnchor" number="4.8.4">
 <h3><span class="header-section-number">4.8.4</span> Exemplo integrando tudo:<a href="tipos-de-variáveis.html#exemplo-integrando-tudo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="tipos-de-variáveis.html#cb67-1" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite um número: &quot;</span>)</span>
-<span id="cb67-2"><a href="tipos-de-variáveis.html#cb67-2" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite outro número: &quot;</span>)</span>
-<span id="cb67-3"><a href="tipos-de-variáveis.html#cb67-3" tabindex="-1"></a></span>
-<span id="cb67-4"><a href="tipos-de-variáveis.html#cb67-4" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(numero1)</span>
-<span id="cb67-5"><a href="tipos-de-variáveis.html#cb67-5" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(numero2)</span>
-<span id="cb67-6"><a href="tipos-de-variáveis.html#cb67-6" tabindex="-1"></a></span>
-<span id="cb67-7"><a href="tipos-de-variáveis.html#cb67-7" tabindex="-1"></a>soma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="tipos-de-variáveis.html#cb67-1" tabindex="-1"></a><span class="co"># Exemplo 14 - Liguagem Python - Type Casting (converter um tipo de variável no outro)</span></span>
+<span id="cb67-2"><a href="tipos-de-variáveis.html#cb67-2" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="tipos-de-variáveis.html#cb67-3" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite um número: &quot;</span>)</span>
+<span id="cb67-4"><a href="tipos-de-variáveis.html#cb67-4" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite outro número: &quot;</span>)</span>
+<span id="cb67-5"><a href="tipos-de-variáveis.html#cb67-5" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="tipos-de-variáveis.html#cb67-6" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(numero1)</span>
+<span id="cb67-7"><a href="tipos-de-variáveis.html#cb67-7" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(numero2)</span>
 <span id="cb67-8"><a href="tipos-de-variáveis.html#cb67-8" tabindex="-1"></a></span>
-<span id="cb67-9"><a href="tipos-de-variáveis.html#cb67-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;A soma é:&quot;</span>, soma)</span></code></pre></div>
+<span id="cb67-9"><a href="tipos-de-variáveis.html#cb67-9" tabindex="-1"></a>soma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
+<span id="cb67-10"><a href="tipos-de-variáveis.html#cb67-10" tabindex="-1"></a></span>
+<span id="cb67-11"><a href="tipos-de-variáveis.html#cb67-11" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;A soma é:&quot;</span>, soma)</span></code></pre></div>
 <p>Aqui utilizamos:</p>
 <ul>
 <li><p>input() → leitura de dados</p></li>
@@ -804,20 +836,22 @@ True</code></pre>
 <li><p>Multiplicação</p></li>
 <li><p>Divisão</p></li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="tipos-de-variáveis.html#cb68-1" tabindex="-1"></a></span>
-<span id="cb68-2"><a href="tipos-de-variáveis.html#cb68-2" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite o primeiro número: &quot;</span>)</span>
-<span id="cb68-3"><a href="tipos-de-variáveis.html#cb68-3" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite o segundo número: &quot;</span>)</span>
-<span id="cb68-4"><a href="tipos-de-variáveis.html#cb68-4" tabindex="-1"></a></span>
-<span id="cb68-5"><a href="tipos-de-variáveis.html#cb68-5" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(numero1)</span>
-<span id="cb68-6"><a href="tipos-de-variáveis.html#cb68-6" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(numero2)</span>
-<span id="cb68-7"><a href="tipos-de-variáveis.html#cb68-7" tabindex="-1"></a></span>
-<span id="cb68-8"><a href="tipos-de-variáveis.html#cb68-8" tabindex="-1"></a>soma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
-<span id="cb68-9"><a href="tipos-de-variáveis.html#cb68-9" tabindex="-1"></a>multiplicacao <span class="op">=</span> numero1 <span class="op">*</span> numero2</span>
-<span id="cb68-10"><a href="tipos-de-variáveis.html#cb68-10" tabindex="-1"></a>divisao <span class="op">=</span> numero1 <span class="op">/</span> numero2</span>
-<span id="cb68-11"><a href="tipos-de-variáveis.html#cb68-11" tabindex="-1"></a></span>
-<span id="cb68-12"><a href="tipos-de-variáveis.html#cb68-12" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Soma:&quot;</span>, soma)</span>
-<span id="cb68-13"><a href="tipos-de-variáveis.html#cb68-13" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Multiplicação:&quot;</span>, multiplicacao)</span>
-<span id="cb68-14"><a href="tipos-de-variáveis.html#cb68-14" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão:&quot;</span>, divisao)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="tipos-de-variáveis.html#cb68-1" tabindex="-1"></a><span class="co"># Lista de Exercícios - Exemplo 1</span></span>
+<span id="cb68-2"><a href="tipos-de-variáveis.html#cb68-2" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="tipos-de-variáveis.html#cb68-3" tabindex="-1"></a></span>
+<span id="cb68-4"><a href="tipos-de-variáveis.html#cb68-4" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite o primeiro número: &quot;</span>)</span>
+<span id="cb68-5"><a href="tipos-de-variáveis.html#cb68-5" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Digite o segundo número: &quot;</span>)</span>
+<span id="cb68-6"><a href="tipos-de-variáveis.html#cb68-6" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="tipos-de-variáveis.html#cb68-7" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(numero1)</span>
+<span id="cb68-8"><a href="tipos-de-variáveis.html#cb68-8" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(numero2)</span>
+<span id="cb68-9"><a href="tipos-de-variáveis.html#cb68-9" tabindex="-1"></a></span>
+<span id="cb68-10"><a href="tipos-de-variáveis.html#cb68-10" tabindex="-1"></a>soma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
+<span id="cb68-11"><a href="tipos-de-variáveis.html#cb68-11" tabindex="-1"></a>multiplicacao <span class="op">=</span> numero1 <span class="op">*</span> numero2</span>
+<span id="cb68-12"><a href="tipos-de-variáveis.html#cb68-12" tabindex="-1"></a>divisao <span class="op">=</span> numero1 <span class="op">/</span> numero2</span>
+<span id="cb68-13"><a href="tipos-de-variáveis.html#cb68-13" tabindex="-1"></a></span>
+<span id="cb68-14"><a href="tipos-de-variáveis.html#cb68-14" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Soma:&quot;</span>, soma)</span>
+<span id="cb68-15"><a href="tipos-de-variáveis.html#cb68-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Multiplicação:&quot;</span>, multiplicacao)</span>
+<span id="cb68-16"><a href="tipos-de-variáveis.html#cb68-16" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Divisão:&quot;</span>, divisao)</span></code></pre></div>
 <p>Saída</p>
 <pre class="pseudocode"><code>Digite o primeiro número: 10
 Digite o segundo número: 5
@@ -832,14 +866,18 @@ Divisão: 2.0</code></pre>
 <ul>
 <li>Pode dirigir (idade ≥ 18 E possui carteira)</li>
 </ul>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="tipos-de-variáveis.html#cb70-1" tabindex="-1"></a>idade <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Digite sua idade: &quot;</span>))</span>
-<span id="cb70-2"><a href="tipos-de-variáveis.html#cb70-2" tabindex="-1"></a>tem_carteira <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Possui carteira? (s/n): &quot;</span>)</span>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="tipos-de-variáveis.html#cb70-1" tabindex="-1"></a></span>
+<span id="cb70-2"><a href="tipos-de-variáveis.html#cb70-2" tabindex="-1"></a><span class="co"># Lista de Exercícios - Exemplo 2</span></span>
 <span id="cb70-3"><a href="tipos-de-variáveis.html#cb70-3" tabindex="-1"></a></span>
-<span id="cb70-4"><a href="tipos-de-variáveis.html#cb70-4" tabindex="-1"></a>tem_carteira <span class="op">=</span> tem_carteira <span class="op">==</span> <span class="st">&quot;s&quot;</span></span>
-<span id="cb70-5"><a href="tipos-de-variáveis.html#cb70-5" tabindex="-1"></a></span>
-<span id="cb70-6"><a href="tipos-de-variáveis.html#cb70-6" tabindex="-1"></a>pode_dirigir <span class="op">=</span> idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">and</span> tem_carteira</span>
+<span id="cb70-4"><a href="tipos-de-variáveis.html#cb70-4" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="tipos-de-variáveis.html#cb70-5" tabindex="-1"></a>idade <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Digite sua idade: &quot;</span>))</span>
+<span id="cb70-6"><a href="tipos-de-variáveis.html#cb70-6" tabindex="-1"></a>tem_carteira <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Possui carteira? (s/n): &quot;</span>)</span>
 <span id="cb70-7"><a href="tipos-de-variáveis.html#cb70-7" tabindex="-1"></a></span>
-<span id="cb70-8"><a href="tipos-de-variáveis.html#cb70-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Pode dirigir?&quot;</span>, pode_dirigir)</span></code></pre></div>
+<span id="cb70-8"><a href="tipos-de-variáveis.html#cb70-8" tabindex="-1"></a>tem_carteira <span class="op">=</span> tem_carteira <span class="op">==</span> <span class="st">&quot;s&quot;</span></span>
+<span id="cb70-9"><a href="tipos-de-variáveis.html#cb70-9" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="tipos-de-variáveis.html#cb70-10" tabindex="-1"></a>pode_dirigir <span class="op">=</span> idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">and</span> tem_carteira</span>
+<span id="cb70-11"><a href="tipos-de-variáveis.html#cb70-11" tabindex="-1"></a></span>
+<span id="cb70-12"><a href="tipos-de-variáveis.html#cb70-12" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Pode dirigir?&quot;</span>, pode_dirigir)</span></code></pre></div>
 <p>Saída</p>
 <pre class="pseudocode"><code>Digite sua idade: 20
 Possui carteira? (s/n): s
@@ -853,14 +891,18 @@ Pode dirigir? True</code></pre>
 <li><p>Se o número 10 está na lista</p></li>
 <li><p>Se duas listas são o mesmo objeto</p></li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="tipos-de-variáveis.html#cb72-1" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>]</span>
-<span id="cb72-2"><a href="tipos-de-variáveis.html#cb72-2" tabindex="-1"></a>lista2 <span class="op">=</span> lista1</span>
-<span id="cb72-3"><a href="tipos-de-variáveis.html#cb72-3" tabindex="-1"></a>lista3 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>]</span>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="tipos-de-variáveis.html#cb72-1" tabindex="-1"></a></span>
+<span id="cb72-2"><a href="tipos-de-variáveis.html#cb72-2" tabindex="-1"></a><span class="co"># Lista de Exercícios - Exemplo 3</span></span>
+<span id="cb72-3"><a href="tipos-de-variáveis.html#cb72-3" tabindex="-1"></a></span>
 <span id="cb72-4"><a href="tipos-de-variáveis.html#cb72-4" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="tipos-de-variáveis.html#cb72-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;10 está na lista?&quot;</span>, <span class="dv">10</span> <span class="kw">in</span> lista1)</span>
-<span id="cb72-6"><a href="tipos-de-variáveis.html#cb72-6" tabindex="-1"></a></span>
-<span id="cb72-7"><a href="tipos-de-variáveis.html#cb72-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;lista1 é lista2?&quot;</span>, lista1 <span class="kw">is</span> lista2)</span>
-<span id="cb72-8"><a href="tipos-de-variáveis.html#cb72-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;lista1 é lista3?&quot;</span>, lista1 <span class="kw">is</span> lista3)</span></code></pre></div>
+<span id="cb72-5"><a href="tipos-de-variáveis.html#cb72-5" tabindex="-1"></a>lista1 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>]</span>
+<span id="cb72-6"><a href="tipos-de-variáveis.html#cb72-6" tabindex="-1"></a>lista2 <span class="op">=</span> lista1</span>
+<span id="cb72-7"><a href="tipos-de-variáveis.html#cb72-7" tabindex="-1"></a>lista3 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>]</span>
+<span id="cb72-8"><a href="tipos-de-variáveis.html#cb72-8" tabindex="-1"></a></span>
+<span id="cb72-9"><a href="tipos-de-variáveis.html#cb72-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;10 está na lista?&quot;</span>, <span class="dv">10</span> <span class="kw">in</span> lista1)</span>
+<span id="cb72-10"><a href="tipos-de-variáveis.html#cb72-10" tabindex="-1"></a></span>
+<span id="cb72-11"><a href="tipos-de-variáveis.html#cb72-11" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;lista1 é lista2?&quot;</span>, lista1 <span class="kw">is</span> lista2)</span>
+<span id="cb72-12"><a href="tipos-de-variáveis.html#cb72-12" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;lista1 é lista3?&quot;</span>, lista1 <span class="kw">is</span> lista3)</span></code></pre></div>
 <p>Saida</p>
 <pre class="pseudocode"><code>10 está na lista? True
 lista1 é lista2? True

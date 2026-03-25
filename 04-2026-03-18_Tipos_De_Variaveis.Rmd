@@ -13,6 +13,8 @@ Em programação, variáveis são espaços na memória utilizados para armazenar
 No Python, não é necessário declarar explicitamente o tipo da variável. O tipo é determinado automaticamente pelo valor atribuído.
 
 ``` python
+# Exemplo 1 - Python
+
 nome = "Maria"
 idade = 25
 altura = 1.70
@@ -29,6 +31,8 @@ Neste exemplo, podemos verificar:
 Podemos verificar o tipo usando:
 
 ``` python
+# Exemplo 1 continuação - Python
+
 print(type(nome))
 print(type(idade))
 print(type(altura))
@@ -58,10 +62,12 @@ Exemplo em python:
 Tentativa de misturar 2 variáveis de duas naturezas diferentes (inteiro e texto):
 
 ``` python
+# exemplo 2 - Python
+
 numero = 10
 texto = "5"
 
-print(numero + texto)  # ERRO
+print(numero + texto)  # Aqui vai dar ERRO
 ```
 
 ```         
@@ -86,6 +92,8 @@ Uma linguagem é **fracamente tipada** quando:
 Exemplo em javascript:
 
 ``` javascript
+// Exemplo 3 - Liguagem Javascript
+
 console.log(10 + "5")
 ```
 
@@ -100,6 +108,8 @@ O número 10 foi convertido automaticamente para texto (string).
 Outro exemplo em javascript:
 
 ``` javascript
+// Exemplo 4 - Liguagem Javascript
+
 console.log("5" - 2)
 ```
 
@@ -112,10 +122,10 @@ A o texto "5" foi convertida para número automaticamente para que pudesse ser f
 Conclusão:
 
 | Característica | Fortemente Tipada | Fracamente Tipada |
-|----|----|----|
-| Conversão automática | Não (ou muito limitada) |  Sim |
-| Segurança | Alta |  Menor |
-| Previsibilidade |  Alta | Pode ser confusa |
+|------------------------|------------------------|------------------------|
+| Conversão automática | Não (ou muito limitada) | Sim |
+| Segurança | Alta | Menor |
+| Previsibilidade | Alta | Pode ser confusa |
 | Facilidade inicial | Média | Alta |
 | Exemplo | C, C++, Python, Java, C# | JavaScript, PHP (em muitos casos) |
 
@@ -136,6 +146,8 @@ Os operadores aritméticos são utilizados para realizar operações matemática
 Exemplos em python:
 
 ``` python
+# Exemplo 5 - Liguagem Python - Operadores Aritméticos
+
 a = 10
 b = 3
 
@@ -176,6 +188,8 @@ Os operadores relacionais são utilizados para comparar valores. O resultado sem
 Exemplo:
 
 ``` python
+# Exemplo 6 - Liguagem Python - Operadores Relacionais
+
 x = 10
 y = 5
 
@@ -211,6 +225,8 @@ Os operadores lógicos são usados para combinar expressões booleanas.
 Exemplo:
 
 ``` python
+# Exemplo 7 - Liguagem Python - Operadores lógicos
+
 idade = 20
 tem_carteira = True
 
@@ -241,6 +257,8 @@ Os operadores de atribuição são usados para atribuir valores às variáveis.
 | %=       | x %= 2  | x = x % 2   |
 
 ``` python
+# Exemplo 8 - Liguagem Python - Operadores de Atribuição
+
 x = 10
 
 x += 5
@@ -263,6 +281,8 @@ Os operadores de identidade verificam se duas variáveis apontam para o mesmo ob
 | is not   | não são o mesmo objeto |
 
 ``` python
+# Exemplo 9 - Liguagem Python - Operadores de Identidade
+
 a = [1,2,3]
 b = a
 c = [1,2,3]
@@ -290,6 +310,8 @@ Verificam se um valor pertence a uma sequência.
 | not in   | não está presente |
 
 ``` python
+# Exemplo 10 - Liguagem Python - Operadores de Associação
+
 lista = [10,20,30,40]
 
 print(20 in lista)
@@ -320,6 +342,7 @@ Em Python usamos funções como:
 ### Conversão para Inteiro (int):
 
 ``` python
+# Exemplo 11 - Liguagem Python - Type Casting (converter um tipo de variável no outro)
 
 numero = "10"
 
@@ -332,6 +355,8 @@ print(type(numero_int))
 ### Conversão para número real (float):
 
 ``` python
+# Exemplo 12 - Liguagem Python - Type Casting (converter um tipo de variável no outro)
+
 valor = "3.14"
 
 valor_float = float(valor)
@@ -343,6 +368,8 @@ print(type(valor_float))
 ### Conversão para cadeia de caracteres (string):
 
 ``` python
+# Exemplo 13 - Liguagem Python - Type Casting (converter um tipo de variável no outro)
+
 idade = 25
 
 texto = str(idade)
@@ -354,6 +381,8 @@ print(type(texto))
 ### Exemplo integrando tudo:
 
 ``` python
+# Exemplo 14 - Liguagem Python - Type Casting (converter um tipo de variável no outro)
+
 numero1 = input("Digite um número: ")
 numero2 = input("Digite outro número: ")
 
@@ -373,14 +402,10 @@ Aqui utilizamos:
 
 -   \+ → operador aritmético
 
-
-
 ```{r aula-tipos-de-variaveis-04-aula-html, eval=FALSE, include=FALSE}
 rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
 ```
 
-
 ```{r aula-tipos-de-variaveis-04-aula-word, eval=FALSE, include=FALSE}
 rmarkdown::render("04-2026-03-18_Tipos_De_Variaveis.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
 ```
-

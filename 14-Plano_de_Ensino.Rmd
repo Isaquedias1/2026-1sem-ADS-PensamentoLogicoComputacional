@@ -203,7 +203,7 @@ Durante as aulas os alunos serão incentivados a desenvolver pequenos programas 
 A avaliação da disciplina será composta por:
 
 | Instrumento | Descrição |
-|------------------------------------|------------------------------------|
+|----|----|
 | NP1 | Avaliação parcial sobre conceitos de programs compilados vs interpretados; estruturas de repetição e estruturas de controle; leitura e casting de tipos de variáveis no python; e finalmente funções (entrada de parâmetros e valor de retorno). |
 | NP2 | Todos os conceitos abordados na NP1 somados a "estruturas" Listas e Discionários; Coceitos de Orientação a Objeto (Herança, encapsulamento e Polimorfismo) |
 | SUB | Prova substitutiva |
@@ -212,6 +212,13 @@ A avaliação da disciplina será composta por:
 As avaliações serão compostas por questões conceituais e exercícios práticos envolvendo lógica de programação e implementação de algoritmos em Python.
 
 ------------------------------------------------------------------------
+
+| Seguradora | Plano | Preço (R\$) | Franquia (R\$) | Cobertura RC (materiais) | Carro reserva | Observação |
+|----|----|----|----|----|----|----|
+| Allianz (Sidinalva) | Completo | **1.875,89** | 4.060 | 200 mil | 7 dias | Barato, cobertura média |
+| Allianz (Vavaseg) | Master | **1.889,41** | 2.030 | **400 mil** | **30 dias** | ⭐ Melhor equilíbrio |
+| Tokio Marine | — | 2.110 → 2.232 | **1.648** | 300 mil | 30 dias | Melhor franquia |
+| Bradesco | — | 1.976,23 | **4.364** | 100 mil | 7 dias | Pior custo-benefício |
 
 # Recursos Didáticos
 
@@ -248,6 +255,12 @@ VIEIRA, Anderson. *Introdução à ciência da computação com Python*. Rio de 
 
 ARAÚJO, Gabriel. *Automatize tarefas maçantes com Python*. São Paulo: Novatec, 2020.
 
+| Seguradora | Plano | Preço (R\$) | Franquia (R\$) | Cobertura RC (materiais) | Carro reserva | Observação |
+|----|----|----|----|----|----|----|
+| Allianz (Sidinalva) | Completo | **1.875,89** | 4.060 | 200 mil | 7 dias | Barato, cobertura média |
+| Allianz (Vavaseg) | Master | **1.889,41** | 2.030 | **400 mil** | **30 dias** | ⭐ Melhor equilíbrio |
+| Tokio Marine | — | 2.110 → 2.232 | **1.648** | 300 mil | 30 dias | Melhor franquia |
+| Bradesco | — | 1.976,23 | **4.364** | 100 mil | 7 dias | Pior custo-benefício |
 
 ```{r plano-ensino, eval=FALSE, include=FALSE}
 rmarkdown::render("14-Plano_de_Ensino.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")

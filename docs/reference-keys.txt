@@ -107,6 +107,14 @@ exercício-5-type-casting
 exercício-6-associação-em-lista
 exercício-7-identidade-vs-igualdade
 procedimentos-e-funções
+criação-e-chamada-de-funções
+conceito-de-modularização-do-código
+exemplo-de-código-python-sem-modularização
+exemplo-do-mesmo-código-python-com-modularização
+passagem-de-parâmetros-e-valores-de-retorno
+o-que-são-parâmetros
+o-que-são-valores-de-retorno
+juntando-tudo-múltiplos-parâmetros-e-retorno
 exercícios-de-procedimentos-e-funções
 listas-e-dicionários
 exercícios-de-listas-e-dicionários
