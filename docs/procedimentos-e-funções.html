@@ -261,6 +261,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html"><i class="fa fa-check"></i><b>5</b> Procedimentos e Funções</a>
 <ul>
+<li class="chapter" data-level="5.0.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#cria%C3%A7%C3%A3o-e-chamada-de-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.0.1</b> Criação e Chamada de Funções</a></li>
+<li class="chapter" data-level="5.0.2" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#conceito-de-modulariza%C3%A7%C3%A3o-do-c%C3%B3digo"><i class="fa fa-check"></i><b>5.0.2</b> Conceito de Modularização do Código</a></li>
+<li class="chapter" data-level="5.0.3" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#passagem-de-par%C3%A2metros-e-valores-de-retorno"><i class="fa fa-check"></i><b>5.0.3</b> Passagem de Parâmetros e Valores de Retorno</a></li>
 <li class="chapter" data-level="5.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#exerc%C3%ADcios-de-procedimentos-e-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.1</b> Exercícios de Procedimentos e Funções</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html"><i class="fa fa-check"></i><b>6</b> Listas e Dicionários</a>
@@ -309,7 +312,152 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="procedimentos-e-funções" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Aula 5</span> Procedimentos e Funções<a href="procedimentos-e-funções.html#procedimentos-e-fun%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="criação-e-chamada-de-funções" class="section level3 hasAnchor" number="5.0.1">
+<h3><span class="header-section-number">5.0.1</span> Criação e Chamada de Funções<a href="procedimentos-e-funções.html#cria%C3%A7%C3%A3o-e-chamada-de-fun%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uma <strong>função</strong> é um bloco de código reutilizável que executa uma tarefa específica.</p>
+<p>Criando minha primeira função em python:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="procedimentos-e-funções.html#cb74-1" tabindex="-1"></a></span>
+<span id="cb74-2"><a href="procedimentos-e-funções.html#cb74-2" tabindex="-1"></a><span class="co"># Declaração de uma função</span></span>
+<span id="cb74-3"><a href="procedimentos-e-funções.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="procedimentos-e-funções.html#cb74-4" tabindex="-1"></a><span class="kw">def</span> nome_da_funcao():</span>
+<span id="cb74-5"><a href="procedimentos-e-funções.html#cb74-5" tabindex="-1"></a>    <span class="co"># bloco de código</span></span>
+<span id="cb74-6"><a href="procedimentos-e-funções.html#cb74-6" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Olá, mundo!&quot;</span>)</span></code></pre></div>
+<p>Utilizando (chamando) a minha primeira função:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="procedimentos-e-funções.html#cb75-1" tabindex="-1"></a></span>
+<span id="cb75-2"><a href="procedimentos-e-funções.html#cb75-2" tabindex="-1"></a><span class="co"># Chamando uma função</span></span>
+<span id="cb75-3"><a href="procedimentos-e-funções.html#cb75-3" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="procedimentos-e-funções.html#cb75-4" tabindex="-1"></a>nome_da_funcao()</span></code></pre></div>
+<p>Exemplo completo</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="procedimentos-e-funções.html#cb76-1" tabindex="-1"></a></span>
+<span id="cb76-2"><a href="procedimentos-e-funções.html#cb76-2" tabindex="-1"></a><span class="co"># Declaração da função &quot;saudação&quot;</span></span>
+<span id="cb76-3"><a href="procedimentos-e-funções.html#cb76-3" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="procedimentos-e-funções.html#cb76-4" tabindex="-1"></a><span class="kw">def</span> saudacao():</span>
+<span id="cb76-5"><a href="procedimentos-e-funções.html#cb76-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Bem-vindo ao curso de Python!&quot;</span>)</span>
+<span id="cb76-6"><a href="procedimentos-e-funções.html#cb76-6" tabindex="-1"></a></span>
+<span id="cb76-7"><a href="procedimentos-e-funções.html#cb76-7" tabindex="-1"></a></span>
+<span id="cb76-8"><a href="procedimentos-e-funções.html#cb76-8" tabindex="-1"></a><span class="co"># Executando a função &quot;saudação&quot;</span></span>
+<span id="cb76-9"><a href="procedimentos-e-funções.html#cb76-9" tabindex="-1"></a></span>
+<span id="cb76-10"><a href="procedimentos-e-funções.html#cb76-10" tabindex="-1"></a>saudacao()</span></code></pre></div>
+</div>
+<div id="conceito-de-modularização-do-código" class="section level3 hasAnchor" number="5.0.2">
+<h3><span class="header-section-number">5.0.2</span> Conceito de Modularização do Código<a href="procedimentos-e-funções.html#conceito-de-modulariza%C3%A7%C3%A3o-do-c%C3%B3digo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Modularizar nada mais é do que <strong>dividir o problema em blocos menores (funções)</strong>.</p>
+<p>Quais são as vantagens de se dividir o código blocos</p>
+<ul>
+<li>Código mais organizado</li>
+<li>Reutilização</li>
+<li>Facilidade de manutenção</li>
+<li>Menos erros</li>
+</ul>
+<div id="exemplo-de-código-python-sem-modularização" class="section level4 hasAnchor" number="5.0.2.1">
+<h4><span class="header-section-number">5.0.2.1</span> Exemplo de código python SEM modularização<a href="procedimentos-e-funções.html#exemplo-de-c%C3%B3digo-python-sem-modulariza%C3%A7%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="procedimentos-e-funções.html#cb77-1" tabindex="-1"></a></span>
+<span id="cb77-2"><a href="procedimentos-e-funções.html#cb77-2" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Digite dois números:&quot;</span>)</span>
+<span id="cb77-3"><a href="procedimentos-e-funções.html#cb77-3" tabindex="-1"></a></span>
+<span id="cb77-4"><a href="procedimentos-e-funções.html#cb77-4" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())</span>
+<span id="cb77-5"><a href="procedimentos-e-funções.html#cb77-5" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>())</span>
+<span id="cb77-6"><a href="procedimentos-e-funções.html#cb77-6" tabindex="-1"></a></span>
+<span id="cb77-7"><a href="procedimentos-e-funções.html#cb77-7" tabindex="-1"></a>soma <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb77-8"><a href="procedimentos-e-funções.html#cb77-8" tabindex="-1"></a></span>
+<span id="cb77-9"><a href="procedimentos-e-funções.html#cb77-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Resultado:&quot;</span>, soma)</span></code></pre></div>
+</div>
+<div id="exemplo-do-mesmo-código-python-com-modularização" class="section level4 hasAnchor" number="5.0.2.2">
+<h4><span class="header-section-number">5.0.2.2</span> Exemplo do mesmo código python COM modularização<a href="procedimentos-e-funções.html#exemplo-do-mesmo-c%C3%B3digo-python-com-modulariza%C3%A7%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="procedimentos-e-funções.html#cb78-1" tabindex="-1"></a></span>
+<span id="cb78-2"><a href="procedimentos-e-funções.html#cb78-2" tabindex="-1"></a><span class="co"># Declaração da função &quot;Ler_numeros()&quot;</span></span>
+<span id="cb78-3"><a href="procedimentos-e-funções.html#cb78-3" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="procedimentos-e-funções.html#cb78-4" tabindex="-1"></a><span class="kw">def</span> ler_numeros():</span>
+<span id="cb78-5"><a href="procedimentos-e-funções.html#cb78-5" tabindex="-1"></a>    a <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Digite o primeiro número: &quot;</span>))</span>
+<span id="cb78-6"><a href="procedimentos-e-funções.html#cb78-6" tabindex="-1"></a>    b <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Digite o segundo número: &quot;</span>))</span>
+<span id="cb78-7"><a href="procedimentos-e-funções.html#cb78-7" tabindex="-1"></a>    <span class="cf">return</span> a, b</span>
+<span id="cb78-8"><a href="procedimentos-e-funções.html#cb78-8" tabindex="-1"></a></span>
+<span id="cb78-9"><a href="procedimentos-e-funções.html#cb78-9" tabindex="-1"></a><span class="co"># Declaração da função &quot;Calcular_soma()&quot;</span></span>
+<span id="cb78-10"><a href="procedimentos-e-funções.html#cb78-10" tabindex="-1"></a></span>
+<span id="cb78-11"><a href="procedimentos-e-funções.html#cb78-11" tabindex="-1"></a><span class="kw">def</span> calcular_soma(a, b):</span>
+<span id="cb78-12"><a href="procedimentos-e-funções.html#cb78-12" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb78-13"><a href="procedimentos-e-funções.html#cb78-13" tabindex="-1"></a></span>
+<span id="cb78-14"><a href="procedimentos-e-funções.html#cb78-14" tabindex="-1"></a><span class="co"># Declaração da função &quot;Mostrar_resultado()&quot;</span></span>
+<span id="cb78-15"><a href="procedimentos-e-funções.html#cb78-15" tabindex="-1"></a></span>
+<span id="cb78-16"><a href="procedimentos-e-funções.html#cb78-16" tabindex="-1"></a><span class="kw">def</span> mostrar_resultado(resultado):</span>
+<span id="cb78-17"><a href="procedimentos-e-funções.html#cb78-17" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Resultado:&quot;</span>, resultado)</span>
+<span id="cb78-18"><a href="procedimentos-e-funções.html#cb78-18" tabindex="-1"></a></span>
+<span id="cb78-19"><a href="procedimentos-e-funções.html#cb78-19" tabindex="-1"></a></span>
+<span id="cb78-20"><a href="procedimentos-e-funções.html#cb78-20" tabindex="-1"></a><span class="co"># Executando o programa chamando o nome de cada função</span></span>
+<span id="cb78-21"><a href="procedimentos-e-funções.html#cb78-21" tabindex="-1"></a></span>
+<span id="cb78-22"><a href="procedimentos-e-funções.html#cb78-22" tabindex="-1"></a>a, b <span class="op">=</span> ler_numeros()</span>
+<span id="cb78-23"><a href="procedimentos-e-funções.html#cb78-23" tabindex="-1"></a></span>
+<span id="cb78-24"><a href="procedimentos-e-funções.html#cb78-24" tabindex="-1"></a>resultado <span class="op">=</span> calcular_soma(a, b)</span>
+<span id="cb78-25"><a href="procedimentos-e-funções.html#cb78-25" tabindex="-1"></a></span>
+<span id="cb78-26"><a href="procedimentos-e-funções.html#cb78-26" tabindex="-1"></a>mostrar_resultado(resultado)</span></code></pre></div>
+</div>
+</div>
+<div id="passagem-de-parâmetros-e-valores-de-retorno" class="section level3 hasAnchor" number="5.0.3">
+<h3><span class="header-section-number">5.0.3</span> Passagem de Parâmetros e Valores de Retorno<a href="procedimentos-e-funções.html#passagem-de-par%C3%A2metros-e-valores-de-retorno" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="o-que-são-parâmetros" class="section level4 hasAnchor" number="5.0.3.1">
+<h4><span class="header-section-number">5.0.3.1</span> O que são parâmetros<a href="procedimentos-e-funções.html#o-que-s%C3%A3o-par%C3%A2metros" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Parâmetros são valores enviados para a função.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="procedimentos-e-funções.html#cb79-1" tabindex="-1"></a></span>
+<span id="cb79-2"><a href="procedimentos-e-funções.html#cb79-2" tabindex="-1"></a><span class="co"># Declaração da função &quot;saudacao()&quot;</span></span>
+<span id="cb79-3"><a href="procedimentos-e-funções.html#cb79-3" tabindex="-1"></a></span>
+<span id="cb79-4"><a href="procedimentos-e-funções.html#cb79-4" tabindex="-1"></a><span class="kw">def</span> saudacao(parametro1):</span>
+<span id="cb79-5"><a href="procedimentos-e-funções.html#cb79-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Olá, </span><span class="sc">{</span>parametro1<span class="sc">}</span><span class="ss">!&quot;</span>)</span>
+<span id="cb79-6"><a href="procedimentos-e-funções.html#cb79-6" tabindex="-1"></a></span>
+<span id="cb79-7"><a href="procedimentos-e-funções.html#cb79-7" tabindex="-1"></a></span>
+<span id="cb79-8"><a href="procedimentos-e-funções.html#cb79-8" tabindex="-1"></a><span class="co"># Executando a função &quot;saudacao()&quot;</span></span>
+<span id="cb79-9"><a href="procedimentos-e-funções.html#cb79-9" tabindex="-1"></a></span>
+<span id="cb79-10"><a href="procedimentos-e-funções.html#cb79-10" tabindex="-1"></a>saudacao(<span class="st">&quot;Fulano&quot;</span>)</span></code></pre></div>
+<p>saída:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb80-1"><a href="procedimentos-e-funções.html#cb80-1" tabindex="-1"></a>Olá Fulano</span></code></pre></div>
+</div>
+<div id="o-que-são-valores-de-retorno" class="section level4 hasAnchor" number="5.0.3.2">
+<h4><span class="header-section-number">5.0.3.2</span> O que são Valores de Retorno<a href="procedimentos-e-funções.html#o-que-s%C3%A3o-valores-de-retorno" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Um valor de retorno é o valor devolvido pela função.
+No python, o resultado é colocado para fora da função utilizando o “comando” <code>return</code>.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="procedimentos-e-funções.html#cb81-1" tabindex="-1"></a></span>
+<span id="cb81-2"><a href="procedimentos-e-funções.html#cb81-2" tabindex="-1"></a><span class="co"># Declaração da função &quot;soma()&quot;</span></span>
+<span id="cb81-3"><a href="procedimentos-e-funções.html#cb81-3" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="procedimentos-e-funções.html#cb81-4" tabindex="-1"></a><span class="kw">def</span> soma(a, b):</span>
+<span id="cb81-5"><a href="procedimentos-e-funções.html#cb81-5" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b</span>
+<span id="cb81-6"><a href="procedimentos-e-funções.html#cb81-6" tabindex="-1"></a></span>
+<span id="cb81-7"><a href="procedimentos-e-funções.html#cb81-7" tabindex="-1"></a><span class="co"># Executando a função &quot;soma()&quot;</span></span>
+<span id="cb81-8"><a href="procedimentos-e-funções.html#cb81-8" tabindex="-1"></a></span>
+<span id="cb81-9"><a href="procedimentos-e-funções.html#cb81-9" tabindex="-1"></a>resultado <span class="op">=</span> soma(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb81-10"><a href="procedimentos-e-funções.html#cb81-10" tabindex="-1"></a><span class="bu">print</span>(resultado)</span></code></pre></div>
+<p>Saída:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb82-1"><a href="procedimentos-e-funções.html#cb82-1" tabindex="-1"></a>8</span></code></pre></div>
+</div>
+<div id="juntando-tudo-múltiplos-parâmetros-e-retorno" class="section level4 hasAnchor" number="5.0.3.3">
+<h4><span class="header-section-number">5.0.3.3</span> Juntando tudo: Múltiplos parâmetros e retorno<a href="procedimentos-e-funções.html#juntando-tudo-m%C3%BAltiplos-par%C3%A2metros-e-retorno" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>O programador criou em python uma função denominada <code>operacoes</code>.
+Essa função faz soma e multiplicação entre 2 números.</p>
+<p>A função possui duas variáveis de entrada (2 parâmetros).
+Essa função primeiro soma as duas variáveis de entrada e salva a soma em uma variável de retorno chamada <code>saida_soma</code>;
+Após essa função multiplica as duas variávies de entrada e salva a multiplicação em uma variável de retorno chamada <code>saida_produto</code>;</p>
+<p>Finalmente, a função devolve o fruto do trabalho interno dela (variáveis saida_soma e saida_produto) através do comando <code>return</code></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="procedimentos-e-funções.html#cb83-1" tabindex="-1"></a></span>
+<span id="cb83-2"><a href="procedimentos-e-funções.html#cb83-2" tabindex="-1"></a><span class="co"># Declaração de uma função em python</span></span>
+<span id="cb83-3"><a href="procedimentos-e-funções.html#cb83-3" tabindex="-1"></a></span>
+<span id="cb83-4"><a href="procedimentos-e-funções.html#cb83-4" tabindex="-1"></a><span class="kw">def</span> operacoes(parametro1, parametro2):</span>
+<span id="cb83-5"><a href="procedimentos-e-funções.html#cb83-5" tabindex="-1"></a>    </span>
+<span id="cb83-6"><a href="procedimentos-e-funções.html#cb83-6" tabindex="-1"></a>    saida_soma    <span class="op">=</span> parametro1 <span class="op">+</span> parametro2</span>
+<span id="cb83-7"><a href="procedimentos-e-funções.html#cb83-7" tabindex="-1"></a>    saida_produto <span class="op">=</span> parametro1 <span class="op">*</span> parametro2</span>
+<span id="cb83-8"><a href="procedimentos-e-funções.html#cb83-8" tabindex="-1"></a>    <span class="cf">return</span> saida_soma, saida_produto</span>
+<span id="cb83-9"><a href="procedimentos-e-funções.html#cb83-9" tabindex="-1"></a></span>
+<span id="cb83-10"><a href="procedimentos-e-funções.html#cb83-10" tabindex="-1"></a></span>
+<span id="cb83-11"><a href="procedimentos-e-funções.html#cb83-11" tabindex="-1"></a><span class="co"># Inicio do programa , que faz uso da função declarada acima</span></span>
+<span id="cb83-12"><a href="procedimentos-e-funções.html#cb83-12" tabindex="-1"></a></span>
+<span id="cb83-13"><a href="procedimentos-e-funções.html#cb83-13" tabindex="-1"></a>saida1, saida2 <span class="op">=</span> operacoes(<span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb83-14"><a href="procedimentos-e-funções.html#cb83-14" tabindex="-1"></a></span>
+<span id="cb83-15"><a href="procedimentos-e-funções.html#cb83-15" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Soma:&quot;</span>, saida1)</span>
+<span id="cb83-16"><a href="procedimentos-e-funções.html#cb83-16" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Produto:&quot;</span>, saida2)</span></code></pre></div>
+<p>Saída:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode cmd"><code class="sourceCode dosbat"><span id="cb84-1"><a href="procedimentos-e-funções.html#cb84-1" tabindex="-1"></a>6</span>
+<span id="cb84-2"><a href="procedimentos-e-funções.html#cb84-2" tabindex="-1"></a>8</span></code></pre></div>
 
+</div>
+</div>
 <div id="exercícios-de-procedimentos-e-funções" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Exercícios de Procedimentos e Funções<a href="procedimentos-e-funções.html#exerc%C3%ADcios-de-procedimentos-e-fun%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
