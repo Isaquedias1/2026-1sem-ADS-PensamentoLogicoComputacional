@@ -20,6 +20,8 @@ Operadores Aritméticos + Type Casting
 - Divisão
 
 ```python
+# Lista de Exercícios - Exemplo 1
+
 
 numero1 = input("Digite o primeiro número: ")
 numero2 = input("Digite o segundo número: ")
@@ -54,6 +56,10 @@ Operadores Relacionais + Lógicos
 - Pode dirigir (idade ≥ 18 E possui carteira)
 
 ```python
+
+# Lista de Exercícios - Exemplo 2
+
+
 idade = int(input("Digite sua idade: "))
 tem_carteira = input("Possui carteira? (s/n): ")
 
@@ -82,6 +88,10 @@ Operadores de Associação + Identidade
 
 
 ```python
+
+# Lista de Exercícios - Exemplo 3
+
+
 lista1 = [5, 10, 15, 20]
 lista2 = lista1
 lista3 = [5, 10, 15, 20]
