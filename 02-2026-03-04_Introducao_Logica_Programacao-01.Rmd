@@ -29,7 +29,7 @@ Em uma linguagem interpretada, o código não é transformado em um arquivo bin�
 Resumo das vantagens e desvantagens dos 2 paradigmas:
 
 |  |  |  |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | **Característica** | **Programas Compilados** | **Programas Interpretados** |
 | **Desempenho** | **Vantagem:** Muito rápidos, pois o código já está em linguagem de máquina otimizado. | **Desvantagem:** Mais lentos, devido ao "overhead" de traduzir o código enquanto ele executa. |
 | **Portabilidade** | **Desvantagem:** O binário é gerado para um sistema específico (ex: um app de Windows não roda no Linux). | **Vantagem:** O código roda em qualquer sistema que tenha o interpretador instalado. |
@@ -41,7 +41,7 @@ Resumo das vantagens e desvantagens dos 2 paradigmas:
 ## Início de Desenvolvimento: Operações básicas de linguagens de alto-nível
 
 | Operação | Analogia Humana      | Função Principal                           |
-|------------------|------------------|------------------------------------|
+|----------|----------------------|--------------------------------------------|
 | Escrever | Falar / Mostrar      | Exibir informações para o usuário.         |
 | Ler      | Ouvir / Observar     | Obter dados externos para o sistema.       |
 | Decidir  | Escolher um caminho  | Criar bifurcações lógicas no fluxo.        |
@@ -103,7 +103,7 @@ Imagine que você precisa calcular o imposto de renda em vários lugares do seu 
 Algoritmos são uma **quantidade finita de passos** para a resolução de um problema.
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | Propriedades: | Descrição: |
 | 1) Algoritmos possuem uma entrada bem definida; | O ponto de partida do processo. |
 | 2) Saída bem definida; | Geram um resultado esperado. |

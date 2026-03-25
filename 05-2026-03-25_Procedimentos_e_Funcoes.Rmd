@@ -6,28 +6,30 @@ output:
     css: style.css
 ---
 
-
 # Procedimentos e Funções
 
-###  Criação e Chamada de Funções
+![](05-aula05/media/09-modularizacao_funcoes.jpg)
+
+Imagine que você precisa calcular o imposto de renda em vários lugares do seu código. Em vez de repetir a fórmula toda vez, você cria uma "caixinha" com esse cálculo.
+
+### Criação e Chamada de Funções
 
 Uma **função** é um bloco de código reutilizável que executa uma tarefa específica.
 
 Criando minha primeira função em python:
 
-```python
+``` python
 
 # Declaração de uma função
 
 def nome_da_funcao():
     # bloco de código
     print("Olá, mundo!")
-
 ```
 
 Utilizando (chamando) a minha primeira função:
 
-```python
+``` python
 
 # Chamando uma função
 
@@ -36,7 +38,7 @@ nome_da_funcao()
 
 Exemplo completo
 
-```python
+``` python
 
 # Declaração da função "saudação"
 
@@ -49,21 +51,20 @@ def saudacao():
 saudacao()
 ```
 
-
 ### Conceito de Modularização do Código
 
 Modularizar nada mais é do que **dividir o problema em blocos menores (funções)**.
 
 Quais são as vantagens de se dividir o código blocos
 
-* Código mais organizado
-* Reutilização
-* Facilidade de manutenção
-* Menos erros
+-   Código mais organizado
+-   Reutilização
+-   Facilidade de manutenção
+-   Menos erros
 
 #### Exemplo de código python SEM modularização
 
-```python
+``` python
 
 print("Digite dois números:")
 
@@ -77,7 +78,7 @@ print("Resultado:", soma)
 
 #### Exemplo do mesmo código python COM modularização
 
-```python
+``` python
 
 # Declaração da função "Ler_numeros()"
 
@@ -104,7 +105,6 @@ a, b = ler_numeros()
 resultado = calcular_soma(a, b)
 
 mostrar_resultado(resultado)
-
 ```
 
 ### Passagem de Parâmetros e Valores de Retorno
@@ -115,7 +115,7 @@ Parâmetros são valores enviados para a função.
 
 Exemplo:
 
-```python
+``` python
 
 # Declaração da função "saudacao()"
 
@@ -126,25 +126,21 @@ def saudacao(parametro1):
 # Executando a função "saudacao()"
 
 saudacao("Fulano")
-
 ```
 
 saída:
 
-```cmd
+``` cmd
 Olá Fulano
 ```
 
-
 #### O que são Valores de Retorno
 
-Um valor de retorno é o valor devolvido pela função.
-No python, o resultado é colocado para fora da função utilizando o "comando" `return`.
-
+Um valor de retorno é o valor devolvido pela função. No python, o resultado é colocado para fora da função utilizando o "comando" `return`.
 
 Exemplo:
 
-```python
+``` python
 
 # Declaração da função "soma()"
 
@@ -159,31 +155,26 @@ print(resultado)
 
 Saída:
 
-```cmd
+``` cmd
 8
 ```
 
 #### Juntando tudo: Múltiplos parâmetros e retorno
 
-O programador criou em python uma função denominada `operacoes`.
-Essa função faz soma e multiplicação entre 2 números.
+O programador criou em python uma função denominada `operacoes`. Essa função faz soma e multiplicação entre 2 números.
 
-A função possui duas variáveis de entrada (2 parâmetros).
-Essa função primeiro soma as duas variáveis de entrada e salva a soma em uma variável de retorno chamada `saida_soma`;
-Após essa função multiplica as duas variávies de entrada e salva a multiplicação em uma variável de retorno chamada `saida_produto`;
+A função possui duas variáveis de entrada (2 parâmetros). Essa função primeiro soma as duas variáveis de entrada e salva a soma em uma variável de retorno chamada `saida_soma`; Após essa função multiplica as duas variávies de entrada e salva a multiplicação em uma variável de retorno chamada `saida_produto`;
 
 Finalmente, a função devolve o fruto do trabalho interno dela (variáveis saida_soma e saida_produto) através do comando `return`
 
-
-
-```python
+``` python
 
 # Declaração de uma função em python
 
 def operacoes(parametro1, parametro2):
     
     saida_soma    = parametro1 + parametro2
-	saida_produto = parametro1 * parametro2
+    saida_produto = parametro1 * parametro2
     return saida_soma, saida_produto
 
 
@@ -193,12 +184,19 @@ saida1, saida2 = operacoes(4, 2)
 
 print("Soma:", saida1)
 print("Produto:", saida2)
-
 ```
 
 Saída:
 
-```cmd
+``` cmd
 6
 8
+```
+
+```{r aula-procedimentos_e_funcoes-05-aula-html, eval=FALSE, include=FALSE}
+rmarkdown::render("05-2026-03-25_Procedimentos_e_Funcoes.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
+```{r aula-procedimentos_e_funcoes-05-aula-word, eval=FALSE, include=FALSE}
+rmarkdown::render("05-2026-03-25_Procedimentos_e_Funcoes.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
 ```
