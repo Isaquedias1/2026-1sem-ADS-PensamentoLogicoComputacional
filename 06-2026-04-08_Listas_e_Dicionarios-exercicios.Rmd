@@ -1,1 +1,11 @@
 ## Exercícios de Listas e Dicionários
+
+### Exercício 1 
+
+Crie um programa que combine os dois: Uma lista que contenha três dicionários, onde cada dicionário representa um carro (marca e modelo).
+
+Exemplo de estrutura:
+
+``` python
+carros = [{"marca": "Ford", "modelo": "Ka"}, {"marca": "Fiat", "modelo": "Uno"}]
+```
