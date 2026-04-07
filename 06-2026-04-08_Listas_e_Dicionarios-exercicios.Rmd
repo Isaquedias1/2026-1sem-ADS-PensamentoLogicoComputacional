@@ -1,6 +1,128 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 ## Exercícios de Listas e Dicionários
 
-### Exercício 1 
+### 1. Listas (Dinâmicas e Ordenadas)
+
+**Exercicio 1: Filtragem de Geocódigos** Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com "35" (São Paulo).
+
+``` python
+geocodigos = ["3501", "3302", "3505", "4101"]
+sp_codes = [code for code in geocodigos if code.startswith("35")]
+# Resultado: ['3501', '3505']
+```
+
+**Exercicio 2: Média de População** Calcule a média aritmética de uma lista de populações de setores censitários.
+
+``` python
+populacoes = [120, 450, 300, 210]
+media = sum(populacoes) / len(populacoes)
+# Resultado: 270.0
+```
+
+**Exercicio 3: Inversão de Ordem** Inverta a ordem de uma lista de nomes de municípios.
+
+``` python
+municipios = ["Botucatu", "São Paulo", "Bauru"]
+municipios.reverse() 
+# Resultado: ['Bauru', 'São Paulo', 'Botucatu']
+```
+
+------------------------------------------------------------------------
+
+### 2. Dicionários (Chave-Valor)
+
+**Exercicio 1: Mapeamento de SRID** Crie um dicionário onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de "SIRGAS 2000".
+
+``` python
+projecoes = {"WGS84": 4326, "SIRGAS 2000": 4674}
+srid = projecoes["SIRGAS 2000"]
+# Resultado: 4674
+```
+
+**Exercicio 2: Contagem de Ocorrências** Conte quantas vezes cada tipo de setor aparece.
+
+``` python
+tipos = ["Urbano", "Rural", "Urbano", "Urbano"]
+contagem = {t: tipos.count(t) for t in set(tipos)}
+# Resultado: {'Urbano': 3, 'Rural': 1}
+```
+
+**Exercicio 3: Mesclagem de Metadados** Atualize um dicionário de metadados com novas informações técnicas.
+
+``` python
+meta = {"tabela": "municipios"}
+novos_dados = {"formato": "parquet", "ano": 2010}
+meta.update(novos_dados)
+# Resultado: {'tabela': 'municipios', 'formato': 'parquet', 'ano': 2010}
+```
+
+------------------------------------------------------------------------
+
+### 3. Tuplas (Imutáveis)
+
+**Exercicio 1: Coordenadas Geográficas** Armazene uma coordenada (latitude, longitude) e desempacote-a em duas variáveis.
+
+``` python
+ponto = (-23.5505, -46.6333)
+lat, lon = ponto
+# lat = -23.5505, lon = -46.6333
+```
+
+**Exercicio 2: Chaves Compostas** Use uma tupla como chave de um dicionário (útil para índices compostos).
+
+``` python
+setores = { (35, 123): "Setor A", (35, 124): "Setor B" }
+# Acessando via (UF, ID)
+nome = setores[(35, 123)]
+# Resultado: "Setor A"
+```
+
+**Exercicio 3: Verificação de Existência** Verifique se o formato "PDF" está na tupla de formatos permitidos.
+
+``` python
+formatos = ("csv", "parquet", "json")
+existe = "pdf" in formatos
+# Resultado: False
+```
+
+------------------------------------------------------------------------
+
+### 4. Conjuntos/Sets (Valores Únicos)
+
+**Exercicio 1: Remoção de Duplicatas** Remova IDs duplicados de uma lista de importação do Censo.
+
+``` python
+ids_brutos = [101, 102, 101, 103, 102]
+ids_unicos = list(set(ids_brutos))
+# Resultado: [101, 102, 103] (ordem pode variar)
+```
+
+**Exercicio 2: Interseção de Áreas** Encontre municípios que aparecem em dois levantamentos diferentes.
+
+``` python
+lista_2010 = {"São Paulo", "Rio", "Curitiba"}
+lista_2026 = {"São Paulo", "Belo Horizonte", "Curitiba"}
+comuns = lista_2010.intersection(lista_2026)
+# Resultado: {'São Paulo', 'Curitiba'}
+```
+
+**Exercicio 3: Diferença de Conjuntos** Identifique quais colunas do `schema.json` original não estão no seu banco de dados atual.
+
+``` python
+cols_json = {"id", "nome", "geom", "populacao"}
+cols_db = {"id", "nome", "geom"}
+faltando = cols_json.difference(cols_db)
+# Resultado: {'populacao'}
+```
+
+### 5. Misturando tudo
 
 Crie um programa que combine os dois: Uma lista que contenha três dicionários, onde cada dicionário representa um carro (marca e modelo).
 
@@ -8,4 +130,8 @@ Exemplo de estrutura:
 
 ``` python
 carros = [{"marca": "Ford", "modelo": "Ka"}, {"marca": "Fiat", "modelo": "Uno"}]
+```
+
+```{r  aula-listas_e_dicionarios-06-exercicio-html, eval=FALSE, include=FALSE}
+rmarkdown::render("06-2026-04-08_Listas_e_Dicionarios-exercicios.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
 ```
