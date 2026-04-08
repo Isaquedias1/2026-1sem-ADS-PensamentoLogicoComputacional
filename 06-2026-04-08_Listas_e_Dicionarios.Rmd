@@ -6,7 +6,7 @@ output:
     css: style.css
 ---
 
-# Listas e Dicionários
+# Variáveis compostas: Listas e Dicionários
 
 Até este ponto, tratamos programas python que utilizavam variáveis simples. Hoje vamos ver como podemos criar coleções de variáveis para armazenar dados em memória.
 
@@ -18,7 +18,7 @@ Antigamente, em linguagens como **C** ou **Pascal**, lidar com conjuntos de dado
 -   **Gerência de Memória:** O programador era responsável por "alocar" o espaço na memória RAM e, mais importante, "liberar" esse espaço quando terminasse. Esquecer disso causava o *memory leak* (vazamento de memória), que deixava o computador lento até travar.
 -   **A Revolução do Python:** O Python utiliza um **Coletor de Lixo (Garbage Collector)**. Ele decide sozinho quando uma lista não é mais necessária e limpa a memória para você. Além disso, as listas são dinâmicas: elas crescem e diminuem conforme a necessidade, sem que você precise declarar o tamanho fixo.
 
-### Listas de Dados (Lists)
+### Listas de Dados (Lists) em Python
 
 ![](06-aula06/media/06-imagem-01.jpg)
 
@@ -28,27 +28,26 @@ Em Python, uma **lista** é uma estrutura de dados utilizada para armazenar uma 
 
 Considere este exemplo em python utilizando variáveis simples. Precisamos cadastrar 4 alunos. Vamos manter esses dados em memória. Considere o preenchimento das variávies na figura abaixo.
 
-+----------------------------------------+--------------------------------------+
-| ``` python                             | ![](images/clipboard-1944915710.png) |
-| # Criando variáveis simples            |                                      |
-| aluno0 = "Ana"                         | ![](images/clipboard-1702924762.png) |
-| aluno1 = "Bruno"                       |                                      |
-| aluno2 = "Carlos"                      |                                      |
-|                                        |                                      |
-|                                        |                                      |
-| # "Adicionando" um novo aluno          |                                      |
-| # (precisamos criar nova variável )    |                                      |
-| aluno3 = "Daniela"                     |                                      |
-|                                        |                                      |
-|                                        |                                      |
-| # Acessando o dado                     |                                      |
-| print(f"O primeiro aluno é: {aluno0}") |                                      |
-|                                        |                                      |
-| # Exibindo todos (nomeando um por um)  |                                      |
-| print(f"A lista completa: {aluno0}     |                                      |
-| , {aluno1}, {aluno2}, {aluno3}")       |                                      |
-| ```                                    |                                      |
-+----------------------------------------+--------------------------------------+
++---------------------------------------------------------------------+--------------------------------------+
+| ``` python                                                          | ![](images/clipboard-1944915710.png) |
+| # Criando variáveis simples                                         |                                      |
+| aluno0 = "Ana"                                                      | ![](images/clipboard-1702924762.png) |
+| aluno1 = "Bruno"                                                    |                                      |
+| aluno2 = "Carlos"                                                   |                                      |
+|                                                                     |                                      |
+|                                                                     |                                      |
+| # "Adicionando" um novo aluno                                       |                                      |
+| # (precisamos criar nova variável )                                 |                                      |
+| aluno3 = "Daniela"                                                  |                                      |
+|                                                                     |                                      |
+|                                                                     |                                      |
+| # Acessando o dado                                                  |                                      |
+| print(f"O primeiro aluno é: {aluno0}")                              |                                      |
+|                                                                     |                                      |
+| # Exibindo todos (nomeando um por um)                               |                                      |
+| print(f"A lista completa: {aluno0} , {aluno1}, {aluno2}, {aluno3}") |                                      |
+| ```                                                                 |                                      |
++---------------------------------------------------------------------+--------------------------------------+
 
 #### Continuação - Exemplo 1 - convertendo variáveis simples uma variável "Lista"
 
@@ -72,11 +71,11 @@ Vamos agora refazer o mesmo exemplo utilizando o tipo de variáveis "Lista", que
 | print(f"Oprimeiro aluno é: {alunos[0]}") |                                      |
 |                                          |                                      |
 |                                          |                                      |
-| printf"A lista completa: {alunos}")      |                                      |
+| print(f"A lista completa: {alunos}")     |                                      |
 | ```                                      |                                      |
 +------------------------------------------+--------------------------------------+
 
-#### **Atividade Prática do Exemplo 1  (Notepad++):**
+#### **Atividade Prática do Exemplo 1 (Notepad++):**
 
 No windows, abra o Notepad++, crie um arquivo chamado `exemplo_01_listas.py` e digite:
 
@@ -102,7 +101,7 @@ print(f"A lista completa: {alunos}")
 
 ------------------------------------------------------------------------
 
-### Dicionário de Dados
+### Dicionário de Dados em Python
 
 ![](06-aula06/media/06-imagem-02.jpg)
 
@@ -139,8 +138,8 @@ Se a lista é uma fila, o dicionário é uma **etiqueta**. Em vez de usar um nú
 | ``` python                             | ![](images/clipboard-2076916456.png) |
 | # Variável do tipo “Dicionário”        |                                      |
 | produto = {                            | ![](images/clipboard-1597571144.png) |
-|     "id“   : 101,                      |                                      |
-|     "nome“ : "Teclado Mecânico",       |                                      |
+|     "id"   : 101,                      |                                      |
+|     "nome" : "Teclado Mecânico",       |                                      |
 |     "preco": 150.00                    |                                      |
 | }                                      |                                      |
 |                                        |                                      |
@@ -152,7 +151,7 @@ Se a lista é uma fila, o dicionário é uma **etiqueta**. Em vez de usar um nú
 | ```                                    |                                      |
 +----------------------------------------+--------------------------------------+
 
-#### **Atividade Prática  do Exemplo 2 (Notepad++):**
+#### **Atividade Prática do Exemplo 2 (Notepad++):**
 
 Crie o arquivo `exemplo_02_dicionario.py`:
 
@@ -179,7 +178,7 @@ print(f"Preço: R$ {produto['preco']}")
 
 ------------------------------------------------------------------------
 
-### Dados tipo TUPLA
+### Dados tipo TUPLA em Python
 
 ![](06-aula06/media/06-imagem-03.jpg)
 
@@ -208,7 +207,7 @@ O tipo tuple (tupla) em Python é uma estrutura de dados ordenada, imutável e i
 | ```                                        |                                      |
 +--------------------------------------------+--------------------------------------+
 
-#### **Atividade Prática do Exemplo 3  (Notepad++):**
+#### **Atividade Prática do Exemplo 3 (Notepad++):**
 
 Crie o arquivo `exemplo_03_tupla.py`:
 
@@ -241,7 +240,7 @@ coordenadas[0] = -23.0000
 
 ------------------------------------------------------------------------
 
-### Dados tipo Conjuntos (SET)
+### Dados tipo Conjuntos (SET) em Python
 
 Para fechar o trio de estruturas de dados essenciais, vamos incluir o **Conjunto (`set`)**. Conjuntos são estruturas de dados semelhantes as filas, porém seus dados são únicos.
 

@@ -58,7 +58,6 @@ contagem = {t: tipos.count(t) for t in set(tipos)}
 # Resultado: {'Urbano': 3, 'Rural': 1}
 ```
 
-
 **Exercicio 3: Mesclagem de Metadados** Atualize um dicionário de metadados com novas informações técnicas.
 
 ``` python
@@ -141,13 +140,11 @@ carros = [{"marca": "Ford", "modelo": "Ka"}, {"marca": "Fiat", "modelo": "Uno"}]
 
 ### Exercícios
 
-
 #### Exercício - 01
 
-O Python funciona como uma poderosa calculadora. Além das operações básicas, o uso de f-strings (formatated strings) facilita a exibição de resultados.
-Crie duas variáveis e exiba as quatro operações básicas entre elas.
+O Python funciona como uma poderosa calculadora. Além das operações básicas, o uso de f-strings (formatated strings) facilita a exibição de resultados. Crie duas variáveis e exiba as quatro operações básicas entre elas.
 
-```python
+``` python
  
  
  
@@ -160,11 +157,10 @@ Crie duas variáveis e exiba as quatro operações básicas entre elas.
 ------------------------------------------------------------------------
 
 #### Exercício - 02
-Listas são coleções de dados. Podemos usar funções como sum(), max() e min() para extrair informações rápidas dessas coleções.
-Dadas as listas de gastos de dois usuários, quem foi o mais econômico?
 
-```python
+Listas são coleções de dados. Podemos usar funções como sum(), max() e min() para extrair informações rápidas dessas coleções. Dadas as listas de gastos de dois usuários, quem foi o mais econômico?
 
+``` python
 
 
 
@@ -179,11 +175,10 @@ Dadas as listas de gastos de dois usuários, quem foi o mais econômico?
 ------------------------------------------------------------------------
 
 #### Exercício - 03
-Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente.
-Dada uma lista de tecnologias, qual o maior e o menor nome?
 
-```python
+Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma lista de tecnologias, qual o maior e o menor nome?
 
+``` python
 
 
 
@@ -195,10 +190,10 @@ Dada uma lista de tecnologias, qual o maior e o menor nome?
 ------------------------------------------------------------------------
 
 #### Exercício - 04
-Muitas vezes precisamos encontrar valores específicos em um conjunto desordenado.
-Como encontrar o segundo maior valor de uma lista?
-```python
 
+Muitas vezes precisamos encontrar valores específicos em um conjunto desordenado. Como encontrar o segundo maior valor de uma lista?
+
+``` python
 
 
 
@@ -210,11 +205,10 @@ Como encontrar o segundo maior valor de uma lista?
 ------------------------------------------------------------------------
 
 #### Exercício - 05
-Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança.
-Crie uma função que bloqueie e-mails de um domínio específico.
 
-```python
+Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança. Crie uma função que bloqueie e-mails de um domínio específico.
 
+``` python
 
 
 
@@ -224,22 +218,23 @@ Crie uma função que bloqueie e-mails de um domínio específico.
 ------------------------------------------------------------------------
 
 #### Exercício - 06
-A apresentação visual do dado é tão importante quanto o cálculo.
-Arredonde um número complexo para exibição em relatório financeiro.
-```python
 
+A apresentação visual do dado é tão importante quanto o cálculo. Arredonde um número complexo para exibição em relatório financeiro.
+
+``` python
 
 
 
 
 ```
------------------------------------------------------------
+
+------------------------------------------------------------------------
 
 ### Respostas aos Exercícios Propostos:
 
 #### Resposta Exercício - 01
 
-```python
+``` python
 # Definindo os valores
 num1 = 10
 num2 = 5
@@ -255,8 +250,7 @@ print(f"Divisão:       {num1 / num2}")
 
 #### Resposta Exercício - 02
 
-
-```python
+``` python
 carolina = [300, 500, 200, 800]
 manoel = [200, 400, 500, 700]
 
@@ -279,8 +273,7 @@ print(f"Veredito: {resultado}")
 
 #### Resposta Exercício - 03
 
-
-```python
+``` python
 techs = ["Python", "Logica Computacional", "R", "Markdown", "html"]
 
 # Usamos a função len como chave para encontrar o extremo por comprimento
@@ -295,8 +288,7 @@ print(f"A menor palavra é '{menor}' com {len(menor)} letras.")
 
 #### Resposta Exercício - 04
 
-
-```python
+``` python
 numeros = [32, 10, 58, 30, 55, 12, 28, 51]
 
 # 1. Convertemos em set para remover duplicatas
@@ -312,7 +304,7 @@ print(f"O segundo maior valor é: {ordenados[-2]}")
 
 #### Resposta Exercício - 05
 
-```python
+``` python
 def funcao_checa_spam(email):
     dominio_bloqueado = "@xyz.com"
     if dominio_bloqueado in email:
@@ -328,13 +320,12 @@ print(funcao_checa_spam("xxx@xyz.com"))
 
 #### Resposta Exercício - 06
 
-```python
+``` python
 crescimento = 32.048701
 
 # O código :.2f indica: float com 2 casas decimais
 print(f"O sucesso da aula de hoje aumentou em {crescimento:.2f}% nosso conhecimento!")
 ```
-
 
 ```{r  aula-listas_e_dicionarios-06-exercicio-html, eval=FALSE, include=FALSE}
 rmarkdown::render("06-2026-04-08_Listas_e_Dicionarios-exercicios.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
