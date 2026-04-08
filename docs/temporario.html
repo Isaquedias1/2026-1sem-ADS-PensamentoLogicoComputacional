@@ -246,9 +246,8 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -259,7 +258,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -445,14 +444,17 @@ display: none;
 
 <div id="exercícios-de-listas-e-dicionários" class="section level2">
 <h2>Exercícios de Listas e Dicionários</h2>
-<div id="listas-dinâmicas-e-ordenadas" class="section level3">
-<h3>1. Listas (Dinâmicas e Ordenadas)</h3>
+<div id="exercícios-resolvidos" class="section level3">
+<h3>Exercícios Resolvidos</h3>
+<div id="listas-dinâmicas-e-ordenadas" class="section level4">
+<h4>Listas (Dinâmicas e Ordenadas)</h4>
 <p><strong>Exercicio 1: Filtragem de Geocódigos</strong> Dada uma lista
 de geocódigos, crie uma nova lista apenas com os que começam com “35”
 (São Paulo).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>geocodigos <span class="op">=</span> [<span class="st">&quot;3501&quot;</span>, <span class="st">&quot;3302&quot;</span>, <span class="st">&quot;3505&quot;</span>, <span class="st">&quot;4101&quot;</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>sp_codes <span class="op">=</span> [code <span class="cf">for</span> code <span class="kw">in</span> geocodigos <span class="cf">if</span> code.startswith(<span class="st">&quot;35&quot;</span>)]</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;3501&#39;, &#39;3505&#39;]</span></span></code></pre></div>
+<hr />
 <p><strong>Exercicio 2: Média de População</strong> Calcule a média
 aritmética de uma lista de populações de setores censitários.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>populacoes <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">450</span>, <span class="dv">300</span>, <span class="dv">210</span>]</span>
@@ -465,8 +467,8 @@ uma lista de nomes de municípios.</p>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;Bauru&#39;, &#39;São Paulo&#39;, &#39;Botucatu&#39;]</span></span></code></pre></div>
 <hr />
 </div>
-<div id="dicionários-chave-valor" class="section level3">
-<h3>2. Dicionários (Chave-Valor)</h3>
+<div id="dicionários-chave-valor" class="section level4">
+<h4>Dicionários (Chave-Valor)</h4>
 <p><strong>Exercicio 1: Mapeamento de SRID</strong> Crie um dicionário
 onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de
 “SIRGAS 2000”.</p>
@@ -486,8 +488,8 @@ dicionário de metadados com novas informações técnicas.</p>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;tabela&#39;: &#39;municipios&#39;, &#39;formato&#39;: &#39;parquet&#39;, &#39;ano&#39;: 2010}</span></span></code></pre></div>
 <hr />
 </div>
-<div id="tuplas-imutáveis" class="section level3">
-<h3>3. Tuplas (Imutáveis)</h3>
+<div id="tuplas-imutáveis" class="section level4">
+<h4>Tuplas (Imutáveis)</h4>
 <p><strong>Exercicio 1: Coordenadas Geográficas</strong> Armazene uma
 coordenada (latitude, longitude) e desempacote-a em duas variáveis.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ponto <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
@@ -506,8 +508,8 @@ o formato “PDF” está na tupla de formatos permitidos.</p>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co"># Resultado: False</span></span></code></pre></div>
 <hr />
 </div>
-<div id="conjuntossets-valores-únicos" class="section level3">
-<h3>4. Conjuntos/Sets (Valores Únicos)</h3>
+<div id="conjuntossets-valores-únicos" class="section level4">
+<h4>Conjuntos/Sets (Valores Únicos)</h4>
 <p><strong>Exercicio 1: Remoção de Duplicatas</strong> Remova IDs
 duplicados de uma lista de importação do Censo.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>ids_brutos <span class="op">=</span> [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">102</span>]</span>
@@ -527,13 +529,176 @@ banco de dados atual.</p>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>faltando <span class="op">=</span> cols_json.difference(cols_db)</span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;populacao&#39;}</span></span></code></pre></div>
 </div>
-<div id="misturando-tudo" class="section level3">
-<h3>5. Misturando tudo</h3>
+<div id="misturando-tudo" class="section level4">
+<h4>Misturando tudo</h4>
 <p>Crie um programa que combine os dois: Uma lista que contenha três
 dicionários, onde cada dicionário representa um carro (marca e
 modelo).</p>
 <p>Exemplo de estrutura:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>carros <span class="op">=</span> [{<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Ka&quot;</span>}, {<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Fiat&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Uno&quot;</span>}]</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="exercícios" class="section level3">
+<h3>Exercícios</h3>
+<div id="exercício---01" class="section level4">
+<h4>Exercício - 01</h4>
+<p>O Python funciona como uma poderosa calculadora. Além das operações
+básicas, o uso de f-strings (formatated strings) facilita a exibição de
+resultados. Crie duas variáveis e exiba as quatro operações básicas
+entre elas.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a> </span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a> </span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a> </span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a> </span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a> </span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a> </span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a> </span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---02" class="section level4">
+<h4>Exercício - 02</h4>
+<p>Listas são coleções de dados. Podemos usar funções como sum(), max()
+e min() para extrair informações rápidas dessas coleções. Dadas as
+listas de gastos de dois usuários, quem foi o mais econômico?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---03" class="section level4">
+<h4>Exercício - 03</h4>
+<p>Strings em Python podem ser tratadas quase como listas de caracteres.
+Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma
+lista de tecnologias, qual o maior e o menor nome?</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---04" class="section level4">
+<h4>Exercício - 04</h4>
+<p>Muitas vezes precisamos encontrar valores específicos em um conjunto
+desordenado. Como encontrar o segundo maior valor de uma lista?</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---05" class="section level4">
+<h4>Exercício - 05</h4>
+<p>Funções permitem reaproveitar código e criar ferramentas
+personalizadas, como filtros de segurança. Crie uma função que bloqueie
+e-mails de um domínio específico.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---06" class="section level4">
+<h4>Exercício - 06</h4>
+<p>A apresentação visual do dado é tão importante quanto o cálculo.
+Arredonde um número complexo para exibição em relatório financeiro.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="respostas-aos-exercícios-propostos" class="section level3">
+<h3>Respostas aos Exercícios Propostos:</h3>
+<div id="resposta-exercício---01" class="section level4">
+<h4>Resposta Exercício - 01</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># Definindo os valores</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>num1 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>num2 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="co"># Processamento e Saída</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Soma:          </span><span class="sc">{</span>num1 <span class="op">+</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Subtração:     </span><span class="sc">{</span>num1 <span class="op">-</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Multiplicação: </span><span class="sc">{</span>num1 <span class="op">*</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Divisão:       </span><span class="sc">{</span>num1 <span class="op">/</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---02" class="section level4">
+<h4>Resposta Exercício - 02</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>carolina <span class="op">=</span> [<span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">800</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>manoel <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">700</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>total_carolina <span class="op">=</span> <span class="bu">sum</span>(carolina)</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>total_manoel <span class="op">=</span> <span class="bu">sum</span>(manoel)</span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="cf">if</span> total_carolina <span class="op">&gt;</span> total_manoel:</span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Carolina gastou mais.&quot;</span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="cf">elif</span> total_manoel <span class="op">&gt;</span> total_carolina:</span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;manoel gastou mais.&quot;</span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Empate nos gastos.&quot;</span></span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total Carolina: R$ </span><span class="sc">{</span>total_carolina<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total manoel: R$ </span><span class="sc">{</span>total_manoel<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Veredito: </span><span class="sc">{</span>resultado<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---03" class="section level4">
+<h4>Resposta Exercício - 03</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>techs <span class="op">=</span> [<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;Logica Computacional&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Markdown&quot;</span>, <span class="st">&quot;html&quot;</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co"># Usamos a função len como chave para encontrar o extremo por comprimento</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>maior <span class="op">=</span> <span class="bu">max</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>menor <span class="op">=</span> <span class="bu">min</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A maior palavra é &#39;</span><span class="sc">{</span>maior<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(maior)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A menor palavra é &#39;</span><span class="sc">{</span>menor<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(menor)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---04" class="section level4">
+<h4>Resposta Exercício - 04</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>numeros <span class="op">=</span> [<span class="dv">32</span>, <span class="dv">10</span>, <span class="dv">58</span>, <span class="dv">30</span>, <span class="dv">55</span>, <span class="dv">12</span>, <span class="dv">28</span>, <span class="dv">51</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="co"># 1. Convertemos em set para remover duplicatas</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co"># 2. Ordenamos a lista</span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>ordenados <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(<span class="bu">set</span>(numeros)))</span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co"># O índice -2 pega o segundo elemento de trás para frente</span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista ordenada: </span><span class="sc">{</span>ordenados<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O segundo maior valor é: </span><span class="sc">{</span>ordenados[<span class="op">-</span><span class="dv">2</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---05" class="section level4">
+<h4>Resposta Exercício - 05</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> funcao_checa_spam(email):</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>    dominio_bloqueado <span class="op">=</span> <span class="st">&quot;@xyz.com&quot;</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>    <span class="cf">if</span> dominio_bloqueado <span class="kw">in</span> email:</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;⚠️ ALERTA: Spam detectado!&quot;</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;✅ E-mail seguro.&quot;</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="co"># Testando a função</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;miguel.penteado@docente.unip.br&quot;</span>))</span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;xxx@xyz.com&quot;</span>))</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---06" class="section level4">
+<h4>Resposta Exercício - 06</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>crescimento <span class="op">=</span> <span class="fl">32.048701</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co"># O código :.2f indica: float com 2 casas decimais</span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O sucesso da aula de hoje aumentou em </span><span class="sc">{</span>crescimento<span class="sc">:.2f}</span><span class="ss">% nosso conhecimento!&quot;</span>)</span></code></pre></div>
+</div>
 </div>
 </div>
 

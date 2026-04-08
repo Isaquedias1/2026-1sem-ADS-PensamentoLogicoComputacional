@@ -23,7 +23,7 @@
 <meta name="author" content="Professor Miguél Suares" />
 
 
-<meta name="date" content="2026-04-07" />
+<meta name="date" content="2026-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,9 +55,8 @@
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -276,7 +275,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.0.6" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#dica-de-ouro-python-tutor"><i class="fa fa-check"></i><b>6.0.6</b> 4. Dica de Ouro: Python Tutor</a></li>
 <li class="chapter" data-level="6.1" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#exerc%C3%ADcios-de-listas-e-dicion%C3%A1rios"><i class="fa fa-check"></i><b>6.1</b> Exercícios de Listas e Dicionários</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#exerc%C3%ADcio-1-1"><i class="fa fa-check"></i><b>6.1.1</b> Exercício 1</a></li>
+<li class="chapter" data-level="6.1.1" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#exerc%C3%ADcios-resolvidos"><i class="fa fa-check"></i><b>6.1.1</b> Exercícios Resolvidos</a></li>
+<li class="chapter" data-level="6.1.2" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#exerc%C3%ADcios"><i class="fa fa-check"></i><b>6.1.2</b> Exercícios</a></li>
+<li class="chapter" data-level="6.1.3" data-path="listas-e-dicionários.html"><a href="listas-e-dicionários.html#respostas-aos-exerc%C3%ADcios-propostos"><i class="fa fa-check"></i><b>6.1.3</b> Respostas aos Exercícios Propostos:</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html"><i class="fa fa-check"></i><b>7</b> Entrada e Saída</a>
@@ -658,12 +659,240 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="exercícios-de-listas-e-dicionários" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Exercícios de Listas e Dicionários<a href="listas-e-dicionários.html#exerc%C3%ADcios-de-listas-e-dicion%C3%A1rios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="exercício-1-1" class="section level3 hasAnchor" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Exercício 1<a href="listas-e-dicionários.html#exerc%C3%ADcio-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercícios-resolvidos" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Exercícios Resolvidos<a href="listas-e-dicionários.html#exerc%C3%ADcios-resolvidos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="listas-dinâmicas-e-ordenadas" class="section level4 hasAnchor" number="6.1.1.1">
+<h4><span class="header-section-number">6.1.1.1</span> Listas (Dinâmicas e Ordenadas)<a href="listas-e-dicionários.html#listas-din%C3%A2micas-e-ordenadas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Filtragem de Geocódigos</strong> Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com “35” (São Paulo).</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="listas-e-dicionários.html#cb95-1" tabindex="-1"></a>geocodigos <span class="op">=</span> [<span class="st">&quot;3501&quot;</span>, <span class="st">&quot;3302&quot;</span>, <span class="st">&quot;3505&quot;</span>, <span class="st">&quot;4101&quot;</span>]</span>
+<span id="cb95-2"><a href="listas-e-dicionários.html#cb95-2" tabindex="-1"></a>sp_codes <span class="op">=</span> [code <span class="cf">for</span> code <span class="kw">in</span> geocodigos <span class="cf">if</span> code.startswith(<span class="st">&quot;35&quot;</span>)]</span>
+<span id="cb95-3"><a href="listas-e-dicionários.html#cb95-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;3501&#39;, &#39;3505&#39;]</span></span></code></pre></div>
+<hr />
+<p><strong>Exercicio 2: Média de População</strong> Calcule a média aritmética de uma lista de populações de setores censitários.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="listas-e-dicionários.html#cb96-1" tabindex="-1"></a>populacoes <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">450</span>, <span class="dv">300</span>, <span class="dv">210</span>]</span>
+<span id="cb96-2"><a href="listas-e-dicionários.html#cb96-2" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">sum</span>(populacoes) <span class="op">/</span> <span class="bu">len</span>(populacoes)</span>
+<span id="cb96-3"><a href="listas-e-dicionários.html#cb96-3" tabindex="-1"></a><span class="co"># Resultado: 270.0</span></span></code></pre></div>
+<p><strong>Exercicio 3: Inversão de Ordem</strong> Inverta a ordem de uma lista de nomes de municípios.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="listas-e-dicionários.html#cb97-1" tabindex="-1"></a>municipios <span class="op">=</span> [<span class="st">&quot;Botucatu&quot;</span>, <span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Bauru&quot;</span>]</span>
+<span id="cb97-2"><a href="listas-e-dicionários.html#cb97-2" tabindex="-1"></a>municipios.reverse() </span>
+<span id="cb97-3"><a href="listas-e-dicionários.html#cb97-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;Bauru&#39;, &#39;São Paulo&#39;, &#39;Botucatu&#39;]</span></span></code></pre></div>
+<hr />
+</div>
+<div id="dicionários-chave-valor" class="section level4 hasAnchor" number="6.1.1.2">
+<h4><span class="header-section-number">6.1.1.2</span> Dicionários (Chave-Valor)<a href="listas-e-dicionários.html#dicion%C3%A1rios-chave-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Mapeamento de SRID</strong> Crie um dicionário onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de “SIRGAS 2000”.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="listas-e-dicionários.html#cb98-1" tabindex="-1"></a>projecoes <span class="op">=</span> {<span class="st">&quot;WGS84&quot;</span>: <span class="dv">4326</span>, <span class="st">&quot;SIRGAS 2000&quot;</span>: <span class="dv">4674</span>}</span>
+<span id="cb98-2"><a href="listas-e-dicionários.html#cb98-2" tabindex="-1"></a>srid <span class="op">=</span> projecoes[<span class="st">&quot;SIRGAS 2000&quot;</span>]</span>
+<span id="cb98-3"><a href="listas-e-dicionários.html#cb98-3" tabindex="-1"></a><span class="co"># Resultado: 4674</span></span></code></pre></div>
+<p><strong>Exercicio 2: Contagem de Ocorrências</strong> Conte quantas vezes cada tipo de setor aparece.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="listas-e-dicionários.html#cb99-1" tabindex="-1"></a>tipos <span class="op">=</span> [<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>, <span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Urbano&quot;</span>]</span>
+<span id="cb99-2"><a href="listas-e-dicionários.html#cb99-2" tabindex="-1"></a>contagem <span class="op">=</span> {t: tipos.count(t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">set</span>(tipos)}</span>
+<span id="cb99-3"><a href="listas-e-dicionários.html#cb99-3" tabindex="-1"></a><span class="co"># Resultado: {&#39;Urbano&#39;: 3, &#39;Rural&#39;: 1}</span></span></code></pre></div>
+<p><strong>Exercicio 3: Mesclagem de Metadados</strong> Atualize um dicionário de metadados com novas informações técnicas.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="listas-e-dicionários.html#cb100-1" tabindex="-1"></a>meta <span class="op">=</span> {<span class="st">&quot;tabela&quot;</span>: <span class="st">&quot;municipios&quot;</span>}</span>
+<span id="cb100-2"><a href="listas-e-dicionários.html#cb100-2" tabindex="-1"></a>novos_dados <span class="op">=</span> {<span class="st">&quot;formato&quot;</span>: <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;ano&quot;</span>: <span class="dv">2010</span>}</span>
+<span id="cb100-3"><a href="listas-e-dicionários.html#cb100-3" tabindex="-1"></a>meta.update(novos_dados)</span>
+<span id="cb100-4"><a href="listas-e-dicionários.html#cb100-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;tabela&#39;: &#39;municipios&#39;, &#39;formato&#39;: &#39;parquet&#39;, &#39;ano&#39;: 2010}</span></span></code></pre></div>
+<hr />
+</div>
+<div id="tuplas-imutáveis" class="section level4 hasAnchor" number="6.1.1.3">
+<h4><span class="header-section-number">6.1.1.3</span> Tuplas (Imutáveis)<a href="listas-e-dicionários.html#tuplas-imut%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Coordenadas Geográficas</strong> Armazene uma coordenada (latitude, longitude) e desempacote-a em duas variáveis.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="listas-e-dicionários.html#cb101-1" tabindex="-1"></a>ponto <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
+<span id="cb101-2"><a href="listas-e-dicionários.html#cb101-2" tabindex="-1"></a>lat, lon <span class="op">=</span> ponto</span>
+<span id="cb101-3"><a href="listas-e-dicionários.html#cb101-3" tabindex="-1"></a><span class="co"># lat = -23.5505, lon = -46.6333</span></span></code></pre></div>
+<p><strong>Exercicio 2: Chaves Compostas</strong> Use uma tupla como chave de um dicionário (útil para índices compostos).</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="listas-e-dicionários.html#cb102-1" tabindex="-1"></a>setores <span class="op">=</span> { (<span class="dv">35</span>, <span class="dv">123</span>): <span class="st">&quot;Setor A&quot;</span>, (<span class="dv">35</span>, <span class="dv">124</span>): <span class="st">&quot;Setor B&quot;</span> }</span>
+<span id="cb102-2"><a href="listas-e-dicionários.html#cb102-2" tabindex="-1"></a><span class="co"># Acessando via (UF, ID)</span></span>
+<span id="cb102-3"><a href="listas-e-dicionários.html#cb102-3" tabindex="-1"></a>nome <span class="op">=</span> setores[(<span class="dv">35</span>, <span class="dv">123</span>)]</span>
+<span id="cb102-4"><a href="listas-e-dicionários.html#cb102-4" tabindex="-1"></a><span class="co"># Resultado: &quot;Setor A&quot;</span></span></code></pre></div>
+<p><strong>Exercicio 3: Verificação de Existência</strong> Verifique se o formato “PDF” está na tupla de formatos permitidos.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="listas-e-dicionários.html#cb103-1" tabindex="-1"></a>formatos <span class="op">=</span> (<span class="st">&quot;csv&quot;</span>, <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;json&quot;</span>)</span>
+<span id="cb103-2"><a href="listas-e-dicionários.html#cb103-2" tabindex="-1"></a>existe <span class="op">=</span> <span class="st">&quot;pdf&quot;</span> <span class="kw">in</span> formatos</span>
+<span id="cb103-3"><a href="listas-e-dicionários.html#cb103-3" tabindex="-1"></a><span class="co"># Resultado: False</span></span></code></pre></div>
+<hr />
+</div>
+<div id="conjuntossets-valores-únicos" class="section level4 hasAnchor" number="6.1.1.4">
+<h4><span class="header-section-number">6.1.1.4</span> Conjuntos/Sets (Valores Únicos)<a href="listas-e-dicionários.html#conjuntossets-valores-%C3%BAnicos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Remoção de Duplicatas</strong> Remova IDs duplicados de uma lista de importação do Censo.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="listas-e-dicionários.html#cb104-1" tabindex="-1"></a>ids_brutos <span class="op">=</span> [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">102</span>]</span>
+<span id="cb104-2"><a href="listas-e-dicionários.html#cb104-2" tabindex="-1"></a>ids_unicos <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(ids_brutos))</span>
+<span id="cb104-3"><a href="listas-e-dicionários.html#cb104-3" tabindex="-1"></a><span class="co"># Resultado: [101, 102, 103] (ordem pode variar)</span></span></code></pre></div>
+<p><strong>Exercicio 2: Interseção de Áreas</strong> Encontre municípios que aparecem em dois levantamentos diferentes.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="listas-e-dicionários.html#cb105-1" tabindex="-1"></a>lista_2010 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Rio&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
+<span id="cb105-2"><a href="listas-e-dicionários.html#cb105-2" tabindex="-1"></a>lista_2026 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Belo Horizonte&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
+<span id="cb105-3"><a href="listas-e-dicionários.html#cb105-3" tabindex="-1"></a>comuns <span class="op">=</span> lista_2010.intersection(lista_2026)</span>
+<span id="cb105-4"><a href="listas-e-dicionários.html#cb105-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;São Paulo&#39;, &#39;Curitiba&#39;}</span></span></code></pre></div>
+<p><strong>Exercicio 3: Diferença de Conjuntos</strong> Identifique quais colunas do <code>schema.json</code> original não estão no seu banco de dados atual.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="listas-e-dicionários.html#cb106-1" tabindex="-1"></a>cols_json <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>, <span class="st">&quot;populacao&quot;</span>}</span>
+<span id="cb106-2"><a href="listas-e-dicionários.html#cb106-2" tabindex="-1"></a>cols_db <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>}</span>
+<span id="cb106-3"><a href="listas-e-dicionários.html#cb106-3" tabindex="-1"></a>faltando <span class="op">=</span> cols_json.difference(cols_db)</span>
+<span id="cb106-4"><a href="listas-e-dicionários.html#cb106-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;populacao&#39;}</span></span></code></pre></div>
+</div>
+<div id="misturando-tudo" class="section level4 hasAnchor" number="6.1.1.5">
+<h4><span class="header-section-number">6.1.1.5</span> Misturando tudo<a href="listas-e-dicionários.html#misturando-tudo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Crie um programa que combine os dois: Uma lista que contenha três dicionários, onde cada dicionário representa um carro (marca e modelo).</p>
 <p>Exemplo de estrutura:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="listas-e-dicionários.html#cb95-1" tabindex="-1"></a>carros <span class="op">=</span> [{<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Ka&quot;</span>}, {<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Fiat&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Uno&quot;</span>}]</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="listas-e-dicionários.html#cb107-1" tabindex="-1"></a>carros <span class="op">=</span> [{<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Ka&quot;</span>}, {<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Fiat&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Uno&quot;</span>}]</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="exercícios" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Exercícios<a href="listas-e-dicionários.html#exerc%C3%ADcios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercício---01" class="section level4 hasAnchor" number="6.1.2.1">
+<h4><span class="header-section-number">6.1.2.1</span> Exercício - 01<a href="listas-e-dicionários.html#exerc%C3%ADcio---01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>O Python funciona como uma poderosa calculadora. Além das operações básicas, o uso de f-strings (formatated strings) facilita a exibição de resultados.
+Crie duas variáveis e exiba as quatro operações básicas entre elas.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="listas-e-dicionários.html#cb108-1" tabindex="-1"></a> </span>
+<span id="cb108-2"><a href="listas-e-dicionários.html#cb108-2" tabindex="-1"></a> </span>
+<span id="cb108-3"><a href="listas-e-dicionários.html#cb108-3" tabindex="-1"></a> </span>
+<span id="cb108-4"><a href="listas-e-dicionários.html#cb108-4" tabindex="-1"></a> </span>
+<span id="cb108-5"><a href="listas-e-dicionários.html#cb108-5" tabindex="-1"></a> </span>
+<span id="cb108-6"><a href="listas-e-dicionários.html#cb108-6" tabindex="-1"></a> </span>
+<span id="cb108-7"><a href="listas-e-dicionários.html#cb108-7" tabindex="-1"></a> </span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---02" class="section level4 hasAnchor" number="6.1.2.2">
+<h4><span class="header-section-number">6.1.2.2</span> Exercício - 02<a href="listas-e-dicionários.html#exerc%C3%ADcio---02" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Listas são coleções de dados. Podemos usar funções como sum(), max() e min() para extrair informações rápidas dessas coleções.
+Dadas as listas de gastos de dois usuários, quem foi o mais econômico?</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="listas-e-dicionários.html#cb109-1" tabindex="-1"></a></span>
+<span id="cb109-2"><a href="listas-e-dicionários.html#cb109-2" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="listas-e-dicionários.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="listas-e-dicionários.html#cb109-4" tabindex="-1"></a></span>
+<span id="cb109-5"><a href="listas-e-dicionários.html#cb109-5" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="listas-e-dicionários.html#cb109-6" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="listas-e-dicionários.html#cb109-7" tabindex="-1"></a></span>
+<span id="cb109-8"><a href="listas-e-dicionários.html#cb109-8" tabindex="-1"></a></span>
+<span id="cb109-9"><a href="listas-e-dicionários.html#cb109-9" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---03" class="section level4 hasAnchor" number="6.1.2.3">
+<h4><span class="header-section-number">6.1.2.3</span> Exercício - 03<a href="listas-e-dicionários.html#exerc%C3%ADcio---03" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente.
+Dada uma lista de tecnologias, qual o maior e o menor nome?</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="listas-e-dicionários.html#cb110-1" tabindex="-1"></a></span>
+<span id="cb110-2"><a href="listas-e-dicionários.html#cb110-2" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="listas-e-dicionários.html#cb110-3" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="listas-e-dicionários.html#cb110-4" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="listas-e-dicionários.html#cb110-5" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="listas-e-dicionários.html#cb110-6" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---04" class="section level4 hasAnchor" number="6.1.2.4">
+<h4><span class="header-section-number">6.1.2.4</span> Exercício - 04<a href="listas-e-dicionários.html#exerc%C3%ADcio---04" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Muitas vezes precisamos encontrar valores específicos em um conjunto desordenado.
+Como encontrar o segundo maior valor de uma lista?</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="listas-e-dicionários.html#cb111-1" tabindex="-1"></a></span>
+<span id="cb111-2"><a href="listas-e-dicionários.html#cb111-2" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="listas-e-dicionários.html#cb111-3" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="listas-e-dicionários.html#cb111-4" tabindex="-1"></a></span>
+<span id="cb111-5"><a href="listas-e-dicionários.html#cb111-5" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="listas-e-dicionários.html#cb111-6" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---05" class="section level4 hasAnchor" number="6.1.2.5">
+<h4><span class="header-section-number">6.1.2.5</span> Exercício - 05<a href="listas-e-dicionários.html#exerc%C3%ADcio---05" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança.
+Crie uma função que bloqueie e-mails de um domínio específico.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="listas-e-dicionários.html#cb112-1" tabindex="-1"></a></span>
+<span id="cb112-2"><a href="listas-e-dicionários.html#cb112-2" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="listas-e-dicionários.html#cb112-3" tabindex="-1"></a></span>
+<span id="cb112-4"><a href="listas-e-dicionários.html#cb112-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---06" class="section level4 hasAnchor" number="6.1.2.6">
+<h4><span class="header-section-number">6.1.2.6</span> Exercício - 06<a href="listas-e-dicionários.html#exerc%C3%ADcio---06" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A apresentação visual do dado é tão importante quanto o cálculo.
+Arredonde um número complexo para exibição em relatório financeiro.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="listas-e-dicionários.html#cb113-1" tabindex="-1"></a></span>
+<span id="cb113-2"><a href="listas-e-dicionários.html#cb113-2" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="listas-e-dicionários.html#cb113-3" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="listas-e-dicionários.html#cb113-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="respostas-aos-exercícios-propostos" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Respostas aos Exercícios Propostos:<a href="listas-e-dicionários.html#respostas-aos-exerc%C3%ADcios-propostos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="resposta-exercício---01" class="section level4 hasAnchor" number="6.1.3.1">
+<h4><span class="header-section-number">6.1.3.1</span> Resposta Exercício - 01<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="listas-e-dicionários.html#cb114-1" tabindex="-1"></a><span class="co"># Definindo os valores</span></span>
+<span id="cb114-2"><a href="listas-e-dicionários.html#cb114-2" tabindex="-1"></a>num1 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb114-3"><a href="listas-e-dicionários.html#cb114-3" tabindex="-1"></a>num2 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb114-4"><a href="listas-e-dicionários.html#cb114-4" tabindex="-1"></a></span>
+<span id="cb114-5"><a href="listas-e-dicionários.html#cb114-5" tabindex="-1"></a><span class="co"># Processamento e Saída</span></span>
+<span id="cb114-6"><a href="listas-e-dicionários.html#cb114-6" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Soma:          </span><span class="sc">{</span>num1 <span class="op">+</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-7"><a href="listas-e-dicionários.html#cb114-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Subtração:     </span><span class="sc">{</span>num1 <span class="op">-</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-8"><a href="listas-e-dicionários.html#cb114-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Multiplicação: </span><span class="sc">{</span>num1 <span class="op">*</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-9"><a href="listas-e-dicionários.html#cb114-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Divisão:       </span><span class="sc">{</span>num1 <span class="op">/</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---02" class="section level4 hasAnchor" number="6.1.3.2">
+<h4><span class="header-section-number">6.1.3.2</span> Resposta Exercício - 02<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---02" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="listas-e-dicionários.html#cb115-1" tabindex="-1"></a>carolina <span class="op">=</span> [<span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">800</span>]</span>
+<span id="cb115-2"><a href="listas-e-dicionários.html#cb115-2" tabindex="-1"></a>manoel <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">700</span>]</span>
+<span id="cb115-3"><a href="listas-e-dicionários.html#cb115-3" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="listas-e-dicionários.html#cb115-4" tabindex="-1"></a>total_carolina <span class="op">=</span> <span class="bu">sum</span>(carolina)</span>
+<span id="cb115-5"><a href="listas-e-dicionários.html#cb115-5" tabindex="-1"></a>total_manoel <span class="op">=</span> <span class="bu">sum</span>(manoel)</span>
+<span id="cb115-6"><a href="listas-e-dicionários.html#cb115-6" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="listas-e-dicionários.html#cb115-7" tabindex="-1"></a><span class="cf">if</span> total_carolina <span class="op">&gt;</span> total_manoel:</span>
+<span id="cb115-8"><a href="listas-e-dicionários.html#cb115-8" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Carolina gastou mais.&quot;</span></span>
+<span id="cb115-9"><a href="listas-e-dicionários.html#cb115-9" tabindex="-1"></a><span class="cf">elif</span> total_manoel <span class="op">&gt;</span> total_carolina:</span>
+<span id="cb115-10"><a href="listas-e-dicionários.html#cb115-10" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;manoel gastou mais.&quot;</span></span>
+<span id="cb115-11"><a href="listas-e-dicionários.html#cb115-11" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb115-12"><a href="listas-e-dicionários.html#cb115-12" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Empate nos gastos.&quot;</span></span>
+<span id="cb115-13"><a href="listas-e-dicionários.html#cb115-13" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="listas-e-dicionários.html#cb115-14" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total Carolina: R$ </span><span class="sc">{</span>total_carolina<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb115-15"><a href="listas-e-dicionários.html#cb115-15" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total manoel: R$ </span><span class="sc">{</span>total_manoel<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb115-16"><a href="listas-e-dicionários.html#cb115-16" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Veredito: </span><span class="sc">{</span>resultado<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---03" class="section level4 hasAnchor" number="6.1.3.3">
+<h4><span class="header-section-number">6.1.3.3</span> Resposta Exercício - 03<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---03" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="listas-e-dicionários.html#cb116-1" tabindex="-1"></a>techs <span class="op">=</span> [<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;Logica Computacional&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Markdown&quot;</span>, <span class="st">&quot;html&quot;</span>]</span>
+<span id="cb116-2"><a href="listas-e-dicionários.html#cb116-2" tabindex="-1"></a></span>
+<span id="cb116-3"><a href="listas-e-dicionários.html#cb116-3" tabindex="-1"></a><span class="co"># Usamos a função len como chave para encontrar o extremo por comprimento</span></span>
+<span id="cb116-4"><a href="listas-e-dicionários.html#cb116-4" tabindex="-1"></a>maior <span class="op">=</span> <span class="bu">max</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb116-5"><a href="listas-e-dicionários.html#cb116-5" tabindex="-1"></a>menor <span class="op">=</span> <span class="bu">min</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb116-6"><a href="listas-e-dicionários.html#cb116-6" tabindex="-1"></a></span>
+<span id="cb116-7"><a href="listas-e-dicionários.html#cb116-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A maior palavra é &#39;</span><span class="sc">{</span>maior<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(maior)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span>
+<span id="cb116-8"><a href="listas-e-dicionários.html#cb116-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A menor palavra é &#39;</span><span class="sc">{</span>menor<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(menor)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---04" class="section level4 hasAnchor" number="6.1.3.4">
+<h4><span class="header-section-number">6.1.3.4</span> Resposta Exercício - 04<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---04" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="listas-e-dicionários.html#cb117-1" tabindex="-1"></a>numeros <span class="op">=</span> [<span class="dv">32</span>, <span class="dv">10</span>, <span class="dv">58</span>, <span class="dv">30</span>, <span class="dv">55</span>, <span class="dv">12</span>, <span class="dv">28</span>, <span class="dv">51</span>]</span>
+<span id="cb117-2"><a href="listas-e-dicionários.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="listas-e-dicionários.html#cb117-3" tabindex="-1"></a><span class="co"># 1. Convertemos em set para remover duplicatas</span></span>
+<span id="cb117-4"><a href="listas-e-dicionários.html#cb117-4" tabindex="-1"></a><span class="co"># 2. Ordenamos a lista</span></span>
+<span id="cb117-5"><a href="listas-e-dicionários.html#cb117-5" tabindex="-1"></a>ordenados <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(<span class="bu">set</span>(numeros)))</span>
+<span id="cb117-6"><a href="listas-e-dicionários.html#cb117-6" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="listas-e-dicionários.html#cb117-7" tabindex="-1"></a><span class="co"># O índice -2 pega o segundo elemento de trás para frente</span></span>
+<span id="cb117-8"><a href="listas-e-dicionários.html#cb117-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista ordenada: </span><span class="sc">{</span>ordenados<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb117-9"><a href="listas-e-dicionários.html#cb117-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O segundo maior valor é: </span><span class="sc">{</span>ordenados[<span class="op">-</span><span class="dv">2</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---05" class="section level4 hasAnchor" number="6.1.3.5">
+<h4><span class="header-section-number">6.1.3.5</span> Resposta Exercício - 05<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---05" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="listas-e-dicionários.html#cb118-1" tabindex="-1"></a><span class="kw">def</span> funcao_checa_spam(email):</span>
+<span id="cb118-2"><a href="listas-e-dicionários.html#cb118-2" tabindex="-1"></a>    dominio_bloqueado <span class="op">=</span> <span class="st">&quot;@xyz.com&quot;</span></span>
+<span id="cb118-3"><a href="listas-e-dicionários.html#cb118-3" tabindex="-1"></a>    <span class="cf">if</span> dominio_bloqueado <span class="kw">in</span> email:</span>
+<span id="cb118-4"><a href="listas-e-dicionários.html#cb118-4" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;⚠️ ALERTA: Spam detectado!&quot;</span></span>
+<span id="cb118-5"><a href="listas-e-dicionários.html#cb118-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;✅ E-mail seguro.&quot;</span></span>
+<span id="cb118-6"><a href="listas-e-dicionários.html#cb118-6" tabindex="-1"></a></span>
+<span id="cb118-7"><a href="listas-e-dicionários.html#cb118-7" tabindex="-1"></a><span class="co"># Testando a função</span></span>
+<span id="cb118-8"><a href="listas-e-dicionários.html#cb118-8" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;miguel.penteado@docente.unip.br&quot;</span>))</span>
+<span id="cb118-9"><a href="listas-e-dicionários.html#cb118-9" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;xxx@xyz.com&quot;</span>))</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---06" class="section level4 hasAnchor" number="6.1.3.6">
+<h4><span class="header-section-number">6.1.3.6</span> Resposta Exercício - 06<a href="listas-e-dicionários.html#resposta-exerc%C3%ADcio---06" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="listas-e-dicionários.html#cb119-1" tabindex="-1"></a>crescimento <span class="op">=</span> <span class="fl">32.048701</span></span>
+<span id="cb119-2"><a href="listas-e-dicionários.html#cb119-2" tabindex="-1"></a></span>
+<span id="cb119-3"><a href="listas-e-dicionários.html#cb119-3" tabindex="-1"></a><span class="co"># O código :.2f indica: float com 2 casas decimais</span></span>
+<span id="cb119-4"><a href="listas-e-dicionários.html#cb119-4" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O sucesso da aula de hoje aumentou em </span><span class="sc">{</span>crescimento<span class="sc">:.2f}</span><span class="ss">% nosso conhecimento!&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
 </div>
 </div>
