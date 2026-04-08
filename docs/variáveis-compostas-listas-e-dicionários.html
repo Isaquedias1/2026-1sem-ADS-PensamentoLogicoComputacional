@@ -662,16 +662,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.1.1</span> Exercícios Resolvidos<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios-resolvidos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="listas-dinâmicas-e-ordenadas" class="section level4 hasAnchor" number="6.1.1.1">
 <h4><span class="header-section-number">6.1.1.1</span> Listas (Dinâmicas e Ordenadas)<a href="variáveis-compostas-listas-e-dicionários.html#listas-din%C3%A2micas-e-ordenadas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><strong>Exercicio 1: Filtragem de Geocódigos</strong> Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com “35” (São Paulo).</p>
+<p><strong>Exercicio 1: Filtragem de Geocódigos</strong></p>
+<p>Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com “35” (São Paulo).</p>
+<p>OBS: você pode utilizar a função .<strong>startwith(‘valor’)</strong> que <strong>existe embutida</strong> em toda variável do tipo <em>Lista</em> no python.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-1" tabindex="-1"></a>geocodigos <span class="op">=</span> [<span class="st">&quot;3501&quot;</span>, <span class="st">&quot;3302&quot;</span>, <span class="st">&quot;3505&quot;</span>, <span class="st">&quot;4101&quot;</span>]</span>
 <span id="cb95-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-2" tabindex="-1"></a>sp_codes <span class="op">=</span> [code <span class="cf">for</span> code <span class="kw">in</span> geocodigos <span class="cf">if</span> code.startswith(<span class="st">&quot;35&quot;</span>)]</span>
 <span id="cb95-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;3501&#39;, &#39;3505&#39;]</span></span></code></pre></div>
 <hr />
-<p><strong>Exercicio 2: Média de População</strong> Calcule a média aritmética de uma lista de populações de setores censitários.</p>
+<p><strong>Exercicio 2: Média de População</strong> Calcule a <strong>média aritmética</strong> de uma <strong>lista de populações</strong> de <strong>setores censitários</strong>.</p>
+<p>OBS: você pode utilizar a funções matemáticas</p>
+<ul>
+<li><p><strong>sum(‘variável’)</strong> para retornar a soma dos conteúdos da variável lista;</p></li>
+<li><p><strong>len(‘variável’)</strong> para retornar quantos elementos existem na lista;</p></li>
+</ul>
 <div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-1" tabindex="-1"></a>populacoes <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">450</span>, <span class="dv">300</span>, <span class="dv">210</span>]</span>
 <span id="cb96-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-2" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">sum</span>(populacoes) <span class="op">/</span> <span class="bu">len</span>(populacoes)</span>
 <span id="cb96-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-3" tabindex="-1"></a><span class="co"># Resultado: 270.0</span></span></code></pre></div>
 <p><strong>Exercicio 3: Inversão de Ordem</strong> Inverta a ordem de uma lista de nomes de municípios.</p>
+<p>OBS: você pode utilizar a função .<strong>reverse()</strong> que <strong>existe embutida</strong> em toda variável do tipo <em>Lista</em> no python.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-1" tabindex="-1"></a>municipios <span class="op">=</span> [<span class="st">&quot;Botucatu&quot;</span>, <span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Bauru&quot;</span>]</span>
 <span id="cb97-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-2" tabindex="-1"></a>municipios.reverse() </span>
 <span id="cb97-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;Bauru&#39;, &#39;São Paulo&#39;, &#39;Botucatu&#39;]</span></span></code></pre></div>
@@ -684,10 +692,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb98-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb98-2" tabindex="-1"></a>srid <span class="op">=</span> projecoes[<span class="st">&quot;SIRGAS 2000&quot;</span>]</span>
 <span id="cb98-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb98-3" tabindex="-1"></a><span class="co"># Resultado: 4674</span></span></code></pre></div>
 <p><strong>Exercicio 2: Contagem de Ocorrências</strong> Conte quantas vezes cada tipo de setor aparece.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-1" tabindex="-1"></a>tipos <span class="op">=</span> [<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>, <span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Urbano&quot;</span>]</span>
-<span id="cb99-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-2" tabindex="-1"></a>contagem <span class="op">=</span> {t: tipos.count(t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">set</span>(tipos)}</span>
+<p>OBS: você pode utilizar a função <strong>count(‘variavel’)</strong> para contar quantas vezes um determinado aparece dentro de uma lista em python. A função count também é uma função embutida em toda variável do tipo <em>Lista</em> no python.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-1" tabindex="-1"></a>denominacoes <span class="op">=</span> [<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>, <span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Urbano&quot;</span>]</span>
+<span id="cb99-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-2" tabindex="-1"></a>contagem <span class="op">=</span> {t: denominacoes.count(t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">set</span>(denominacoes)}</span>
 <span id="cb99-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-3" tabindex="-1"></a><span class="co"># Resultado: {&#39;Urbano&#39;: 3, &#39;Rural&#39;: 1}</span></span></code></pre></div>
 <p><strong>Exercicio 3: Mesclagem de Metadados</strong> Atualize um dicionário de metadados com novas informações técnicas.</p>
+<p>OBS: você pode utilizar a função .<strong>update(‘variavel’)</strong> que existe embutida em toda variável do tipo <em>Dicionário</em> no python.</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-1" tabindex="-1"></a>meta <span class="op">=</span> {<span class="st">&quot;tabela&quot;</span>: <span class="st">&quot;municipios&quot;</span>}</span>
 <span id="cb100-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-2" tabindex="-1"></a>novos_dados <span class="op">=</span> {<span class="st">&quot;formato&quot;</span>: <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;ano&quot;</span>: <span class="dv">2010</span>}</span>
 <span id="cb100-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-3" tabindex="-1"></a>meta.update(novos_dados)</span>
@@ -759,8 +769,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb109-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-4" tabindex="-1"></a></span>
 <span id="cb109-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-5" tabindex="-1"></a></span>
 <span id="cb109-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-6" tabindex="-1"></a></span>
-<span id="cb109-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-7" tabindex="-1"></a></span>
-<span id="cb109-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-8" tabindex="-1"></a></span></code></pre></div>
+<span id="cb109-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-7" tabindex="-1"></a></span></code></pre></div>
 <hr />
 </div>
 <div id="exercício---03" class="section level4 hasAnchor" number="6.1.2.3">
@@ -769,8 +778,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-1" tabindex="-1"></a></span>
 <span id="cb110-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-2" tabindex="-1"></a></span>
 <span id="cb110-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-3" tabindex="-1"></a></span>
-<span id="cb110-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-4" tabindex="-1"></a></span>
-<span id="cb110-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-5" tabindex="-1"></a></span></code></pre></div>
+<span id="cb110-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-4" tabindex="-1"></a></span></code></pre></div>
 <hr />
 </div>
 <div id="exercício---04" class="section level4 hasAnchor" number="6.1.2.4">
@@ -779,24 +787,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-1" tabindex="-1"></a></span>
 <span id="cb111-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-2" tabindex="-1"></a></span>
 <span id="cb111-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-3" tabindex="-1"></a></span>
-<span id="cb111-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-4" tabindex="-1"></a></span>
-<span id="cb111-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-5" tabindex="-1"></a></span></code></pre></div>
+<span id="cb111-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-4" tabindex="-1"></a></span></code></pre></div>
 <hr />
 </div>
 <div id="exercício---05" class="section level4 hasAnchor" number="6.1.2.5">
 <h4><span class="header-section-number">6.1.2.5</span> Exercício - 05<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---05" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança. Crie uma função que bloqueie e-mails de um domínio específico.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-1" tabindex="-1"></a></span>
-<span id="cb112-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-2" tabindex="-1"></a></span>
-<span id="cb112-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-3" tabindex="-1"></a></span></code></pre></div>
+<span id="cb112-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-2" tabindex="-1"></a></span></code></pre></div>
 <hr />
 </div>
 <div id="exercício---06" class="section level4 hasAnchor" number="6.1.2.6">
 <h4><span class="header-section-number">6.1.2.6</span> Exercício - 06<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---06" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A apresentação visual do dado é tão importante quanto o cálculo. Arredonde um número complexo para exibição em relatório financeiro.</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-1" tabindex="-1"></a></span>
-<span id="cb113-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-2" tabindex="-1"></a></span>
-<span id="cb113-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-3" tabindex="-1"></a></span></code></pre></div>
+<span id="cb113-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-2" tabindex="-1"></a></span></code></pre></div>
 <hr />
 </div>
 </div>

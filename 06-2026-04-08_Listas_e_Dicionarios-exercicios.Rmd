@@ -12,7 +12,11 @@ output:
 
 #### Listas (Dinâmicas e Ordenadas)
 
-**Exercicio 1: Filtragem de Geocódigos** Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com "35" (São Paulo).
+**Exercicio 1: Filtragem de Geocódigos**
+
+Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com "35" (São Paulo).
+
+OBS: você pode utilizar a função .**startwith('valor')** que **existe embutida** em toda variável do tipo *Lista* no python.
 
 ``` python
 geocodigos = ["3501", "3302", "3505", "4101"]
@@ -22,7 +26,13 @@ sp_codes = [code for code in geocodigos if code.startswith("35")]
 
 ------------------------------------------------------------------------
 
-**Exercicio 2: Média de População** Calcule a média aritmética de uma lista de populações de setores censitários.
+**Exercicio 2: Média de População** Calcule a **média aritmética** de uma **lista de populações** de **setores censitários**.
+
+OBS: você pode utilizar a funções matemáticas
+
+-   **sum('variável')** para retornar a soma dos conteúdos da variável lista;
+
+-   **len('variável')** para retornar quantos elementos existem na lista;
 
 ``` python
 populacoes = [120, 450, 300, 210]
@@ -31,6 +41,8 @@ media = sum(populacoes) / len(populacoes)
 ```
 
 **Exercicio 3: Inversão de Ordem** Inverta a ordem de uma lista de nomes de municípios.
+
+OBS: você pode utilizar a função .**reverse()** que **existe embutida** em toda variável do tipo *Lista* no python.
 
 ``` python
 municipios = ["Botucatu", "São Paulo", "Bauru"]
@@ -52,13 +64,17 @@ srid = projecoes["SIRGAS 2000"]
 
 **Exercicio 2: Contagem de Ocorrências** Conte quantas vezes cada tipo de setor aparece.
 
+OBS: você pode utilizar a função **count('variavel')** para contar quantas vezes um determinado aparece dentro de uma lista em python. A função count também é uma função embutida em toda variável do tipo *Lista* no python.
+
 ``` python
-tipos = ["Urbano", "Rural", "Urbano", "Urbano"]
-contagem = {t: tipos.count(t) for t in set(tipos)}
+denominacoes = ["Urbano", "Rural", "Urbano", "Urbano"]
+contagem = {t: denominacoes.count(t) for t in set(denominacoes)}
 # Resultado: {'Urbano': 3, 'Rural': 1}
 ```
 
 **Exercicio 3: Mesclagem de Metadados** Atualize um dicionário de metadados com novas informações técnicas.
+
+OBS: você pode utilizar a função .**update('variavel')** que existe embutida em toda variável do tipo *Dicionário* no python.
 
 ``` python
 meta = {"tabela": "municipios"}
@@ -169,7 +185,6 @@ Listas são coleções de dados. Podemos usar funções como sum(), max() e min(
 
 
 
-
 ```
 
 ------------------------------------------------------------------------
@@ -179,7 +194,6 @@ Listas são coleções de dados. Podemos usar funções como sum(), max() e min(
 Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma lista de tecnologias, qual o maior e o menor nome?
 
 ``` python
-
 
 
 
@@ -199,7 +213,6 @@ Muitas vezes precisamos encontrar valores específicos em um conjunto desordenad
 
 
 
-
 ```
 
 ------------------------------------------------------------------------
@@ -212,7 +225,6 @@ Funções permitem reaproveitar código e criar ferramentas personalizadas, como
 
 
 
-
 ```
 
 ------------------------------------------------------------------------
@@ -222,7 +234,6 @@ Funções permitem reaproveitar código e criar ferramentas personalizadas, como
 A apresentação visual do dado é tão importante quanto o cálculo. Arredonde um número complexo para exibição em relatório financeiro.
 
 ``` python
-
 
 
 
