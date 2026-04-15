@@ -11,7 +11,7 @@
 
 
 
-<title>06-2026-04-08_Listas_e_Dicionarios-exercicios.knit</title>
+<title>07-2026-04-15_Entrada_e_Saida.knit</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -442,257 +442,410 @@ display: none;
 </div>
 
 
-<div id="exercícios-de-listas-e-dicionários" class="section level2">
-<h2>Exercícios de Listas e Dicionários</h2>
-<div id="exercícios-resolvidos" class="section level3">
-<h3>Exercícios Resolvidos</h3>
-<div id="listas-dinâmicas-e-ordenadas" class="section level4">
-<h4>Listas (Dinâmicas e Ordenadas)</h4>
-<p><strong>Exercicio 1: Filtragem de Geocódigos</strong> Dada uma lista
-de geocódigos, crie uma nova lista apenas com os que começam com “35”
-(São Paulo).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>geocodigos <span class="op">=</span> [<span class="st">&quot;3501&quot;</span>, <span class="st">&quot;3302&quot;</span>, <span class="st">&quot;3505&quot;</span>, <span class="st">&quot;4101&quot;</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>sp_codes <span class="op">=</span> [code <span class="cf">for</span> code <span class="kw">in</span> geocodigos <span class="cf">if</span> code.startswith(<span class="st">&quot;35&quot;</span>)]</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;3501&#39;, &#39;3505&#39;]</span></span></code></pre></div>
+<div id="entrada-e-saída" class="section level1">
+<h1>Entrada e Saída</h1>
+<div id="criando-e-escrevendo-em-arquivos-de-texto" class="section level2">
+<h2><em>Criando</em> e <em>Escrevendo</em> em <em>Arquivos de
+Texto</em></h2>
+<div id="criando-uma-variável-arquivo-função-interna-open" class="section level3">
+<h3>Criando uma variável “arquivo”: Função interna <em>open()</em></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># 1. Abre o arquivo (se não existir, ele cria)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>variavel_arquivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;exemplo_classico.txt&quot;</span>, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>)</span></code></pre></div>
+<p>A função <em>open(“nome_do_arquivo”, modo_de_operação,
+mapa_de_caracteres )</em> cria um arquivo no disco e <em>associa uma
+variável</em> a esse <em>arquivo</em> do disco.</p>
+</div>
+<div id="os-3-parâmetros-da-função-open" class="section level3">
+<h3>Os 3 parâmetros da função open()</h3>
+<p>A função tem 3 parêmetros:</p>
+<ul>
+<li>nome_do_arquivo: nome do arquivo no disco;</li>
+<li>modo_de_operação: se o conteúdo deve adicionar ou sobreescrever o
+conteúdo anterior;</li>
+<li>mapa_de_caracteres: se os caracteres são “americanos” (ascii),
+“globais” (utf-8) ou globais-windows (utf-16)</li>
+</ul>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="16%" />
+<col width="60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operador da função “write”</th>
+<th>Acrônimo em Inglês</th>
+<th>Como a função trata o arquivo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>‘w’</td>
+<td>Write</td>
+<td>Abre para escrita. Sobrescreve o arquivo se ele já existir.</td>
+</tr>
+<tr class="even">
+<td>‘a’</td>
+<td>Append</td>
+<td>Abre para escrita. Mantém o conteúdo e adiciona ao final.</td>
+</tr>
+<tr class="odd">
+<td>‘x’</td>
+<td>eXclusive</td>
+<td>Cria um novo arquivo. Se o arquivo já existir, o Python retorna um
+erro.</td>
+</tr>
+<tr class="even">
+<td>‘w+’</td>
+<td>Update</td>
+<td>Abre para escrita e leitura simultaneamente (sobrescrevendo).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="escrevendo-no-arquivo-com-open-função-interna-write" class="section level3">
+<h3>Escrevendo no arquivo com open(): Função interna <em>write</em></h3>
+<p>Toda variável do tipo “arquivo” tem uma função interna chamada
+“write()”. Essa função insere texto (strings) dentro de um arquivo de
+texto.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>variavel_arquivo.write(<span class="st">&quot;Escrita no modo clássico.</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="escrevendo-no-arquivo-com-open-fechando-e-escrevendo-com-a-função-interna-close" class="section level3">
+<h3>Escrevendo no arquivo com open(): Fechando e escrevendo com a função
+interna Close()</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>variavel_arquivo.close()</span></code></pre></div>
+</div>
+<div id="um-programa-completo---modo-clássico" class="section level3">
+<h3>Um programa completo - modo clássico</h3>
+<p>Exemplo de um programa completo para criar um arquivo e inserir
+conteúdo dentro dele.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># 1. Abre o arquivo (se não existir, ele cria)</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>variavel_arquivo <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;exemplo_classico.txt&quot;</span>, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># 2. Realiza as operações de escrita</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>variavel_arquivo.write(<span class="st">&quot;Escrita no modo clássico.</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>variavel_arquivo.write(<span class="st">&quot;É necessário fechar o arquivo manualmente.&quot;</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Dados enviados para a variável do arquivo.&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># 3. Fecha o arquivo obrigatoriamente</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>variavel_arquivo.close()</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Arquivo criado e dados salvos com sucesso!&quot;</span>)</span></code></pre></div>
+</div>
+<div id="simplificando-a-escrita-de-arquivo-com-recursos-python-comando-with" class="section level3">
+<h3>Simplificando a escrita de arquivo com recursos PYTHON: comando
+WITH</h3>
+<p>O comando with elimina a necessidade da criação explícita da variável
+de arquivo.</p>
+<p>Desta forma, ao executar o escopo do comando, o arquivo é aberto,
+pode-se escrever nele com a função <em>write()</em>, e , ao terminar a
+escrita, o arquivo se fecha automáticamente.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo.txt&quot;</span>, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> arquivo:</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    arquivo.write(<span class="st">&quot;Olá! Este é um exemplo de escrita.</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    arquivo.write(<span class="st">&quot;Segunda linha do arquivo.&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Arquivo gravado com sucesso!&quot;</span>)</span></code></pre></div>
+</div>
+<div id="exemplos" class="section level3">
+<h3>Exemplos</h3>
+<p><strong>Exemplo 1</strong> - Crie uma variável-lista com valores
+“fulano”, “ciclano”, e “beltrano” e salve esses valores em arquivos.</p>
+<p>Dica: use uma estrutura de repetição para percorrer a lista.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>variavel_lista_1 <span class="op">=</span> [<span class="st">&#39;fulano&#39;</span>, <span class="st">&#39;ciclano&#39;</span>, <span class="st">&#39;beltrano&#39;</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo1-lista.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>    <span class="cf">for</span> indice <span class="kw">in</span> variavel_lista_1:</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>        variavel_arquivo.write(<span class="bu">str</span>(indice) <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div id="saída-exemplo-1" class="section level4">
+<h4>Saída exemplo 1</h4>
+<pre class="csv"><code>fulano
+ciclano
+beltrano</code></pre>
 <hr />
-<p><strong>Exercicio 2: Média de População</strong> Calcule a média
-aritmética de uma lista de populações de setores censitários.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>populacoes <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">450</span>, <span class="dv">300</span>, <span class="dv">210</span>]</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">sum</span>(populacoes) <span class="op">/</span> <span class="bu">len</span>(populacoes)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Resultado: 270.0</span></span></code></pre></div>
-<p><strong>Exercicio 3: Inversão de Ordem</strong> Inverta a ordem de
-uma lista de nomes de municípios.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>municipios <span class="op">=</span> [<span class="st">&quot;Botucatu&quot;</span>, <span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Bauru&quot;</span>]</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>municipios.reverse() </span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;Bauru&#39;, &#39;São Paulo&#39;, &#39;Botucatu&#39;]</span></span></code></pre></div>
-<hr />
+<p><strong>Exemplo 2</strong> - Faça um programa em python. Crie uma
+variável-dicionário para cadastrar a Cliente “Ana”. Ana tem 25 anos e
+mora na cidade de São Paulo.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>variavel_dicionario <span class="op">=</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>    <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Ana&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>    <span class="st">&quot;idade&quot;</span>: <span class="dv">25</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    <span class="st">&quot;cidade&quot;</span>: <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo2-dicionario.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>    <span class="cf">for</span> chave, valor <span class="kw">in</span> variavel_dicionario.items():</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>        variavel_arquivo.write(<span class="ss">f&quot;</span><span class="sc">{</span>chave<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>valor<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span></code></pre></div>
 </div>
-<div id="dicionários-chave-valor" class="section level4">
-<h4>Dicionários (Chave-Valor)</h4>
-<p><strong>Exercicio 1: Mapeamento de SRID</strong> Crie um dicionário
-onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de
-“SIRGAS 2000”.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>projecoes <span class="op">=</span> {<span class="st">&quot;WGS84&quot;</span>: <span class="dv">4326</span>, <span class="st">&quot;SIRGAS 2000&quot;</span>: <span class="dv">4674</span>}</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>srid <span class="op">=</span> projecoes[<span class="st">&quot;SIRGAS 2000&quot;</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># Resultado: 4674</span></span></code></pre></div>
-<p><strong>Exercicio 2: Contagem de Ocorrências</strong> Conte quantas
-vezes cada tipo de setor aparece.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>tipos <span class="op">=</span> [<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>, <span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Urbano&quot;</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>contagem <span class="op">=</span> {t: tipos.count(t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">set</span>(tipos)}</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Resultado: {&#39;Urbano&#39;: 3, &#39;Rural&#39;: 1}</span></span></code></pre></div>
-<p><strong>Exercicio 3: Mesclagem de Metadados</strong> Atualize um
-dicionário de metadados com novas informações técnicas.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>meta <span class="op">=</span> {<span class="st">&quot;tabela&quot;</span>: <span class="st">&quot;municipios&quot;</span>}</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>novos_dados <span class="op">=</span> {<span class="st">&quot;formato&quot;</span>: <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;ano&quot;</span>: <span class="dv">2010</span>}</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>meta.update(novos_dados)</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;tabela&#39;: &#39;municipios&#39;, &#39;formato&#39;: &#39;parquet&#39;, &#39;ano&#39;: 2010}</span></span></code></pre></div>
-<hr />
-</div>
-<div id="tuplas-imutáveis" class="section level4">
-<h4>Tuplas (Imutáveis)</h4>
-<p><strong>Exercicio 1: Coordenadas Geográficas</strong> Armazene uma
-coordenada (latitude, longitude) e desempacote-a em duas variáveis.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>ponto <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>lat, lon <span class="op">=</span> ponto</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># lat = -23.5505, lon = -46.6333</span></span></code></pre></div>
-<p><strong>Exercicio 2: Chaves Compostas</strong> Use uma tupla como
-chave de um dicionário (útil para índices compostos).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>setores <span class="op">=</span> { (<span class="dv">35</span>, <span class="dv">123</span>): <span class="st">&quot;Setor A&quot;</span>, (<span class="dv">35</span>, <span class="dv">124</span>): <span class="st">&quot;Setor B&quot;</span> }</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co"># Acessando via (UF, ID)</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>nome <span class="op">=</span> setores[(<span class="dv">35</span>, <span class="dv">123</span>)]</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># Resultado: &quot;Setor A&quot;</span></span></code></pre></div>
-<p><strong>Exercicio 3: Verificação de Existência</strong> Verifique se
-o formato “PDF” está na tupla de formatos permitidos.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>formatos <span class="op">=</span> (<span class="st">&quot;csv&quot;</span>, <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;json&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>existe <span class="op">=</span> <span class="st">&quot;pdf&quot;</span> <span class="kw">in</span> formatos</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co"># Resultado: False</span></span></code></pre></div>
-<hr />
-</div>
-<div id="conjuntossets-valores-únicos" class="section level4">
-<h4>Conjuntos/Sets (Valores Únicos)</h4>
-<p><strong>Exercicio 1: Remoção de Duplicatas</strong> Remova IDs
-duplicados de uma lista de importação do Censo.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>ids_brutos <span class="op">=</span> [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">102</span>]</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>ids_unicos <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(ids_brutos))</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># Resultado: [101, 102, 103] (ordem pode variar)</span></span></code></pre></div>
-<p><strong>Exercicio 2: Interseção de Áreas</strong> Encontre municípios
-que aparecem em dois levantamentos diferentes.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>lista_2010 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Rio&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>lista_2026 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Belo Horizonte&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>comuns <span class="op">=</span> lista_2010.intersection(lista_2026)</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;São Paulo&#39;, &#39;Curitiba&#39;}</span></span></code></pre></div>
-<p><strong>Exercicio 3: Diferença de Conjuntos</strong> Identifique
-quais colunas do <code>schema.json</code> original não estão no seu
-banco de dados atual.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>cols_json <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>, <span class="st">&quot;populacao&quot;</span>}</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>cols_db <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>}</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>faltando <span class="op">=</span> cols_json.difference(cols_db)</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;populacao&#39;}</span></span></code></pre></div>
-</div>
-<div id="misturando-tudo" class="section level4">
-<h4>Misturando tudo</h4>
-<p>Crie um programa que combine os dois: Uma lista que contenha três
-dicionários, onde cada dicionário representa um carro (marca e
-modelo).</p>
-<p>Exemplo de estrutura:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>carros <span class="op">=</span> [{<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Ka&quot;</span>}, {<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Fiat&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Uno&quot;</span>}]</span></code></pre></div>
+<div id="saída-exemplo-2" class="section level4">
+<h4>Saída exemplo 2</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode txt"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>nome:Ana</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>idade:25</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>cidade:São Paulo</span></code></pre></div>
 <hr />
 </div>
 </div>
-<div id="exercícios" class="section level3">
-<h3>Exercícios</h3>
-<div id="exercício---01" class="section level4">
-<h4>Exercício - 01</h4>
-<p>O Python funciona como uma poderosa calculadora. Além das operações
-básicas, o uso de f-strings (formatated strings) facilita a exibição de
-resultados. Crie duas variáveis e exiba as quatro operações básicas
-entre elas.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a> </span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a> </span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a> </span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a> </span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a> </span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a> </span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a> </span></code></pre></div>
+</div>
+<div id="criando-e-escrevendo-em-arquivos-de-texto-formatados" class="section level2">
+<h2><em>Criando</em> e <em>Escrevendo</em> em <em>Arquivos de Texto</em>
+FORMATADOS</h2>
+<div id="o-padrão-csv-valores-separados-por-vírgula" class="section level3">
+<h3>o PADRÃO CSV (VALORES SEPARADOS POR VÍRGULA)</h3>
+<p>Um arquivo CSV (Comma-Separated Values, ou valores separados por
+vírgula) é um formato de arquivo texto usado para armazenar dados em
+forma de tabela, organizados em linhas e colunas.</p>
+<p>Arquivos CSV podem ser abertos em programas de planilha eletrônica
+como EXCEL.</p>
+<p><strong>Exemplo 3</strong> - Crie uma planilha de excel usando
+criando um arquivo texto no formato CSV. A primeira linha deve ser o
+nome das colunas. A segunda linha deve ser o registro do Cliente. Use os
+dados da cliente “Ana”, de 25 anos e que mora em São Paulo.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>usuarios <span class="op">=</span> [</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>    [<span class="st">&quot;Ana&quot;</span>, <span class="dv">25</span>],</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>    [<span class="st">&quot;Carlos&quot;</span>, <span class="dv">30</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>]</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;usuarios.txt&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> arq:</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>    <span class="cf">for</span> nome, idade <span class="kw">in</span> usuarios:</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>        arq.write(<span class="ss">f&quot;</span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">,</span><span class="sc">{</span>idade<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div id="saída-exemplo-3" class="section level4">
+<h4>Saída exemplo 3</h4>
+<pre class="csv"><code>Ana,25
+Carlos,30</code></pre>
+<hr />
+<p><strong>Exemplo 4</strong> - Crie uma planilha de excel usando
+criando um arquivo texto no formato CSV. Crie uma variável lista
+contendo 2 dicionários. Salve esse conetúdo das variáveis dentro de um
+arquivo. DICA: Use as facilidades do Python.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>variavel_dicionario <span class="op">=</span> [</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>    {</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>        <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Ana&quot;</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>        <span class="st">&quot;idade&quot;</span>: <span class="dv">25</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>        <span class="st">&quot;cidade&quot;</span>: <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    },</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>    {</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>        <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Pedro&quot;</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>        <span class="st">&quot;idade&quot;</span>: <span class="dv">11</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>        <span class="st">&quot;cidade&quot;</span>: <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>    }</span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>]</span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo2.csv&quot;</span>, <span class="st">&quot;w&quot;</span>, newline<span class="op">=</span><span class="st">&quot;&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a>    formatador_csv <span class="op">=</span> csv.writer(variavel_arquivo)</span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>    </span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>    <span class="co"># escrevendo a primeira linha: cabeçalho (colunas)</span></span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>    formatador_csv.writerow(variavel_dicionario[<span class="dv">0</span>].keys())</span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>    </span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>    <span class="co"># escrevendo a segunda linha: valores (linha)</span></span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a>    formatador_csv.writerow(variavel_dicionario[<span class="dv">0</span>].values())</span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>    </span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>    <span class="co"># escrevendo a segunda linha: valores (linha)</span></span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a>    formatador_csv.writerow(variavel_dicionario[<span class="dv">1</span>].values())</span></code></pre></div>
+</div>
+<div id="saída-exemplo-4" class="section level4">
+<h4>Saída exemplo 4</h4>
+<pre class="csv"><code>nome,idade,cidade
+Ana,25,São Paulo
+Pedro,11,São Paulo</code></pre>
 <hr />
 </div>
-<div id="exercício---02" class="section level4">
-<h4>Exercício - 02</h4>
-<p>Listas são coleções de dados. Podemos usar funções como sum(), max()
-e min() para extrair informações rápidas dessas coleções. Dadas as
-listas de gastos de dois usuários, quem foi o mais econômico?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a></span></code></pre></div>
+</div>
+<div id="o-padrão-json-javascript-object-notation" class="section level3">
+<h3>o PADRÃO JSON (Javascript Object Notation)</h3>
+<p>É um formato baseado em pares <em>chave</em> : <em>valor</em>, muito
+parecido com um dicionário em Python.</p>
+<p><strong>Exemplo 5</strong> - Crie uma planilha de excel usando
+criando um arquivo texto no formato JSON. Crie uma variável lista
+contendo 2 dicionários. Salve esse conetúdo das variáveis dentro de um
+arquivo. DICA: Use as facilidades do Python.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>variavel_dicionario <span class="op">=</span> [</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    {</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>        <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Ana&quot;</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>        <span class="st">&quot;idade&quot;</span>: <span class="dv">25</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>        <span class="st">&quot;cidade&quot;</span>: <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>    },</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>    {</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>        <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Pedro&quot;</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>        <span class="st">&quot;idade&quot;</span>: <span class="dv">11</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a>        <span class="st">&quot;cidade&quot;</span>: <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a>    }</span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>]</span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo2.json&quot;</span>, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>    json.dump(variavel_dicionario, variavel_arquivo, ensure_ascii<span class="op">=</span><span class="va">False</span>, indent<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
+<div id="saída-exemplo-5" class="section level4">
+<h4>Saída exemplo 5</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>        <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Ana&quot;</span><span class="fu">,</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>        <span class="dt">&quot;idade&quot;</span><span class="fu">:</span> <span class="dv">25</span><span class="fu">,</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>        <span class="dt">&quot;cidade&quot;</span><span class="fu">:</span> <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>        <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Pedro&quot;</span><span class="fu">,</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>        <span class="dt">&quot;idade&quot;</span><span class="fu">:</span> <span class="dv">11</span><span class="fu">,</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>        <span class="dt">&quot;cidade&quot;</span><span class="fu">:</span> <span class="st">&quot;São Paulo&quot;</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
 <hr />
 </div>
-<div id="exercício---03" class="section level4">
-<h4>Exercício - 03</h4>
-<p>Strings em Python podem ser tratadas quase como listas de caracteres.
-Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma
-lista de tecnologias, qual o maior e o menor nome?</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a></span>
+</div>
+</div>
+<div id="comparação-entre-formatos-dados-tipo-texto-texto-puro-csv-e-json" class="section level2">
+<h2>Comparação entre formatos dados tipo texto: Texto puro, CSV e
+JSON</h2>
+<table>
+<colgroup>
+<col width="26%" />
+<col width="33%" />
+<col width="15%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>TXT (puro)</th>
+<th>CSV</th>
+<th>JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estrutura</td>
+<td>Livre</td>
+<td>Tabular</td>
+<td>Hierárquica</td>
+</tr>
+<tr class="even">
+<td>Organização</td>
+<td>Nenhuma (definida pelo programador)</td>
+<td>Linhas e colunas</td>
+<td>Objetos e listas</td>
+</tr>
+<tr class="odd">
+<td>Padronização</td>
+<td>❌ Não possui</td>
+<td>✔ Simples</td>
+<td>✔ Forte (padrão de mercado)</td>
+</tr>
+<tr class="even">
+<td>Facilidade de leitura</td>
+<td>Média</td>
+<td>Alta</td>
+<td>Alta</td>
+</tr>
+<tr class="odd">
+<td>Facilidade de escrita</td>
+<td>✔ Muito fácil</td>
+<td>✔ Fácil</td>
+<td>✔ Fácil (com biblioteca)</td>
+</tr>
+<tr class="even">
+<td>Preserva tipos (int, string)</td>
+<td>❌ Não</td>
+<td>❌ Não</td>
+<td>✔ Sim</td>
+</tr>
+<tr class="odd">
+<td>Uso em sistemas</td>
+<td>Baixo</td>
+<td>Médio</td>
+<td>Alto</td>
+</tr>
+<tr class="even">
+<td>Uso em APIs</td>
+<td>❌ Não</td>
+<td>❌ Raro</td>
+<td>✔ Padrão</td>
+</tr>
+<tr class="odd">
+<td>Flexibilidade</td>
+<td>✔ Muito alta</td>
+<td>❌ Limitada</td>
+<td>✔ Alta</td>
+</tr>
+</tbody>
+</table>
+<div id="onde-usar-cada-formato-de-arquivo-para-armazenar-dados" class="section level3">
+<h3>Onde usar cada formato de arquivo para armazenar dados:</h3>
+<ul>
+<li>CSV ↔︎ planilhas de excel, tabelas de banco de dados</li>
+<li>JSON ↔︎ documentos (NoSQL, APIs)</li>
+<li>TXT ↔︎ arquivos de logs e arquivos simples</li>
+</ul>
+<hr />
+<p><strong>Exemplo 6</strong> - Temos um arquivo com os valores
+“fulano”, “ciclano”, e “beltrano” . Faça um programa python para ler
+estes arquivos.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>variavel_lista_lida <span class="op">=</span> []</span>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span></code></pre></div>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo1-lista.txt&quot;</span>, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> v_arquivo:</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>    <span class="cf">for</span> linha <span class="kw">in</span> v_arquivo:</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>        variavel_lista_lida.append(linha.strip())</span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="bu">print</span>(variavel_lista_lida)</span></code></pre></div>
 <hr />
-</div>
-<div id="exercício---04" class="section level4">
-<h4>Exercício - 04</h4>
-<p>Muitas vezes precisamos encontrar valores específicos em um conjunto
-desordenado. Como encontrar o segundo maior valor de uma lista?</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a></span>
+<p><strong>Exemplo 7</strong> - Faça um programa em python. Leia e
+imprima na tela o cadastro da Cliente “Ana”.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>variavel_dicionario_lido <span class="op">=</span> {}</span>
 <span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a></span></code></pre></div>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo2-dicionario.txt&quot;</span>, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>    <span class="cf">for</span> linha <span class="kw">in</span> variavel_arquivo:</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>        chave, valor <span class="op">=</span> linha.strip().split(<span class="st">&quot;:&quot;</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>        <span class="cf">if</span> valor.isdigit():</span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>            valor <span class="op">=</span> <span class="bu">int</span>(valor)        </span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>        variavel_dicionario_lido[chave] <span class="op">=</span> valor</span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="bu">print</span>(variavel_dicionario_lido)</span></code></pre></div>
 <hr />
-</div>
-<div id="exercício---05" class="section level4">
-<h4>Exercício - 05</h4>
-<p>Funções permitem reaproveitar código e criar ferramentas
-personalizadas, como filtros de segurança. Crie uma função que bloqueie
-e-mails de um domínio específico.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<p><strong>Exemplo 8</strong> - Leia a planilha excel CSV da cliente ANA
+e imprima os valores na tela;</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>usuarios_lidos <span class="op">=</span> []</span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a></span></code></pre></div>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;usuarios.csv&quot;</span>, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>    <span class="cf">for</span> linha <span class="kw">in</span> variavel_arquivo:</span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a>        nome, idade <span class="op">=</span> linha.strip().split(<span class="st">&quot;,&quot;</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>        <span class="cf">if</span> idade.isdigit():</span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>            idade <span class="op">=</span> <span class="bu">int</span>(idade)        </span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>        usuarios_lidos.append([nome, idade])</span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="bu">print</span>(usuarios_lidos)</span></code></pre></div>
 <hr />
-</div>
-<div id="exercício---06" class="section level4">
-<h4>Exercício - 06</h4>
-<p>A apresentação visual do dado é tão importante quanto o cálculo.
-Arredonde um número complexo para exibição em relatório financeiro.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a></span>
+<p><strong>Exemplo 9</strong> - Use as facilidades do Python. Leia a
+planilha CSV que você crou no exemplo 4</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="im">import</span> csv</span>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a></span></code></pre></div>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>variavel_dicionario_lido <span class="op">=</span> []</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo4.csv&quot;</span>, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> v_arquivo:</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>    leitor_csv <span class="op">=</span> csv.reader(v_arquivo)    </span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>    cabecalho <span class="op">=</span> <span class="bu">next</span>(leitor_csv)  <span class="co"># lê a primeira linha (colunas)    </span></span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>    <span class="cf">for</span> linha <span class="kw">in</span> leitor_csv:</span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>        registro <span class="op">=</span> {}        </span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(cabecalho)):</span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>            valor <span class="op">=</span> linha[i]            </span>
+<span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a>            <span class="co"># conversão de tipo</span></span>
+<span id="cb19-13"><a href="#cb19-13" tabindex="-1"></a>            <span class="cf">if</span> valor.isdigit():</span>
+<span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>                valor <span class="op">=</span> <span class="bu">int</span>(valor)            </span>
+<span id="cb19-15"><a href="#cb19-15" tabindex="-1"></a>            registro[cabecalho[i]] <span class="op">=</span> valor</span>
+<span id="cb19-16"><a href="#cb19-16" tabindex="-1"></a>        variavel_dicionario_lido.append(registro)</span>
+<span id="cb19-17"><a href="#cb19-17" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" tabindex="-1"></a><span class="bu">print</span>(variavel_dicionario_lido)</span></code></pre></div>
 <hr />
-</div>
-</div>
-<div id="respostas-aos-exercícios-propostos" class="section level3">
-<h3>Respostas aos Exercícios Propostos:</h3>
-<div id="resposta-exercício---01" class="section level4">
-<h4>Resposta Exercício - 01</h4>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># Definindo os valores</span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>num1 <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>num2 <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="co"># Processamento e Saída</span></span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Soma:          </span><span class="sc">{</span>num1 <span class="op">+</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Subtração:     </span><span class="sc">{</span>num1 <span class="op">-</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Multiplicação: </span><span class="sc">{</span>num1 <span class="op">*</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Divisão:       </span><span class="sc">{</span>num1 <span class="op">/</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
-<hr />
-</div>
-<div id="resposta-exercício---02" class="section level4">
-<h4>Resposta Exercício - 02</h4>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>carolina <span class="op">=</span> [<span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">800</span>]</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>manoel <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">700</span>]</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>total_carolina <span class="op">=</span> <span class="bu">sum</span>(carolina)</span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>total_manoel <span class="op">=</span> <span class="bu">sum</span>(manoel)</span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="cf">if</span> total_carolina <span class="op">&gt;</span> total_manoel:</span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Carolina gastou mais.&quot;</span></span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="cf">elif</span> total_manoel <span class="op">&gt;</span> total_carolina:</span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;manoel gastou mais.&quot;</span></span>
-<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Empate nos gastos.&quot;</span></span>
-<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total Carolina: R$ </span><span class="sc">{</span>total_carolina<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total manoel: R$ </span><span class="sc">{</span>total_manoel<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Veredito: </span><span class="sc">{</span>resultado<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
-<hr />
-</div>
-<div id="resposta-exercício---03" class="section level4">
-<h4>Resposta Exercício - 03</h4>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>techs <span class="op">=</span> [<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;Logica Computacional&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Markdown&quot;</span>, <span class="st">&quot;html&quot;</span>]</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co"># Usamos a função len como chave para encontrar o extremo por comprimento</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>maior <span class="op">=</span> <span class="bu">max</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>menor <span class="op">=</span> <span class="bu">min</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A maior palavra é &#39;</span><span class="sc">{</span>maior<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(maior)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A menor palavra é &#39;</span><span class="sc">{</span>menor<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(menor)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span></code></pre></div>
-<hr />
-</div>
-<div id="resposta-exercício---04" class="section level4">
-<h4>Resposta Exercício - 04</h4>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>numeros <span class="op">=</span> [<span class="dv">32</span>, <span class="dv">10</span>, <span class="dv">58</span>, <span class="dv">30</span>, <span class="dv">55</span>, <span class="dv">12</span>, <span class="dv">28</span>, <span class="dv">51</span>]</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="co"># 1. Convertemos em set para remover duplicatas</span></span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co"># 2. Ordenamos a lista</span></span>
-<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>ordenados <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(<span class="bu">set</span>(numeros)))</span>
-<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co"># O índice -2 pega o segundo elemento de trás para frente</span></span>
-<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista ordenada: </span><span class="sc">{</span>ordenados<span class="sc">}</span><span class="ss">&quot;</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O segundo maior valor é: </span><span class="sc">{</span>ordenados[<span class="op">-</span><span class="dv">2</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
-<hr />
-</div>
-<div id="resposta-exercício---05" class="section level4">
-<h4>Resposta Exercício - 05</h4>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> funcao_checa_spam(email):</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>    dominio_bloqueado <span class="op">=</span> <span class="st">&quot;@xyz.com&quot;</span></span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>    <span class="cf">if</span> dominio_bloqueado <span class="kw">in</span> email:</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;⚠️ ALERTA: Spam detectado!&quot;</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;✅ E-mail seguro.&quot;</span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="co"># Testando a função</span></span>
-<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;miguel.penteado@docente.unip.br&quot;</span>))</span>
-<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;xxx@xyz.com&quot;</span>))</span></code></pre></div>
-<hr />
-</div>
-<div id="resposta-exercício---06" class="section level4">
-<h4>Resposta Exercício - 06</h4>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>crescimento <span class="op">=</span> <span class="fl">32.048701</span></span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co"># O código :.2f indica: float com 2 casas decimais</span></span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O sucesso da aula de hoje aumentou em </span><span class="sc">{</span>crescimento<span class="sc">:.2f}</span><span class="ss">% nosso conhecimento!&quot;</span>)</span></code></pre></div>
+<p><strong>Exemplo 10</strong> - Leia o arquivo JSON que você criou no
+exemplo 4 e imprima os valores do json na tela. DICA: Use as facilidades
+do Python.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;exemplo5.json&quot;</span>, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf-8&quot;</span>) <span class="im">as</span> variavel_arquivo:</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>    variavel_dicionario_lido <span class="op">=</span> json.load(variavel_arquivo)</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="bu">print</span>(variavel_dicionario_lido)</span></code></pre></div>
 </div>
 </div>
 </div>
