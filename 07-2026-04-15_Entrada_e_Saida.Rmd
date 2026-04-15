@@ -1,3 +1,28 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 # Entrada e Saída
+
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+```{r aula-entrada-e-saida-07-aula-html, eval=FALSE, include=FALSE}
+rmarkdown::render("07-2026-04-15_Entrada_e_Saida.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
+```{r aula-entrada-e-saida-07-aula-word, eval=FALSE, include=FALSE}
+rmarkdown::render("07-2026-04-15_Entrada_e_Saida.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
+```
+
 
 
