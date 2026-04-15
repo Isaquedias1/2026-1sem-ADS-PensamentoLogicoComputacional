@@ -1,3 +1,413 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 # Entrada e Saída
+
+## *Criando* e *Escrevendo* em *Arquivos de Texto*
+
+### Criando uma variável "arquivo": Função interna *open()*
+
+```python
+# 1. Abre o arquivo (se não existir, ele cria)
+variavel_arquivo = open("exemplo_classico.txt", "w", encoding="utf-8")
+```
+
+A função *open("nome_do_arquivo", modo_de_operação, mapa_de_caracteres )* cria
+um arquivo no disco e *associa uma variável* a esse *arquivo* do disco.
+
+### Os 3 parâmetros da função open()
+
+A função tem 3 parêmetros:
+
+- nome_do_arquivo: nome do arquivo no disco;
+- modo_de_operação: se o conteúdo deve adicionar ou sobreescrever o conteúdo anterior;
+- mapa_de_caracteres: se os caracteres são "americanos" (ascii), "globais" (utf-8) ou globais-windows (utf-16)
+
+| Operador da função "write" | Acrônimo em Inglês | Como a função trata o arquivo                                            |
+|----------------------------|--------------------|--------------------------------------------------------------------------|
+| 'w'                        | Write              | Abre para escrita. Sobrescreve o arquivo se ele já existir.              |
+| 'a'                        | Append             | Abre para escrita. Mantém o conteúdo e adiciona ao final.                |
+| 'x'                        | eXclusive          | Cria um novo arquivo. Se o arquivo já existir, o Python retorna um erro. |
+| 'w+'                       | Update             | Abre para escrita e leitura simultaneamente (sobrescrevendo).            |
+
+
+
+### Escrevendo no arquivo com open(): Função interna *write*
+
+Toda variável do tipo "arquivo" tem uma função interna chamada "write()".
+Essa função insere texto (strings) dentro de um arquivo de texto.
+
+```python
+variavel_arquivo.write("Escrita no modo clássico.\n")
+```
+
+### Escrevendo no arquivo com open(): Fechando e escrevendo com a função interna Close()
+
+```python
+variavel_arquivo.close()
+```
+
+### Um programa completo - modo clássico
+
+Exemplo de um programa completo para criar um arquivo e inserir conteúdo dentro
+dele.
+
+```python
+
+# 1. Abre o arquivo (se não existir, ele cria)
+variavel_arquivo = open("exemplo_classico.txt", "w", encoding="utf-8")
+
+# 2. Realiza as operações de escrita
+variavel_arquivo.write("Escrita no modo clássico.\n")
+variavel_arquivo.write("É necessário fechar o arquivo manualmente.")
+print("Dados enviados para a variável do arquivo.")
+
+# 3. Fecha o arquivo obrigatoriamente
+variavel_arquivo.close()
+print("Arquivo criado e dados salvos com sucesso!")
+
+```
+
+### Simplificando a escrita de arquivo com recursos PYTHON: comando WITH
+
+O comando with elimina a necessidade da criação explícita da variável de arquivo.
+
+Desta forma, ao executar o escopo do comando, o arquivo é aberto,
+pode-se escrever nele com a função *write()*, e , ao terminar a escrita,
+o arquivo se fecha automáticamente.
+
+```python
+with open("exemplo.txt", "w", encoding="utf-8") as arquivo:
+    arquivo.write("Olá! Este é um exemplo de escrita.\n")
+    arquivo.write("Segunda linha do arquivo.")
+
+print("Arquivo gravado com sucesso!")
+```
+
+### Exemplos
+
+**Exemplo 1** - Crie uma variável-lista com valores "fulano", "ciclano", e "beltrano" e salve
+esses valores em arquivos.
+
+Dica: use uma estrutura de repetição para percorrer a lista.
+
+
+```python
+variavel_lista_1 = ['fulano', 'ciclano', 'beltrano']
+
+with open("exemplo1-lista.txt", "w") as variavel_arquivo:
+    for indice in variavel_lista_1:
+        variavel_arquivo.write(str(indice) + "\n")
+```
+#### Saída exemplo 1
+
+```csv
+fulano
+ciclano
+beltrano
+```
+
+------------------------------------------------------------------------
+
+
+**Exemplo 2** - Faça um programa em python. Crie uma variável-dicionário 
+para cadastrar a Cliente "Ana". Ana tem 25 anos e mora na cidade de São Paulo.
+
+
+```python
+
+variavel_dicionario = {
+    "nome": "Ana",
+    "idade": 25,
+    "cidade": "São Paulo"
+}
+
+with open("exemplo2-dicionario.txt", "w") as variavel_arquivo:
+
+    for chave, valor in variavel_dicionario.items():
+        variavel_arquivo.write(f"{chave}:{valor}\n")
+```
+
+#### Saída exemplo 2
+
+```txt
+nome:Ana
+idade:25
+cidade:São Paulo
+```
+
+------------------------------------------------------------------------
+
+## *Criando* e *Escrevendo* em *Arquivos de Texto* FORMATADOS 
+
+### o PADRÃO CSV (VALORES SEPARADOS POR VÍRGULA)
+
+Um arquivo CSV (Comma-Separated Values, ou valores separados por vírgula) é um 
+formato de arquivo texto usado para armazenar dados em forma de tabela, 
+organizados em linhas e colunas.
+
+Arquivos CSV podem ser abertos em programas de planilha eletrônica como EXCEL.
+
+**Exemplo 3** - Crie uma planilha de excel usando criando um arquivo texto no
+formato CSV. A primeira linha deve ser o nome das colunas. A segunda linha 
+deve ser o registro do Cliente. Use os dados da cliente "Ana", de 25 anos e que
+mora em São Paulo.
+
+```python
+usuarios = [
+    ["Ana", 25],
+    ["Carlos", 30]
+]
+
+with open("usuarios.txt", "w") as arq:
+    for nome, idade in usuarios:
+        arq.write(f"{nome},{idade}\n")
+```
+
+#### Saída exemplo 3
+
+```csv
+Ana,25
+Carlos,30
+```
+
+------------------------------------------------------------------------
+
+
+**Exemplo 4** - Crie uma planilha de excel usando criando um arquivo texto no
+formato CSV. Crie uma variável lista contendo 2 dicionários.
+Salve esse conetúdo das variáveis dentro de um arquivo.
+DICA: Use as facilidades do Python.
+
+```python
+import csv
+
+variavel_dicionario = [
+    {
+        "nome": "Ana",
+        "idade": 25,
+        "cidade": "São Paulo"
+    },
+    {
+        "nome": "Pedro",
+        "idade": 11,
+        "cidade": "São Paulo"
+    }
+]
+
+with open("exemplo2.csv", "w", newline="", encoding="utf-8") as variavel_arquivo:
+    formatador_csv = csv.writer(variavel_arquivo)
+    
+    # escrevendo a primeira linha: cabeçalho (colunas)
+    formatador_csv.writerow(variavel_dicionario[0].keys())
+    
+    # escrevendo a segunda linha: valores (linha)
+    formatador_csv.writerow(variavel_dicionario[0].values())
+    
+    # escrevendo a segunda linha: valores (linha)
+    formatador_csv.writerow(variavel_dicionario[1].values())
+```
+
+#### Saída exemplo 4
+
+```csv
+nome,idade,cidade
+Ana,25,São Paulo
+Pedro,11,São Paulo
+```
+
+
+------------------------------------------------------------------------
+
+### o PADRÃO JSON (Javascript Object Notation)
+
+É um formato baseado em pares *chave* : *valor*, muito parecido com um dicionário em Python.
+
+
+**Exemplo 5** - Crie uma planilha de excel usando criando um arquivo texto no
+formato JSON. Crie uma variável lista contendo 2 dicionários.
+Salve esse conetúdo das variáveis dentro de um arquivo.
+DICA: Use as facilidades do Python.
+
+```python
+import json
+
+variavel_dicionario = [
+    {
+        "nome": "Ana",
+        "idade": 25,
+        "cidade": "São Paulo"
+    },
+    {
+        "nome": "Pedro",
+        "idade": 11,
+        "cidade": "São Paulo"
+    }
+]
+
+with open("exemplo2.json", "w", encoding="utf-8") as variavel_arquivo:
+    json.dump(variavel_dicionario, variavel_arquivo, ensure_ascii=False, indent=4)
+```
+
+#### Saída exemplo 5
+
+```json
+
+[
+    {
+        "nome": "Ana",
+        "idade": 25,
+        "cidade": "São Paulo"
+    },
+    {
+        "nome": "Pedro",
+        "idade": 11,
+        "cidade": "São Paulo"
+    }
+]
+```
+
+------------------------------------------------------------------------
+
+## Comparação entre formatos dados tipo texto: Texto puro, CSV e JSON
+
+
+
+
+| Característica               | TXT (puro)                          | CSV              | JSON                        |
+| ---------------------------- | ----------------------------------- | ---------------- | --------------------------- |
+| Estrutura                    | Livre                               | Tabular          | Hierárquica                 |
+| Organização                  | Nenhuma (definida pelo programador) | Linhas e colunas | Objetos e listas            |
+| Padronização                 | ❌ Não possui                        | ✔ Simples        | ✔ Forte (padrão de mercado) |
+| Facilidade de leitura        | Média                               | Alta             | Alta                        |
+| Facilidade de escrita        | ✔ Muito fácil                       | ✔ Fácil          | ✔ Fácil (com biblioteca)    |
+| Preserva tipos (int, string) | ❌ Não                               | ❌ Não            | ✔ Sim                       |
+| Uso em sistemas              | Baixo                               | Médio            | Alto                        |
+| Uso em APIs                  | ❌ Não                               | ❌ Raro           | ✔ Padrão                    |
+| Flexibilidade                | ✔ Muito alta                        | ❌ Limitada       | ✔ Alta                      |
+
+### Onde usar cada formato de arquivo para armazenar dados:
+
+- CSV ↔ planilhas de excel, tabelas de banco de dados
+- JSON ↔ documentos (NoSQL, APIs)
+- TXT ↔ arquivos de logs e arquivos simples
+
+
+------------------------------------------------------------------------
+
+## Leitura de Conteúdo de Arquivos
+
+Agora vamos iniciar o processo de retorno. Vamos ler os dados gravados nos 
+arquivos e imprimi-los na tela.
+
+
+**Exemplo 6** - Temos um arquivo com os valores "fulano", "ciclano", e "beltrano" .
+Faça um programa python para ler estes arquivos.
+
+```python
+variavel_lista_lida = []
+
+with open("exemplo1-lista.txt", "r", encoding="utf-8") as v_arquivo:
+    for linha in v_arquivo:
+        variavel_lista_lida.append(linha.strip())
+
+print(variavel_lista_lida)
+
+```
+
+------------------------------------------------------------------------
+
+**Exemplo 7** - Faça um programa em python. Leia e imprima na tela o cadastro da  Cliente "Ana". 
+
+
+```python
+variavel_dicionario_lido = {}
+
+with open("exemplo2-dicionario.txt", "r", encoding="utf-8") as variavel_arquivo:
+    for linha in variavel_arquivo:
+        chave, valor = linha.strip().split(":")
+        if valor.isdigit():
+            valor = int(valor)        
+        variavel_dicionario_lido[chave] = valor
+
+print(variavel_dicionario_lido)
+
+```
+
+------------------------------------------------------------------------
+
+**Exemplo 8** - Leia a planilha excel CSV da cliente ANA e imprima os valores na tela;
+
+
+```python
+usuarios_lidos = []
+
+with open("usuarios.csv", "r", encoding="utf-8") as variavel_arquivo:
+    for linha in variavel_arquivo:
+        nome, idade = linha.strip().split(",")
+        if idade.isdigit():
+            idade = int(idade)        
+        usuarios_lidos.append([nome, idade])
+
+print(usuarios_lidos)
+
+```
+
+------------------------------------------------------------------------
+
+**Exemplo 9** - Use as facilidades do Python. Leia a planilha CSV que você crou no exemplo 4
+
+
+```python
+import csv
+
+variavel_dicionario_lido = []
+
+with open("exemplo4.csv", "r", encoding="utf-8") as v_arquivo:
+    leitor_csv = csv.reader(v_arquivo)    
+    cabecalho = next(leitor_csv)  # lê a primeira linha (colunas)    
+    for linha in leitor_csv:
+        registro = {}        
+        for i in range(len(cabecalho)):
+            valor = linha[i]            
+            # conversão de tipo
+            if valor.isdigit():
+                valor = int(valor)            
+            registro[cabecalho[i]] = valor
+        variavel_dicionario_lido.append(registro)
+
+print(variavel_dicionario_lido)
+
+```
+
+------------------------------------------------------------------------
+
+**Exemplo 10** - Leia o arquivo JSON que você  criou no exemplo 4 e imprima os valores do json na tela.
+DICA: Use as facilidades do Python.
+
+
+```python
+import json
+
+with open("exemplo5.json", "r", encoding="utf-8") as variavel_arquivo:
+    variavel_dicionario_lido = json.load(variavel_arquivo)
+
+print(variavel_dicionario_lido)
+```
+
+
+```{r aula-entrada-e-saida-07-aula-html, eval=FALSE, include=FALSE}
+rmarkdown::render("07-2026-04-15_Entrada_e_Saida.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
+
+```{r aula-entrada-e-saida-07-aula-word, eval=FALSE, include=FALSE}
+rmarkdown::render("07-2026-04-15_Entrada_e_Saida.Rmd", output_dir="docs", output_file ="temporario.docx" , output_format = "word_document") ; utils::browseURL("docs/temporario.docx")
+```
+
 
 

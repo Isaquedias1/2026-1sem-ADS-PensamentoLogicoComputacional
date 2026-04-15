@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Aula 6 Variáveis compostas: Listas e Dicionários | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula</title>
+  <meta name="description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Aula 6 Variáveis compostas: Listas e Dicionários | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="your book url like https://bookdown.org/yihui/bookdown/images/cover.jpg" />
+  <meta property="og:description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="github-repo" content="miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aula 6 Variáveis compostas: Listas e Dicionários | ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula" />
+  
+  <meta name="twitter:description" content="Este livreto reúne anotações, reflexões e conteúdos desenvolvidos ao longo das aulas da disciplina Pensamento Computacional - Ênfase em Python, ministrada pelo Professor Miguél Suares. Elaborado com base em experiências práticas, referências acadêmicas e diretrizes atualizadas sobre o tema, o material busca fornecer uma visão crítica e aplicada sobre análise de dados nas organizações contemporâneas." />
+  <meta name="twitter:image" content="your book url like https://bookdown.org/yihui/bookdown/images/cover.jpg" />
+
+<meta name="author" content="Professor Miguél Suares" />
+
+
+<meta name="date" content="2026-04-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="procedimentos-e-funções.html"/>
+<link rel="next" href="entrada-e-saída.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">2026-ADS- Disciplina de Pensamento Computacional - Ênfase em Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre estas anotações</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acesso-ao-gitbook-celular"><i class="fa fa-check"></i><b>0.1</b> ACESSO AO GITBOOK CELULAR</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#leitores-de-formato-de-arquivo-epub-para-smartphone"><i class="fa fa-check"></i><b>0.2</b> Leitores de formato de arquivo EPUB para SmartPhone</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#android"><i class="fa fa-check"></i><b>0.2.1</b> ANDROID</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#livros-texto-da-disciplina"><i class="fa fa-check"></i><b>0.3</b> Livros Texto da Disciplina</a>
+<ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#fundamentos-matem%C3%A1ticos-para-a-ci%C3%AAncia-da-computa%C3%A7%C3%A3o-matem%C3%A1tica-discreta-e-suas-aplica%C3%A7%C3%B5es-da-autora-judith-l.-gersting"><i class="fa fa-check"></i><b>0.3.1</b> “Fundamentos matemáticos para a ciência da computação Matemática Discreta e Suas Aplicações” da autora “<strong>Judith L. Gersting</strong>”</a></li>
+</ul></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#calend%C3%A1rio-das-aulas"><i class="fa fa-check"></i><b>0.4</b> Calendário das aulas</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#fevereiro-de-2026"><i class="fa fa-check"></i><b>0.5</b> Fevereiro de 2026</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#mar%C3%A7o-de-2026"><i class="fa fa-check"></i><b>0.6</b> Março de 2026</a></li>
+<li class="chapter" data-level="0.7" data-path="index.html"><a href="index.html#abril-de-2026"><i class="fa fa-check"></i><b>0.7</b> Abril de 2026</a></li>
+<li class="chapter" data-level="0.8" data-path="index.html"><a href="index.html#maio-de-2026"><i class="fa fa-check"></i><b>0.8</b> Maio de 2026</a></li>
+<li class="chapter" data-level="0.9" data-path="index.html"><a href="index.html#junho-de-2026"><i class="fa fa-check"></i><b>0.9</b> Junho de 2026</a></li>
+<li class="chapter" data-level="0.10" data-path="index.html"><a href="index.html#alunos-2026---1o-semestre"><i class="fa fa-check"></i><b>0.10</b> Alunos 2026 - 1o Semestre</a>
+<ul>
+<li class="chapter" data-level="0.10.1" data-path="index.html"><a href="index.html#campus-ch%C3%A1cara-santo-ant%C3%B4nio"><i class="fa fa-check"></i><b>0.10.1</b> Campus Chácara Santo Antônio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="aula-inaugural.html"><a href="aula-inaugural.html"><i class="fa fa-check"></i><b>1</b> Aula Inaugural</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="aula-inaugural.html"><a href="aula-inaugural.html#come%C3%A7ando-a-programar"><i class="fa fa-check"></i><b>1.1</b> Começando a Programar:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html"><i class="fa fa-check"></i><b>2</b> Introdução a Lógica de Programação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#programas-compilados"><i class="fa fa-check"></i><b>2.1</b> Programas Compilados</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-cc"><i class="fa fa-check"></i><b>2.1.1</b> Linguagem C/C++</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-java"><i class="fa fa-check"></i><b>2.1.2</b> Linguagem JAVA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#programas-interpretados"><i class="fa fa-check"></i><b>2.2</b> Programas Interpretados</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-python"><i class="fa fa-check"></i><b>2.2.1</b> Linguagem PYTHON</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#linguagem-javascript"><i class="fa fa-check"></i><b>2.2.2</b> Linguagem JAVASCRIPT</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#in%C3%ADcio-de-desenvolvimento-opera%C3%A7%C3%B5es-b%C3%A1sicas-de-linguagens-de-alto-n%C3%ADvel"><i class="fa fa-check"></i><b>2.3</b> Início de Desenvolvimento: Operações básicas de linguagens de alto-nível</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#escrever-na-tela-sa%C3%ADda-de-dados"><i class="fa fa-check"></i><b>2.3.1</b> Escrever na tela (Saída de Dados)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#ler-do-teclado-entrada-de-dados"><i class="fa fa-check"></i><b>2.3.2</b> Ler do Teclado (Entrada de Dados)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#repetir-opera%C3%A7%C3%B5es-la%C3%A7os-de-repeti%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.3.3</b> Repetir Operações (Laços de Repetição)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#decidir-estruturas-condicionais"><i class="fa fa-check"></i><b>2.3.4</b> Decidir (Estruturas Condicionais )</a></li>
+<li class="chapter" data-level="2.3.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#procedimentos-e-fun%C3%A7%C3%B5es-modulariza%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.3.5</b> Procedimentos e Funções (Modularização)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#o-que-s%C3%A3o-algoritmos"><i class="fa fa-check"></i><b>2.4</b> O que são Algoritmos ?</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-01"><i class="fa fa-check"></i><b>2.4.1</b> Exemplo-01:</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-02"><i class="fa fa-check"></i><b>2.4.2</b> Exemplo-02:</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-03"><i class="fa fa-check"></i><b>2.4.3</b> Exemplo-03:</a></li>
+<li class="chapter" data-level="2.4.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-04"><i class="fa fa-check"></i><b>2.4.4</b> Exemplo-04:</a></li>
+<li class="chapter" data-level="2.4.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-05"><i class="fa fa-check"></i><b>2.4.5</b> Exemplo-05:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-python"><i class="fa fa-check"></i><b>2.5</b> Executando os Algoritmos Através de uma Linguagem: PYTHON</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-06"><i class="fa fa-check"></i><b>2.5.1</b> Exemplo-06:</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-07"><i class="fa fa-check"></i><b>2.5.2</b> Exemplo-07:</a></li>
+<li class="chapter" data-level="2.5.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-08"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo-08:</a></li>
+<li class="chapter" data-level="2.5.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-09"><i class="fa fa-check"></i><b>2.5.4</b> Exemplo-09:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-c"><i class="fa fa-check"></i><b>2.6</b> Executando os Algoritmos Através de uma Linguagem: C</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-10"><i class="fa fa-check"></i><b>2.6.1</b> Exemplo-10:</a></li>
+<li class="chapter" data-level="2.6.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-11"><i class="fa fa-check"></i><b>2.6.2</b> Exemplo-11:</a></li>
+<li class="chapter" data-level="2.6.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-12"><i class="fa fa-check"></i><b>2.6.3</b> Exemplo-12:</a></li>
+<li class="chapter" data-level="2.6.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-13"><i class="fa fa-check"></i><b>2.6.4</b> Exemplo-13:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#executando-os-algoritmos-atrav%C3%A9s-de-uma-linguagem-java"><i class="fa fa-check"></i><b>2.7</b> Executando os Algoritmos Através de uma Linguagem: JAVA</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-14"><i class="fa fa-check"></i><b>2.7.1</b> Exemplo-14:</a></li>
+<li class="chapter" data-level="2.7.2" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-15"><i class="fa fa-check"></i><b>2.7.2</b> Exemplo-15:</a></li>
+<li class="chapter" data-level="2.7.3" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-16"><i class="fa fa-check"></i><b>2.7.3</b> Exemplo-16:</a></li>
+<li class="chapter" data-level="2.7.4" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exemplo-17"><i class="fa fa-check"></i><b>2.7.4</b> Exemplo-17:</a></li>
+<li class="chapter" data-level="2.7.5" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#ferramentas"><i class="fa fa-check"></i><b>2.7.5</b> Ferramentas:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="introdução-a-lógica-de-programação.html"><a href="introdução-a-lógica-de-programação.html#exerc%C3%ADcios-de-introdu%C3%A7%C3%A3o-a-l%C3%B3gica-de-programa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>2.8</b> Exercícios de Introdução a Lógica de Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><i class="fa fa-check"></i><b>3</b> Estudo Detalhado: Estruturas de Repetição e Estruturas de Controle</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-repeti%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.1</b> ESTRUTURAS DE REPETIÇÃO</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-while-enquanto"><i class="fa fa-check"></i><b>3.1.1</b> O Laço WHILE (“enquanto”)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#o-la%C3%A7o-for-para-cada"><i class="fa fa-check"></i><b>3.1.2</b> O Laço FOR (“para cada”)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#estruturas-de-controle"><i class="fa fa-check"></i><b>3.2</b> ESTRUTURAS DE CONTROLE</a></li>
+<li class="chapter" data-level="3.3" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#exerc%C3%ADcios-de-estruturas-de-controle---repeti%C3%A7%C3%A3o-e-decis%C3%A3o"><i class="fa fa-check"></i><b>3.3</b> Exercícios de Estruturas de Controle - Repetição e Decisão</a></li>
+<li class="chapter" data-level="3.4" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#exerc%C3%ADcios-de-estruturas-de-repeit%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>3.4</b> Exercícios de Estruturas de Repeitção:</a></li>
+<li class="chapter" data-level="3.5" data-path="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html"><a href="estudo-detalhado-estruturas-de-repetição-e-estruturas-de-controle.html#exerc%C3%ADcios-de-estruturas-de-controle"><i class="fa fa-check"></i><b>3.5</b> Exercícios de Estruturas de Controle:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>4</b> Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---linguagem-fortemente-tipada-x-linguagem-fracamente-tipada"><i class="fa fa-check"></i><b>4.1</b> Python - Linguagem fortemente tipada x linguagem fracamente tipada</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#linguagens-fortemente-tipadas"><i class="fa fa-check"></i><b>4.1.1</b> Linguagens Fortemente Tipadas</a></li>
+<li class="chapter" data-level="4.1.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#caracter%C3%ADsticas"><i class="fa fa-check"></i><b>4.1.2</b> Características</a></li>
+<li class="chapter" data-level="4.1.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#linguagens-fracamente-tipadas"><i class="fa fa-check"></i><b>4.1.3</b> Linguagens Fracamente Tipadas</a></li>
+<li class="chapter" data-level="4.1.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#caracter%C3%ADsticas-1"><i class="fa fa-check"></i><b>4.1.4</b> Características</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-aritm%C3%A9ticos"><i class="fa fa-check"></i><b>4.2</b> Python - Operadores Aritméticos</a></li>
+<li class="chapter" data-level="4.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-relacionais-compara%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>4.3</b> Python - Operadores Relacionais (Comparação)</a></li>
+<li class="chapter" data-level="4.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-l%C3%B3gicos"><i class="fa fa-check"></i><b>4.4</b> Python - Operadores Lógicos</a></li>
+<li class="chapter" data-level="4.5" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-de-atribui%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>4.5</b> Python - Operadores de Atribuição</a></li>
+<li class="chapter" data-level="4.6" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-de-identidade"><i class="fa fa-check"></i><b>4.6</b> Python - Operadores de Identidade</a></li>
+<li class="chapter" data-level="4.7" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---operadores-de-associa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>4.7</b> Python - Operadores de Associação</a></li>
+<li class="chapter" data-level="4.8" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#python---converter-tipo-de-vari%C3%A1vel-type-casting"><i class="fa fa-check"></i><b>4.8</b> Python - “Converter” tipo de Variável (Type Casting)</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#convers%C3%A3o-para-inteiro-int"><i class="fa fa-check"></i><b>4.8.1</b> Conversão para Inteiro (int):</a></li>
+<li class="chapter" data-level="4.8.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#convers%C3%A3o-para-n%C3%BAmero-real-float"><i class="fa fa-check"></i><b>4.8.2</b> Conversão para número real (float):</a></li>
+<li class="chapter" data-level="4.8.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#convers%C3%A3o-para-cadeia-de-caracteres-string"><i class="fa fa-check"></i><b>4.8.3</b> Conversão para cadeia de caracteres (string):</a></li>
+<li class="chapter" data-level="4.8.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#exemplo-integrando-tudo"><i class="fa fa-check"></i><b>4.8.4</b> Exemplo integrando tudo:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#exerc%C3%ADcios-de-tipos-de-vari%C3%A1veis"><i class="fa fa-check"></i><b>4.9</b> Exercícios de Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#exemplos"><i class="fa fa-check"></i><b>4.9.1</b> Exemplos:</a></li>
+<li class="chapter" data-level="4.9.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#exerc%C3%ADcios-propostos"><i class="fa fa-check"></i><b>4.9.2</b> Exercícios Propostos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html"><i class="fa fa-check"></i><b>5</b> Procedimentos e Funções</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#cria%C3%A7%C3%A3o-e-chamada-de-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.0.1</b> Criação e Chamada de Funções</a></li>
+<li class="chapter" data-level="5.0.2" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#conceito-de-modulariza%C3%A7%C3%A3o-do-c%C3%B3digo"><i class="fa fa-check"></i><b>5.0.2</b> Conceito de Modularização do Código</a></li>
+<li class="chapter" data-level="5.0.3" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#passagem-de-par%C3%A2metros-e-valores-de-retorno"><i class="fa fa-check"></i><b>5.0.3</b> Passagem de Parâmetros e Valores de Retorno</a></li>
+<li class="chapter" data-level="5.1" data-path="procedimentos-e-funções.html"><a href="procedimentos-e-funções.html#exerc%C3%ADcios-de-procedimentos-e-fun%C3%A7%C3%B5es"><i class="fa fa-check"></i><b>5.1</b> Exercícios de Procedimentos e Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html"><i class="fa fa-check"></i><b>6</b> Variáveis compostas: Listas e Dicionários</a>
+<ul>
+<li class="chapter" data-level="6.0.1" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#o-mundo-antes-do-python"><i class="fa fa-check"></i><b>6.0.1</b> O mundo antes do Python</a></li>
+<li class="chapter" data-level="6.0.2" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#listas-de-dados-lists-em-python"><i class="fa fa-check"></i><b>6.0.2</b> Listas de Dados (Lists) em Python</a></li>
+<li class="chapter" data-level="6.0.3" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#dicion%C3%A1rio-de-dados-em-python"><i class="fa fa-check"></i><b>6.0.3</b> Dicionário de Dados em Python</a></li>
+<li class="chapter" data-level="6.0.4" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#dados-tipo-tupla-em-python"><i class="fa fa-check"></i><b>6.0.4</b> Dados tipo TUPLA em Python</a></li>
+<li class="chapter" data-level="6.0.5" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#dados-tipo-conjuntos-set-em-python"><i class="fa fa-check"></i><b>6.0.5</b> Dados tipo Conjuntos (SET) em Python</a></li>
+<li class="chapter" data-level="6.0.6" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#dica-de-ouro-python-tutor"><i class="fa fa-check"></i><b>6.0.6</b> 4. Dica de Ouro: Python Tutor</a></li>
+<li class="chapter" data-level="6.1" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios-de-listas-e-dicion%C3%A1rios"><i class="fa fa-check"></i><b>6.1</b> Exercícios de Listas e Dicionários</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios-resolvidos"><i class="fa fa-check"></i><b>6.1.1</b> Exercícios Resolvidos</a></li>
+<li class="chapter" data-level="6.1.2" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios"><i class="fa fa-check"></i><b>6.1.2</b> Exercícios</a></li>
+<li class="chapter" data-level="6.1.3" data-path="variáveis-compostas-listas-e-dicionários.html"><a href="variáveis-compostas-listas-e-dicionários.html#respostas-aos-exerc%C3%ADcios-propostos"><i class="fa fa-check"></i><b>6.1.3</b> Respostas aos Exercícios Propostos:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html"><i class="fa fa-check"></i><b>7</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#criando-e-escrevendo-em-arquivos-de-texto"><i class="fa fa-check"></i><b>7.1</b> <em>Criando</em> e <em>Escrevendo</em> em <em>Arquivos de Texto</em></a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#criando-uma-vari%C3%A1vel-arquivo-fun%C3%A7%C3%A3o-interna-open"><i class="fa fa-check"></i><b>7.1.1</b> Criando uma variável “arquivo”: Função interna <em>open()</em></a></li>
+<li class="chapter" data-level="7.1.2" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#os-3-par%C3%A2metros-da-fun%C3%A7%C3%A3o-open"><i class="fa fa-check"></i><b>7.1.2</b> Os 3 parâmetros da função open()</a></li>
+<li class="chapter" data-level="7.1.3" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#escrevendo-no-arquivo-com-open-fun%C3%A7%C3%A3o-interna-write"><i class="fa fa-check"></i><b>7.1.3</b> Escrevendo no arquivo com open(): Função interna <em>write</em></a></li>
+<li class="chapter" data-level="7.1.4" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#escrevendo-no-arquivo-com-open-fechando-e-escrevendo-com-a-fun%C3%A7%C3%A3o-interna-close"><i class="fa fa-check"></i><b>7.1.4</b> Escrevendo no arquivo com open(): Fechando e escrevendo com a função interna Close()</a></li>
+<li class="chapter" data-level="7.1.5" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#um-programa-completo---modo-cl%C3%A1ssico"><i class="fa fa-check"></i><b>7.1.5</b> Um programa completo - modo clássico</a></li>
+<li class="chapter" data-level="7.1.6" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#simplificando-a-escrita-de-arquivo-com-recursos-python-comando-with"><i class="fa fa-check"></i><b>7.1.6</b> Simplificando a escrita de arquivo com recursos PYTHON: comando WITH</a></li>
+<li class="chapter" data-level="7.1.7" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#exemplos-1"><i class="fa fa-check"></i><b>7.1.7</b> Exemplos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#criando-e-escrevendo-em-arquivos-de-texto-formatados"><i class="fa fa-check"></i><b>7.2</b> <em>Criando</em> e <em>Escrevendo</em> em <em>Arquivos de Texto</em> FORMATADOS</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#o-padr%C3%A3o-csv-valores-separados-por-v%C3%ADrgula"><i class="fa fa-check"></i><b>7.2.1</b> o PADRÃO CSV (VALORES SEPARADOS POR VÍRGULA)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#o-padr%C3%A3o-json-javascript-object-notation"><i class="fa fa-check"></i><b>7.2.2</b> o PADRÃO JSON (Javascript Object Notation)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#compara%C3%A7%C3%A3o-entre-formatos-dados-tipo-texto-texto-puro-csv-e-json"><i class="fa fa-check"></i><b>7.3</b> Comparação entre formatos dados tipo texto: Texto puro, CSV e JSON</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#onde-usar-cada-formato-de-arquivo-para-armazenar-dados"><i class="fa fa-check"></i><b>7.3.1</b> Onde usar cada formato de arquivo para armazenar dados:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#leitura-de-conte%C3%BAdo-de-arquivos"><i class="fa fa-check"></i><b>7.4</b> Leitura de Conteúdo de Arquivos</a></li>
+<li class="chapter" data-level="7.5" data-path="entrada-e-saída.html"><a href="entrada-e-saída.html#exerc%C3%ADcios-de-entrada-e-sa%C3%ADda"><i class="fa fa-check"></i><b>7.5</b> Exercícios de Entrada e Saída</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="depuração-e-teste-de-algorimos.html"><a href="depuração-e-teste-de-algorimos.html"><i class="fa fa-check"></i><b>8</b> Depuração e Teste de Algorimos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="depuração-e-teste-de-algorimos.html"><a href="depuração-e-teste-de-algorimos.html#exerc%C3%ADcios-de-depura%C3%A7%C3%A3o-e-teste-de-algorimos"><i class="fa fa-check"></i><b>8.1</b> Exercícios de Depuração e Teste de Algorimos</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="programação-orientada-a-objetos---parte-1.html"><a href="programação-orientada-a-objetos---parte-1.html"><i class="fa fa-check"></i><b>9</b> Programação Orientada a Objetos - Parte 1</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="programação-orientada-a-objetos---parte-1.html"><a href="programação-orientada-a-objetos---parte-1.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-objetos---parte-1"><i class="fa fa-check"></i><b>9.1</b> Exercícios de Programação Orientada a Objetos - Parte 1</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="programação-orientada-a-objetos---parte-2.html"><a href="programação-orientada-a-objetos---parte-2.html"><i class="fa fa-check"></i><b>10</b> Programação Orientada a Objetos - Parte 2</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="programação-orientada-a-objetos---parte-2.html"><a href="programação-orientada-a-objetos---parte-2.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-objetos---parte-2"><i class="fa fa-check"></i><b>10.1</b> Exercícios de Programação Orientada a Objetos - Parte 2</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="programação-orientada-a-eventos---graphical-user-interfaces.html"><a href="programação-orientada-a-eventos---graphical-user-interfaces.html"><i class="fa fa-check"></i><b>11</b> Programação Orientada a Eventos - Graphical User Interfaces</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="programação-orientada-a-eventos---graphical-user-interfaces.html"><a href="programação-orientada-a-eventos---graphical-user-interfaces.html#exerc%C3%ADcios-de-programa%C3%A7%C3%A3o-orientada-a-eventos---graphical-user-interfaces"><i class="fa fa-check"></i><b>11.1</b> Exercícios de Programação Orientada a Eventos - Graphical User Interfaces</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com Biblioteca R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ADS - Pensamento Lógico Computacional - Ênfase em Python - 2026 - Anotações de aula</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variáveis-compostas-listas-e-dicionários" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Aula 6</span> Variáveis compostas: Listas e Dicionários<a href="variáveis-compostas-listas-e-dicionários.html#vari%C3%A1veis-compostas-listas-e-dicion%C3%A1rios" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Até este ponto, tratamos programas python que utilizavam variáveis simples. Hoje vamos ver como podemos criar coleções de variáveis para armazenar dados em memória.</p>
+<div id="o-mundo-antes-do-python" class="section level3 hasAnchor" number="6.0.1">
+<h3><span class="header-section-number">6.0.1</span> O mundo antes do Python<a href="variáveis-compostas-listas-e-dicionários.html#o-mundo-antes-do-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Antigamente, em linguagens como <strong>C</strong> ou <strong>Pascal</strong>, lidar com conjuntos de dados era um desafio de engenharia.</p>
+<ul>
+<li><strong>Alocação Estática:</strong> Você precisava dizer ao computador exatamente quantos itens a lista teria antes de começar. Se tentasse colocar o 11º item em um espaço de 10, o programa travava (o famoso <em>buffer overflow</em>).</li>
+<li><strong>Gerência de Memória:</strong> O programador era responsável por “alocar” o espaço na memória RAM e, mais importante, “liberar” esse espaço quando terminasse. Esquecer disso causava o <em>memory leak</em> (vazamento de memória), que deixava o computador lento até travar.</li>
+<li><strong>A Revolução do Python:</strong> O Python utiliza um <strong>Coletor de Lixo (Garbage Collector)</strong>. Ele decide sozinho quando uma lista não é mais necessária e limpa a memória para você. Além disso, as listas são dinâmicas: elas crescem e diminuem conforme a necessidade, sem que você precise declarar o tamanho fixo.</li>
+</ul>
+</div>
+<div id="listas-de-dados-lists-em-python" class="section level3 hasAnchor" number="6.0.2">
+<h3><span class="header-section-number">6.0.2</span> Listas de Dados (Lists) em Python<a href="variáveis-compostas-listas-e-dicionários.html#listas-de-dados-lists-em-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="06-aula06/media/06-imagem-01.jpg" /></p>
+<p>Em Python, uma <strong>lista</strong> é uma estrutura de dados utilizada para armazenar uma coleção de itens em uma única variável. Elas são extremamente versáteis e uma das ferramentas mais fundamentais para qualquer programador, especialmente em contextos de ciência de dados e engenharia de software.</p>
+<div id="exemplo-1---um-programa-python-utilizando-variáveis-simples" class="section level4 hasAnchor" number="6.0.2.1">
+<h4><span class="header-section-number">6.0.2.1</span> Exemplo 1 - um programa python utilizando variáveis simples<a href="variáveis-compostas-listas-e-dicionários.html#exemplo-1---um-programa-python-utilizando-vari%C3%A1veis-simples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Considere este exemplo em python utilizando variáveis simples. Precisamos cadastrar 4 alunos. Vamos manter esses dados em memória. Considere o preenchimento das variávies na figura abaixo.</p>
+<table>
+<colgroup>
+<col width="64%" />
+<col width="35%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-1" tabindex="-1"></a><span class="co"># Criando variáveis simples</span></span>
+<span id="cb85-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-2" tabindex="-1"></a>aluno0 <span class="op">=</span> <span class="st">&quot;Ana&quot;</span></span>
+<span id="cb85-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-3" tabindex="-1"></a>aluno1 <span class="op">=</span> <span class="st">&quot;Bruno&quot;</span></span>
+<span id="cb85-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-4" tabindex="-1"></a>aluno2 <span class="op">=</span> <span class="st">&quot;Carlos&quot;</span></span>
+<span id="cb85-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-5" tabindex="-1"></a></span>
+<span id="cb85-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-6" tabindex="-1"></a></span>
+<span id="cb85-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-7" tabindex="-1"></a><span class="co"># &quot;Adicionando&quot; um novo aluno</span></span>
+<span id="cb85-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-8" tabindex="-1"></a><span class="co"># (precisamos criar nova variável )</span></span>
+<span id="cb85-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-9" tabindex="-1"></a>aluno3 <span class="op">=</span> <span class="st">&quot;Daniela&quot;</span></span>
+<span id="cb85-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-10" tabindex="-1"></a></span>
+<span id="cb85-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-11" tabindex="-1"></a></span>
+<span id="cb85-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-12" tabindex="-1"></a><span class="co"># Acessando o dado</span></span>
+<span id="cb85-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-13" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O primeiro aluno é: </span><span class="sc">{</span>aluno0<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb85-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-14" tabindex="-1"></a></span>
+<span id="cb85-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-15" tabindex="-1"></a><span class="co"># Exibindo todos (nomeando um por um)</span></span>
+<span id="cb85-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb85-16" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A lista completa: </span><span class="sc">{</span>aluno0<span class="sc">}</span><span class="ss"> , </span><span class="sc">{</span>aluno1<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>aluno2<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>aluno3<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div></td>
+<td><p><img src="images/clipboard-1944915710.png" /></p>
+<p><img src="images/clipboard-1702924762.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="continuação---exemplo-1---convertendo-variáveis-simples-uma-variável-lista" class="section level4 hasAnchor" number="6.0.2.2">
+<h4><span class="header-section-number">6.0.2.2</span> Continuação - Exemplo 1 - convertendo variáveis simples uma variável “Lista”<a href="variáveis-compostas-listas-e-dicionários.html#continua%C3%A7%C3%A3o---exemplo-1---convertendo-vari%C3%A1veis-simples-uma-vari%C3%A1vel-lista" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Vamos agora refazer o mesmo exemplo utilizando o tipo de variáveis “Lista”, que como o próprio nome sugere, cria uma estrutura de dados em memória em formato de uma lista de variáveis.</p>
+<table>
+<colgroup>
+<col width="52%" />
+<col width="47%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-1" tabindex="-1"></a><span class="co"># Criando uma lista de alunos</span></span>
+<span id="cb86-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-2" tabindex="-1"></a>alunos <span class="op">=</span> [<span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carlos&quot;</span>]</span>
+<span id="cb86-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-3" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-4" tabindex="-1"></a></span>
+<span id="cb86-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-5" tabindex="-1"></a></span>
+<span id="cb86-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-6" tabindex="-1"></a><span class="co"># Adicionando um novo aluno</span></span>
+<span id="cb86-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-7" tabindex="-1"></a>alunos.append(<span class="st">&quot;Daniela&quot;</span>)</span>
+<span id="cb86-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-8" tabindex="-1"></a></span>
+<span id="cb86-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-9" tabindex="-1"></a></span>
+<span id="cb86-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-10" tabindex="-1"></a></span>
+<span id="cb86-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-11" tabindex="-1"></a></span>
+<span id="cb86-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-12" tabindex="-1"></a><span class="co"># Acessando pelo índice</span></span>
+<span id="cb86-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-13" tabindex="-1"></a><span class="co">#(começa na posição ZERO)</span></span>
+<span id="cb86-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-14" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Oprimeiro aluno é: </span><span class="sc">{</span>alunos[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb86-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-15" tabindex="-1"></a></span>
+<span id="cb86-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-16" tabindex="-1"></a></span>
+<span id="cb86-17"><a href="variáveis-compostas-listas-e-dicionários.html#cb86-17" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A lista completa: </span><span class="sc">{</span>alunos<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div></td>
+<td><p><img src="images/clipboard-4156693668.png" /></p>
+<p><img src="images/clipboard-1702924762.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="atividade-prática-do-exemplo-1-notepad" class="section level4 hasAnchor" number="6.0.2.3">
+<h4><span class="header-section-number">6.0.2.3</span> <strong>Atividade Prática do Exemplo 1 (Notepad++):</strong><a href="variáveis-compostas-listas-e-dicionários.html#atividade-pr%C3%A1tica-do-exemplo-1-notepad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>No windows, abra o Notepad++, crie um arquivo chamado <code>exemplo_01_listas.py</code> e digite:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-1" tabindex="-1"></a><span class="co"># Criando uma lista de alunos</span></span>
+<span id="cb87-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-2" tabindex="-1"></a>alunos <span class="op">=</span> [<span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Carlos&quot;</span>]</span>
+<span id="cb87-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-3" tabindex="-1"></a></span>
+<span id="cb87-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-4" tabindex="-1"></a><span class="co"># Adicionando um novo aluno</span></span>
+<span id="cb87-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-5" tabindex="-1"></a>alunos.append(<span class="st">&quot;Daniela&quot;</span>)</span>
+<span id="cb87-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-6" tabindex="-1"></a></span>
+<span id="cb87-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-7" tabindex="-1"></a><span class="co"># Acessando pelo índice (Lembre-se: começa no ZERO)</span></span>
+<span id="cb87-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O primeiro aluno é: </span><span class="sc">{</span>alunos[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb87-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb87-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A lista completa: </span><span class="sc">{</span>alunos<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="como-executar" class="section level4 hasAnchor" number="6.0.2.4">
+<h4><span class="header-section-number">6.0.2.4</span> <strong>Como executar:</strong><a href="variáveis-compostas-listas-e-dicionários.html#como-executar" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Abra o <strong><code>cmd.exe</code></strong>.</li>
+</ol>
+<p>2. Navegue até a pasta do arquivo <code>exemplo_01_listas.py</code> que você criou.</p>
+<p>3. Digite: <strong>python</strong><code>exemplo_01_listas.py</code>.</p>
+<hr />
+</div>
+</div>
+<div id="dicionário-de-dados-em-python" class="section level3 hasAnchor" number="6.0.3">
+<h3><span class="header-section-number">6.0.3</span> Dicionário de Dados em Python<a href="variáveis-compostas-listas-e-dicionários.html#dicion%C3%A1rio-de-dados-em-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="06-aula06/media/06-imagem-02.jpg" /></p>
+<p>Se a lista é uma fila, o dicionário é uma <strong>etiqueta</strong>. Em vez de usar um número (índice) para achar algo, usamos uma <strong>Chave (Key)</strong>. Isso é ideal para representar uma “linha de uma tabela” de banco de dados.</p>
+<div id="exemplo-2---um-programa-python-utilizando-variáveis-simples" class="section level4 hasAnchor" number="6.0.3.1">
+<h4><span class="header-section-number">6.0.3.1</span> Exemplo 2 - um programa python utilizando variáveis simples<a href="variáveis-compostas-listas-e-dicionários.html#exemplo-2---um-programa-python-utilizando-vari%C3%A1veis-simples" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exemplo: Representando um Produto</strong> Imagine uma linha de uma tabela de estoque:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ID</th>
+<th align="left">Nome</th>
+<th align="left">Preço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">101</td>
+<td align="left">Teclado</td>
+<td align="left">150.00</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="49%" />
+<col width="50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-1" tabindex="-1"></a><span class="co"># --- MODO: VARIÁVEIS SIMPLES</span></span>
+<span id="cb88-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-2" tabindex="-1"></a></span>
+<span id="cb88-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-3" tabindex="-1"></a><span class="co"># cadastro de um produto</span></span>
+<span id="cb88-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-4" tabindex="-1"></a>produto_id <span class="op">=</span> <span class="dv">101</span></span>
+<span id="cb88-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-5" tabindex="-1"></a>produto_nome <span class="op">=</span> <span class="st">&quot;Teclado Mecânico&quot;</span></span>
+<span id="cb88-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-6" tabindex="-1"></a>produto_preco <span class="op">=</span> <span class="fl">150.00</span></span>
+<span id="cb88-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-7" tabindex="-1"></a></span>
+<span id="cb88-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-8" tabindex="-1"></a><span class="co"># Acessando a informação</span></span>
+<span id="cb88-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-9" tabindex="-1"></a><span class="co"># pelo nome da variável específica</span></span>
+<span id="cb88-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-10" tabindex="-1"></a></span>
+<span id="cb88-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-11" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Produto: </span><span class="sc">{</span>produto_nome<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb88-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb88-12" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Preço: R$ </span><span class="sc">{</span>produto_preco<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div></td>
+<td><p><img src="images/clipboard-1814386445.png" /></p>
+<p><img src="images/clipboard-1597571144.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="continuação---exemplo-2---convertendo-variáveis-simples-uma-variável-dicionário" class="section level4 hasAnchor" number="6.0.3.2">
+<h4><span class="header-section-number">6.0.3.2</span> Continuação - Exemplo 2 - convertendo variáveis simples uma variável “Dicionário”<a href="variáveis-compostas-listas-e-dicionários.html#continua%C3%A7%C3%A3o---exemplo-2---convertendo-vari%C3%A1veis-simples-uma-vari%C3%A1vel-dicion%C3%A1rio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="51%" />
+<col width="48%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-1" tabindex="-1"></a><span class="co"># Variável do tipo “Dicionário”</span></span>
+<span id="cb89-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-2" tabindex="-1"></a>produto <span class="op">=</span> {</span>
+<span id="cb89-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-3" tabindex="-1"></a>    <span class="st">&quot;id&quot;</span>   : <span class="dv">101</span>,</span>
+<span id="cb89-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-4" tabindex="-1"></a>    <span class="st">&quot;nome&quot;</span> : <span class="st">&quot;Teclado Mecânico&quot;</span>,</span>
+<span id="cb89-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-5" tabindex="-1"></a>    <span class="st">&quot;preco&quot;</span>: <span class="fl">150.00</span></span>
+<span id="cb89-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-6" tabindex="-1"></a>}</span>
+<span id="cb89-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-7" tabindex="-1"></a></span>
+<span id="cb89-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-8" tabindex="-1"></a></span>
+<span id="cb89-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-9" tabindex="-1"></a></span>
+<span id="cb89-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-10" tabindex="-1"></a><span class="co"># Acessando a informação pela chave</span></span>
+<span id="cb89-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-11" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Produto: </span><span class="sc">{</span>produto[<span class="st">&#39;nome&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb89-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb89-12" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Preço: R$ </span><span class="sc">{</span>produto[<span class="st">&#39;preco&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div></td>
+<td><p><img src="images/clipboard-2076916456.png" /></p>
+<p><img src="images/clipboard-1597571144.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="atividade-prática-do-exemplo-2-notepad" class="section level4 hasAnchor" number="6.0.3.3">
+<h4><span class="header-section-number">6.0.3.3</span> <strong>Atividade Prática do Exemplo 2 (Notepad++):</strong><a href="variáveis-compostas-listas-e-dicionários.html#atividade-pr%C3%A1tica-do-exemplo-2-notepad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Crie o arquivo <code>exemplo_02_dicionario.py</code>:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-1" tabindex="-1"></a><span class="co"># Representando uma linha de tabela</span></span>
+<span id="cb90-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-2" tabindex="-1"></a>produto <span class="op">=</span> {</span>
+<span id="cb90-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-3" tabindex="-1"></a>    <span class="st">&quot;id&quot;</span>: <span class="dv">101</span>,</span>
+<span id="cb90-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-4" tabindex="-1"></a>    <span class="st">&quot;nome&quot;</span>: <span class="st">&quot;Teclado Mecânico&quot;</span>,</span>
+<span id="cb90-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-5" tabindex="-1"></a>    <span class="st">&quot;preco&quot;</span>: <span class="fl">150.00</span></span>
+<span id="cb90-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-6" tabindex="-1"></a>}</span>
+<span id="cb90-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-7" tabindex="-1"></a></span>
+<span id="cb90-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-8" tabindex="-1"></a><span class="co"># Acessando a informação pela chave</span></span>
+<span id="cb90-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Produto: </span><span class="sc">{</span>produto[<span class="st">&#39;nome&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb90-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb90-10" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Preço: R$ </span><span class="sc">{</span>produto[<span class="st">&#39;preco&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="como-executar-1" class="section level4 hasAnchor" number="6.0.3.4">
+<h4><span class="header-section-number">6.0.3.4</span> <strong>Como executar:</strong><a href="variáveis-compostas-listas-e-dicionários.html#como-executar-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Abra o <strong><code>cmd.exe</code></strong>.</li>
+</ol>
+<p>2. Navegue até a pasta do arquivo <code>exemplo_02_dicionario.py</code> que você criou.</p>
+<p>3. Digite: <strong>python</strong><code>exemplo_02_dicionario.py</code>.</p>
+<hr />
+</div>
+</div>
+<div id="dados-tipo-tupla-em-python" class="section level3 hasAnchor" number="6.0.4">
+<h3><span class="header-section-number">6.0.4</span> Dados tipo TUPLA em Python<a href="variáveis-compostas-listas-e-dicionários.html#dados-tipo-tupla-em-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="06-aula06/media/06-imagem-03.jpg" /></p>
+<p>O tipo tuple (tupla) em Python é uma estrutura de dados ordenada, imutável e indexada, utilizada para armazenar uma coleção de elementos. Diferente da lista (list), a tupla não pode ser alterada após sua criação.</p>
+<div id="exemplo-3---um-programa-python-utilizando-uma-variável-tupla" class="section level4 hasAnchor" number="6.0.4.1">
+<h4><span class="header-section-number">6.0.4.1</span> Exemplo 3 - um programa python utilizando uma variável TUPLA<a href="variáveis-compostas-listas-e-dicionários.html#exemplo-3---um-programa-python-utilizando-uma-vari%C3%A1vel-tupla" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="53%" />
+<col width="46%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-1" tabindex="-1"></a><span class="co"># Criando uma Tupla (Latitude e Longitude)</span></span>
+<span id="cb91-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-2" tabindex="-1"></a></span>
+<span id="cb91-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-3" tabindex="-1"></a>coordenadas <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
+<span id="cb91-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-4" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-5" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-6" tabindex="-1"></a></span>
+<span id="cb91-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-7" tabindex="-1"></a></span>
+<span id="cb91-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Localização: </span><span class="sc">{</span>coordenadas<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb91-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Latitude: </span><span class="sc">{</span>coordenadas[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb91-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-10" tabindex="-1"></a></span>
+<span id="cb91-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-11" tabindex="-1"></a></span>
+<span id="cb91-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-12" tabindex="-1"></a><span class="co"># TENTANDO ALTERAR</span></span>
+<span id="cb91-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-13" tabindex="-1"></a><span class="co">#(Isso causará um ERRO no cmd.exe)</span></span>
+<span id="cb91-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-14" tabindex="-1"></a></span>
+<span id="cb91-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-15" tabindex="-1"></a></span>
+<span id="cb91-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb91-16" tabindex="-1"></a>coordenadas[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">23.0000</span></span></code></pre></div></td>
+<td><p><img src="images/clipboard-1630115920.png" /></p>
+<p><img src="images/clipboard-1698353047.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="atividade-prática-do-exemplo-3-notepad" class="section level4 hasAnchor" number="6.0.4.2">
+<h4><span class="header-section-number">6.0.4.2</span> <strong>Atividade Prática do Exemplo 3 (Notepad++):</strong><a href="variáveis-compostas-listas-e-dicionários.html#atividade-pr%C3%A1tica-do-exemplo-3-notepad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Crie o arquivo <code>exemplo_03_tupla.py</code>:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-1" tabindex="-1"></a><span class="co"># Criando uma Tupla (Latitude e Longitude)</span></span>
+<span id="cb92-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-2" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-3" tabindex="-1"></a>coordenadas <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
+<span id="cb92-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-4" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-5" tabindex="-1"></a></span>
+<span id="cb92-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-6" tabindex="-1"></a></span>
+<span id="cb92-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-7" tabindex="-1"></a></span>
+<span id="cb92-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Localização: </span><span class="sc">{</span>coordenadas<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb92-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Latitude: </span><span class="sc">{</span>coordenadas[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb92-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-10" tabindex="-1"></a></span>
+<span id="cb92-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-11" tabindex="-1"></a></span>
+<span id="cb92-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-12" tabindex="-1"></a><span class="co"># TENTANDO ALTERAR </span></span>
+<span id="cb92-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-13" tabindex="-1"></a><span class="co">#(Isso causará um ERRO no cmd.exe)</span></span>
+<span id="cb92-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-14" tabindex="-1"></a></span>
+<span id="cb92-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-15" tabindex="-1"></a></span>
+<span id="cb92-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb92-16" tabindex="-1"></a>coordenadas[<span class="dv">0</span>] <span class="op">=</span> <span class="op">-</span><span class="fl">23.0000</span></span></code></pre></div>
+</div>
+<div id="como-executar-2" class="section level4 hasAnchor" number="6.0.4.3">
+<h4><span class="header-section-number">6.0.4.3</span> <strong>Como executar:</strong><a href="variáveis-compostas-listas-e-dicionários.html#como-executar-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Abra o <strong><code>cmd.exe</code></strong>.</li>
+</ol>
+<p>2. Navegue até a pasta do arquivo <code>exemplo_03_tupla.py</code> que você criou.</p>
+<p>3. Digite: <strong>python</strong><code>exemplo_03_tupla.py</code>.</p>
+<hr />
+</div>
+</div>
+<div id="dados-tipo-conjuntos-set-em-python" class="section level3 hasAnchor" number="6.0.5">
+<h3><span class="header-section-number">6.0.5</span> Dados tipo Conjuntos (SET) em Python<a href="variáveis-compostas-listas-e-dicionários.html#dados-tipo-conjuntos-set-em-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para fechar o trio de estruturas de dados essenciais, vamos incluir o <strong>Conjunto (<code>set</code>)</strong>. Conjuntos são estruturas de dados semelhantes as filas, porém seus dados são únicos.</p>
+<div id="exemplo-4---um-programa-python-utilizando-uma-variável-conjunto" class="section level4 hasAnchor" number="6.0.5.1">
+<h4><span class="header-section-number">6.0.5.1</span> Exemplo 4 - um programa python utilizando uma variável CONJUNTO<a href="variáveis-compostas-listas-e-dicionários.html#exemplo-4---um-programa-python-utilizando-uma-vari%C3%A1vel-conjunto" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="61%" />
+<col width="39%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-1" tabindex="-1"></a><span class="co"># Uma lista com nomes repetidos</span></span>
+<span id="cb93-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-2" tabindex="-1"></a>presenca_lista <span class="op">=</span> [<span class="st">&quot;Ana&quot;</span>,<span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Bruno&quot;</span>]</span>
+<span id="cb93-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-3" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-4" tabindex="-1"></a></span>
+<span id="cb93-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-5" tabindex="-1"></a><span class="co"># Convertendo para Conjunto (set) para remover duplicatas</span></span>
+<span id="cb93-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-6" tabindex="-1"></a>presenca_set <span class="op">=</span> {<span class="st">&quot;Ana&quot;</span>,<span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Bruno&quot;</span>}</span>
+<span id="cb93-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-7" tabindex="-1"></a></span>
+<span id="cb93-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-8" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-9" tabindex="-1"></a></span>
+<span id="cb93-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-10" tabindex="-1"></a></span>
+<span id="cb93-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-11" tabindex="-1"></a></span>
+<span id="cb93-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-12" tabindex="-1"></a></span>
+<span id="cb93-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-13" tabindex="-1"></a></span>
+<span id="cb93-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-14" tabindex="-1"></a></span>
+<span id="cb93-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-15" tabindex="-1"></a></span>
+<span id="cb93-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-16" tabindex="-1"></a></span>
+<span id="cb93-17"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-17" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista original:</span><span class="sc">{</span>presenca_lista<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb93-18"><a href="variáveis-compostas-listas-e-dicionários.html#cb93-18" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Conjunto único: </span><span class="sc">{presenca_set}</span><span class="st">&quot;</span>)</span></code></pre></div></td>
+<td><p><img src="images/clipboard-3732548674.png" /></p>
+<p><img src="images/clipboard-4136569176.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="atividade-prática-do-exemplo-4-notepad" class="section level4 hasAnchor" number="6.0.5.2">
+<h4><span class="header-section-number">6.0.5.2</span> <strong>Atividade Prática do Exemplo 4 (Notepad++):</strong><a href="variáveis-compostas-listas-e-dicionários.html#atividade-pr%C3%A1tica-do-exemplo-4-notepad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Crie o arquivo <code>aula_exemplo_04_conjunto.py</code>:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-1" tabindex="-1"></a><span class="co"># Uma lista com nomes repetidos</span></span>
+<span id="cb94-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-2" tabindex="-1"></a>presenca_lista <span class="op">=</span> [<span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Bruno&quot;</span>]</span>
+<span id="cb94-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-3" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-4" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-5" tabindex="-1"></a><span class="co"># Convertendo para Conjunto (set) para remover duplicatas</span></span>
+<span id="cb94-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-6" tabindex="-1"></a>presenca_set <span class="op">=</span> {<span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Bruno&quot;</span>, <span class="st">&quot;Ana&quot;</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Bruno&quot;</span>}</span>
+<span id="cb94-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-7" tabindex="-1"></a></span>
+<span id="cb94-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista original:</span><span class="sc">{</span>presenca_lista<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb94-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb94-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Conjunto único: </span><span class="sc">{</span>presenca_set<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="como-executar-3" class="section level4 hasAnchor" number="6.0.5.3">
+<h4><span class="header-section-number">6.0.5.3</span> <strong>Como executar:</strong><a href="variáveis-compostas-listas-e-dicionários.html#como-executar-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ol style="list-style-type: decimal">
+<li>Abra o <strong><code>cmd.exe</code></strong>.</li>
+</ol>
+<p>2. Navegue até a pasta do arquivo <code>aula_exemplo_04_conjunto.py</code> que você criou.</p>
+<p>3. Digite: <strong>python</strong><code>aula_exemplo_04_conjunto.py</code>.</p>
+</div>
+</div>
+<div id="dica-de-ouro-python-tutor" class="section level3 hasAnchor" number="6.0.6">
+<h3><span class="header-section-number">6.0.6</span> 4. Dica de Ouro: Python Tutor<a href="variáveis-compostas-listas-e-dicionários.html#dica-de-ouro-python-tutor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se você executar o código no CMD e não conseguir visualizar o que está acontecendo “dentro” da memória do computador, copie seu código e cole no <a href="https://pythontutor.com/">Python Tutor</a>.</p>
+<ul>
+<li>Clique em <strong>“Visualize Execution”</strong>.</li>
+<li>Use o botão <strong>“Next”</strong> para ver o Python criando as “setas” que apontam para os endereços de memória. É a melhor forma de entender como o dicionário associa uma chave a um valor.</li>
+</ul>
+<hr />
+
+</div>
+<div id="exercícios-de-listas-e-dicionários" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Exercícios de Listas e Dicionários<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios-de-listas-e-dicion%C3%A1rios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercícios-resolvidos" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Exercícios Resolvidos<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios-resolvidos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="listas-dinâmicas-e-ordenadas" class="section level4 hasAnchor" number="6.1.1.1">
+<h4><span class="header-section-number">6.1.1.1</span> Listas (Dinâmicas e Ordenadas)<a href="variáveis-compostas-listas-e-dicionários.html#listas-din%C3%A2micas-e-ordenadas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Filtragem de Geocódigos</strong></p>
+<p>Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com “35” (São Paulo).</p>
+<p>OBS: você pode utilizar a função .<strong>startwith(‘valor’)</strong> que <strong>existe embutida</strong> em toda variável do tipo <em>Lista</em> no python.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-1" tabindex="-1"></a>geocodigos <span class="op">=</span> [<span class="st">&quot;3501&quot;</span>, <span class="st">&quot;3302&quot;</span>, <span class="st">&quot;3505&quot;</span>, <span class="st">&quot;4101&quot;</span>]</span>
+<span id="cb95-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-2" tabindex="-1"></a>sp_codes <span class="op">=</span> [code <span class="cf">for</span> code <span class="kw">in</span> geocodigos <span class="cf">if</span> code.startswith(<span class="st">&quot;35&quot;</span>)]</span>
+<span id="cb95-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb95-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;3501&#39;, &#39;3505&#39;]</span></span></code></pre></div>
+<hr />
+<p><strong>Exercicio 2: Média de População</strong> Calcule a <strong>média aritmética</strong> de uma <strong>lista de populações</strong> de <strong>setores censitários</strong>.</p>
+<p>OBS: você pode utilizar a funções matemáticas</p>
+<ul>
+<li><p><strong>sum(‘variável’)</strong> para retornar a soma dos conteúdos da variável lista;</p></li>
+<li><p><strong>len(‘variável’)</strong> para retornar quantos elementos existem na lista;</p></li>
+</ul>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-1" tabindex="-1"></a>populacoes <span class="op">=</span> [<span class="dv">120</span>, <span class="dv">450</span>, <span class="dv">300</span>, <span class="dv">210</span>]</span>
+<span id="cb96-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-2" tabindex="-1"></a>media <span class="op">=</span> <span class="bu">sum</span>(populacoes) <span class="op">/</span> <span class="bu">len</span>(populacoes)</span>
+<span id="cb96-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb96-3" tabindex="-1"></a><span class="co"># Resultado: 270.0</span></span></code></pre></div>
+<p><strong>Exercicio 3: Inversão de Ordem</strong> Inverta a ordem de uma lista de nomes de municípios.</p>
+<p>OBS: você pode utilizar a função .<strong>reverse()</strong> que <strong>existe embutida</strong> em toda variável do tipo <em>Lista</em> no python.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-1" tabindex="-1"></a>municipios <span class="op">=</span> [<span class="st">&quot;Botucatu&quot;</span>, <span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Bauru&quot;</span>]</span>
+<span id="cb97-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-2" tabindex="-1"></a>municipios.reverse() </span>
+<span id="cb97-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb97-3" tabindex="-1"></a><span class="co"># Resultado: [&#39;Bauru&#39;, &#39;São Paulo&#39;, &#39;Botucatu&#39;]</span></span></code></pre></div>
+<hr />
+</div>
+<div id="dicionários-chave-valor" class="section level4 hasAnchor" number="6.1.1.2">
+<h4><span class="header-section-number">6.1.1.2</span> Dicionários (Chave-Valor)<a href="variáveis-compostas-listas-e-dicionários.html#dicion%C3%A1rios-chave-valor" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Mapeamento de SRID</strong> Crie um dicionário onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de “SIRGAS 2000”.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb98-1" tabindex="-1"></a>projecoes <span class="op">=</span> {<span class="st">&quot;WGS84&quot;</span>: <span class="dv">4326</span>, <span class="st">&quot;SIRGAS 2000&quot;</span>: <span class="dv">4674</span>}</span>
+<span id="cb98-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb98-2" tabindex="-1"></a>srid <span class="op">=</span> projecoes[<span class="st">&quot;SIRGAS 2000&quot;</span>]</span>
+<span id="cb98-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb98-3" tabindex="-1"></a><span class="co"># Resultado: 4674</span></span></code></pre></div>
+<p><strong>Exercicio 2: Contagem de Ocorrências</strong> Conte quantas vezes cada tipo de setor aparece.</p>
+<p>OBS: você pode utilizar a função <strong>count(‘variavel’)</strong> para contar quantas vezes um determinado aparece dentro de uma lista em python. A função count também é uma função embutida em toda variável do tipo <em>Lista</em> no python.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-1" tabindex="-1"></a>denominacoes <span class="op">=</span> [<span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Rural&quot;</span>, <span class="st">&quot;Urbano&quot;</span>, <span class="st">&quot;Urbano&quot;</span>]</span>
+<span id="cb99-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-2" tabindex="-1"></a>contagem <span class="op">=</span> {t: denominacoes.count(t) <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">set</span>(denominacoes)}</span>
+<span id="cb99-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb99-3" tabindex="-1"></a><span class="co"># Resultado: {&#39;Urbano&#39;: 3, &#39;Rural&#39;: 1}</span></span></code></pre></div>
+<p><strong>Exercicio 3: Mesclagem de Metadados</strong> Atualize um dicionário de metadados com novas informações técnicas.</p>
+<p>OBS: você pode utilizar a função .<strong>update(‘variavel’)</strong> que existe embutida em toda variável do tipo <em>Dicionário</em> no python.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-1" tabindex="-1"></a>meta <span class="op">=</span> {<span class="st">&quot;tabela&quot;</span>: <span class="st">&quot;municipios&quot;</span>}</span>
+<span id="cb100-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-2" tabindex="-1"></a>novos_dados <span class="op">=</span> {<span class="st">&quot;formato&quot;</span>: <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;ano&quot;</span>: <span class="dv">2010</span>}</span>
+<span id="cb100-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-3" tabindex="-1"></a>meta.update(novos_dados)</span>
+<span id="cb100-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb100-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;tabela&#39;: &#39;municipios&#39;, &#39;formato&#39;: &#39;parquet&#39;, &#39;ano&#39;: 2010}</span></span></code></pre></div>
+<hr />
+</div>
+<div id="tuplas-imutáveis" class="section level4 hasAnchor" number="6.1.1.3">
+<h4><span class="header-section-number">6.1.1.3</span> Tuplas (Imutáveis)<a href="variáveis-compostas-listas-e-dicionários.html#tuplas-imut%C3%A1veis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Coordenadas Geográficas</strong> Armazene uma coordenada (latitude, longitude) e desempacote-a em duas variáveis.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb101-1" tabindex="-1"></a>ponto <span class="op">=</span> (<span class="op">-</span><span class="fl">23.5505</span>, <span class="op">-</span><span class="fl">46.6333</span>)</span>
+<span id="cb101-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb101-2" tabindex="-1"></a>lat, lon <span class="op">=</span> ponto</span>
+<span id="cb101-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb101-3" tabindex="-1"></a><span class="co"># lat = -23.5505, lon = -46.6333</span></span></code></pre></div>
+<p><strong>Exercicio 2: Chaves Compostas</strong> Use uma tupla como chave de um dicionário (útil para índices compostos).</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb102-1" tabindex="-1"></a>setores <span class="op">=</span> { (<span class="dv">35</span>, <span class="dv">123</span>): <span class="st">&quot;Setor A&quot;</span>, (<span class="dv">35</span>, <span class="dv">124</span>): <span class="st">&quot;Setor B&quot;</span> }</span>
+<span id="cb102-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb102-2" tabindex="-1"></a><span class="co"># Acessando via (UF, ID)</span></span>
+<span id="cb102-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb102-3" tabindex="-1"></a>nome <span class="op">=</span> setores[(<span class="dv">35</span>, <span class="dv">123</span>)]</span>
+<span id="cb102-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb102-4" tabindex="-1"></a><span class="co"># Resultado: &quot;Setor A&quot;</span></span></code></pre></div>
+<p><strong>Exercicio 3: Verificação de Existência</strong> Verifique se o formato “PDF” está na tupla de formatos permitidos.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb103-1" tabindex="-1"></a>formatos <span class="op">=</span> (<span class="st">&quot;csv&quot;</span>, <span class="st">&quot;parquet&quot;</span>, <span class="st">&quot;json&quot;</span>)</span>
+<span id="cb103-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb103-2" tabindex="-1"></a>existe <span class="op">=</span> <span class="st">&quot;pdf&quot;</span> <span class="kw">in</span> formatos</span>
+<span id="cb103-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb103-3" tabindex="-1"></a><span class="co"># Resultado: False</span></span></code></pre></div>
+<hr />
+</div>
+<div id="conjuntossets-valores-únicos" class="section level4 hasAnchor" number="6.1.1.4">
+<h4><span class="header-section-number">6.1.1.4</span> Conjuntos/Sets (Valores Únicos)<a href="variáveis-compostas-listas-e-dicionários.html#conjuntossets-valores-%C3%BAnicos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Exercicio 1: Remoção de Duplicatas</strong> Remova IDs duplicados de uma lista de importação do Censo.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb104-1" tabindex="-1"></a>ids_brutos <span class="op">=</span> [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">101</span>, <span class="dv">103</span>, <span class="dv">102</span>]</span>
+<span id="cb104-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb104-2" tabindex="-1"></a>ids_unicos <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(ids_brutos))</span>
+<span id="cb104-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb104-3" tabindex="-1"></a><span class="co"># Resultado: [101, 102, 103] (ordem pode variar)</span></span></code></pre></div>
+<p><strong>Exercicio 2: Interseção de Áreas</strong> Encontre municípios que aparecem em dois levantamentos diferentes.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb105-1" tabindex="-1"></a>lista_2010 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Rio&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
+<span id="cb105-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb105-2" tabindex="-1"></a>lista_2026 <span class="op">=</span> {<span class="st">&quot;São Paulo&quot;</span>, <span class="st">&quot;Belo Horizonte&quot;</span>, <span class="st">&quot;Curitiba&quot;</span>}</span>
+<span id="cb105-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb105-3" tabindex="-1"></a>comuns <span class="op">=</span> lista_2010.intersection(lista_2026)</span>
+<span id="cb105-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb105-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;São Paulo&#39;, &#39;Curitiba&#39;}</span></span></code></pre></div>
+<p><strong>Exercicio 3: Diferença de Conjuntos</strong> Identifique quais colunas do <code>schema.json</code> original não estão no seu banco de dados atual.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb106-1" tabindex="-1"></a>cols_json <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>, <span class="st">&quot;populacao&quot;</span>}</span>
+<span id="cb106-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb106-2" tabindex="-1"></a>cols_db <span class="op">=</span> {<span class="st">&quot;id&quot;</span>, <span class="st">&quot;nome&quot;</span>, <span class="st">&quot;geom&quot;</span>}</span>
+<span id="cb106-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb106-3" tabindex="-1"></a>faltando <span class="op">=</span> cols_json.difference(cols_db)</span>
+<span id="cb106-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb106-4" tabindex="-1"></a><span class="co"># Resultado: {&#39;populacao&#39;}</span></span></code></pre></div>
+</div>
+<div id="misturando-tudo" class="section level4 hasAnchor" number="6.1.1.5">
+<h4><span class="header-section-number">6.1.1.5</span> Misturando tudo<a href="variáveis-compostas-listas-e-dicionários.html#misturando-tudo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Crie um programa que combine os dois: Uma lista que contenha três dicionários, onde cada dicionário representa um carro (marca e modelo).</p>
+<p>Exemplo de estrutura:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb107-1" tabindex="-1"></a>carros <span class="op">=</span> [{<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Ford&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Ka&quot;</span>}, {<span class="st">&quot;marca&quot;</span>: <span class="st">&quot;Fiat&quot;</span>, <span class="st">&quot;modelo&quot;</span>: <span class="st">&quot;Uno&quot;</span>}]</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="exercícios" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Exercícios<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercício---01" class="section level4 hasAnchor" number="6.1.2.1">
+<h4><span class="header-section-number">6.1.2.1</span> Exercício - 01<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>O Python funciona como uma poderosa calculadora. Além das operações básicas, o uso de f-strings (formatated strings) facilita a exibição de resultados. Crie duas variáveis e exiba as quatro operações básicas entre elas.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-1" tabindex="-1"></a> </span>
+<span id="cb108-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-2" tabindex="-1"></a> </span>
+<span id="cb108-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-3" tabindex="-1"></a> </span>
+<span id="cb108-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-4" tabindex="-1"></a> </span>
+<span id="cb108-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-5" tabindex="-1"></a> </span>
+<span id="cb108-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-6" tabindex="-1"></a> </span>
+<span id="cb108-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb108-7" tabindex="-1"></a> </span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---02" class="section level4 hasAnchor" number="6.1.2.2">
+<h4><span class="header-section-number">6.1.2.2</span> Exercício - 02<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---02" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Listas são coleções de dados. Podemos usar funções como sum(), max() e min() para extrair informações rápidas dessas coleções. Dadas as listas de gastos de dois usuários, quem foi o mais econômico?</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-1" tabindex="-1"></a></span>
+<span id="cb109-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-2" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-3" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-4" tabindex="-1"></a></span>
+<span id="cb109-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-5" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-6" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb109-7" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---03" class="section level4 hasAnchor" number="6.1.2.3">
+<h4><span class="header-section-number">6.1.2.3</span> Exercício - 03<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---03" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma lista de tecnologias, qual o maior e o menor nome?</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-1" tabindex="-1"></a></span>
+<span id="cb110-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-2" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-3" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb110-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---04" class="section level4 hasAnchor" number="6.1.2.4">
+<h4><span class="header-section-number">6.1.2.4</span> Exercício - 04<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---04" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Muitas vezes precisamos encontrar valores específicos em um conjunto desordenado. Como encontrar o segundo maior valor de uma lista?</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-1" tabindex="-1"></a></span>
+<span id="cb111-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-2" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-3" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb111-4" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---05" class="section level4 hasAnchor" number="6.1.2.5">
+<h4><span class="header-section-number">6.1.2.5</span> Exercício - 05<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---05" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança. Crie uma função que bloqueie e-mails de um domínio específico.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-1" tabindex="-1"></a></span>
+<span id="cb112-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb112-2" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+<div id="exercício---06" class="section level4 hasAnchor" number="6.1.2.6">
+<h4><span class="header-section-number">6.1.2.6</span> Exercício - 06<a href="variáveis-compostas-listas-e-dicionários.html#exerc%C3%ADcio---06" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A apresentação visual do dado é tão importante quanto o cálculo. Arredonde um número complexo para exibição em relatório financeiro.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-1" tabindex="-1"></a></span>
+<span id="cb113-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb113-2" tabindex="-1"></a></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="respostas-aos-exercícios-propostos" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Respostas aos Exercícios Propostos:<a href="variáveis-compostas-listas-e-dicionários.html#respostas-aos-exerc%C3%ADcios-propostos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="resposta-exercício---01" class="section level4 hasAnchor" number="6.1.3.1">
+<h4><span class="header-section-number">6.1.3.1</span> Resposta Exercício - 01<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---01" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-1" tabindex="-1"></a><span class="co"># Definindo os valores</span></span>
+<span id="cb114-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-2" tabindex="-1"></a>num1 <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb114-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-3" tabindex="-1"></a>num2 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb114-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-4" tabindex="-1"></a></span>
+<span id="cb114-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-5" tabindex="-1"></a><span class="co"># Processamento e Saída</span></span>
+<span id="cb114-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-6" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Soma:          </span><span class="sc">{</span>num1 <span class="op">+</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Subtração:     </span><span class="sc">{</span>num1 <span class="op">-</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Multiplicação: </span><span class="sc">{</span>num1 <span class="op">*</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb114-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb114-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Divisão:       </span><span class="sc">{</span>num1 <span class="op">/</span> num2<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---02" class="section level4 hasAnchor" number="6.1.3.2">
+<h4><span class="header-section-number">6.1.3.2</span> Resposta Exercício - 02<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---02" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-1" tabindex="-1"></a>carolina <span class="op">=</span> [<span class="dv">300</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">800</span>]</span>
+<span id="cb115-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-2" tabindex="-1"></a>manoel <span class="op">=</span> [<span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">700</span>]</span>
+<span id="cb115-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-3" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-4" tabindex="-1"></a>total_carolina <span class="op">=</span> <span class="bu">sum</span>(carolina)</span>
+<span id="cb115-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-5" tabindex="-1"></a>total_manoel <span class="op">=</span> <span class="bu">sum</span>(manoel)</span>
+<span id="cb115-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-6" tabindex="-1"></a></span>
+<span id="cb115-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-7" tabindex="-1"></a><span class="cf">if</span> total_carolina <span class="op">&gt;</span> total_manoel:</span>
+<span id="cb115-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-8" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Carolina gastou mais.&quot;</span></span>
+<span id="cb115-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-9" tabindex="-1"></a><span class="cf">elif</span> total_manoel <span class="op">&gt;</span> total_carolina:</span>
+<span id="cb115-10"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-10" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;manoel gastou mais.&quot;</span></span>
+<span id="cb115-11"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-11" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb115-12"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-12" tabindex="-1"></a>    resultado <span class="op">=</span> <span class="st">&quot;Empate nos gastos.&quot;</span></span>
+<span id="cb115-13"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-13" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-14" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total Carolina: R$ </span><span class="sc">{</span>total_carolina<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb115-15"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-15" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Total manoel: R$ </span><span class="sc">{</span>total_manoel<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb115-16"><a href="variáveis-compostas-listas-e-dicionários.html#cb115-16" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Veredito: </span><span class="sc">{</span>resultado<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---03" class="section level4 hasAnchor" number="6.1.3.3">
+<h4><span class="header-section-number">6.1.3.3</span> Resposta Exercício - 03<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---03" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-1" tabindex="-1"></a>techs <span class="op">=</span> [<span class="st">&quot;Python&quot;</span>, <span class="st">&quot;Logica Computacional&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;Markdown&quot;</span>, <span class="st">&quot;html&quot;</span>]</span>
+<span id="cb116-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-2" tabindex="-1"></a></span>
+<span id="cb116-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-3" tabindex="-1"></a><span class="co"># Usamos a função len como chave para encontrar o extremo por comprimento</span></span>
+<span id="cb116-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-4" tabindex="-1"></a>maior <span class="op">=</span> <span class="bu">max</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb116-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-5" tabindex="-1"></a>menor <span class="op">=</span> <span class="bu">min</span>(techs, key<span class="op">=</span><span class="bu">len</span>)</span>
+<span id="cb116-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-6" tabindex="-1"></a></span>
+<span id="cb116-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-7" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A maior palavra é &#39;</span><span class="sc">{</span>maior<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(maior)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span>
+<span id="cb116-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb116-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;A menor palavra é &#39;</span><span class="sc">{</span>menor<span class="sc">}</span><span class="ss">&#39; com </span><span class="sc">{</span><span class="bu">len</span>(menor)<span class="sc">}</span><span class="ss"> letras.&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---04" class="section level4 hasAnchor" number="6.1.3.4">
+<h4><span class="header-section-number">6.1.3.4</span> Resposta Exercício - 04<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---04" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-1" tabindex="-1"></a>numeros <span class="op">=</span> [<span class="dv">32</span>, <span class="dv">10</span>, <span class="dv">58</span>, <span class="dv">30</span>, <span class="dv">55</span>, <span class="dv">12</span>, <span class="dv">28</span>, <span class="dv">51</span>]</span>
+<span id="cb117-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-2" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-3" tabindex="-1"></a><span class="co"># 1. Convertemos em set para remover duplicatas</span></span>
+<span id="cb117-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-4" tabindex="-1"></a><span class="co"># 2. Ordenamos a lista</span></span>
+<span id="cb117-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-5" tabindex="-1"></a>ordenados <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">list</span>(<span class="bu">set</span>(numeros)))</span>
+<span id="cb117-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-6" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-7" tabindex="-1"></a><span class="co"># O índice -2 pega o segundo elemento de trás para frente</span></span>
+<span id="cb117-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-8" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Lista ordenada: </span><span class="sc">{</span>ordenados<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb117-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb117-9" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O segundo maior valor é: </span><span class="sc">{</span>ordenados[<span class="op">-</span><span class="dv">2</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---05" class="section level4 hasAnchor" number="6.1.3.5">
+<h4><span class="header-section-number">6.1.3.5</span> Resposta Exercício - 05<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---05" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-1" tabindex="-1"></a><span class="kw">def</span> funcao_checa_spam(email):</span>
+<span id="cb118-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-2" tabindex="-1"></a>    dominio_bloqueado <span class="op">=</span> <span class="st">&quot;@xyz.com&quot;</span></span>
+<span id="cb118-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-3" tabindex="-1"></a>    <span class="cf">if</span> dominio_bloqueado <span class="kw">in</span> email:</span>
+<span id="cb118-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-4" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;⚠️ ALERTA: Spam detectado!&quot;</span></span>
+<span id="cb118-5"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;✅ E-mail seguro.&quot;</span></span>
+<span id="cb118-6"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-6" tabindex="-1"></a></span>
+<span id="cb118-7"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-7" tabindex="-1"></a><span class="co"># Testando a função</span></span>
+<span id="cb118-8"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-8" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;miguel.penteado@docente.unip.br&quot;</span>))</span>
+<span id="cb118-9"><a href="variáveis-compostas-listas-e-dicionários.html#cb118-9" tabindex="-1"></a><span class="bu">print</span>(funcao_checa_spam(<span class="st">&quot;xxx@xyz.com&quot;</span>))</span></code></pre></div>
+<hr />
+</div>
+<div id="resposta-exercício---06" class="section level4 hasAnchor" number="6.1.3.6">
+<h4><span class="header-section-number">6.1.3.6</span> Resposta Exercício - 06<a href="variáveis-compostas-listas-e-dicionários.html#resposta-exerc%C3%ADcio---06" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="variáveis-compostas-listas-e-dicionários.html#cb119-1" tabindex="-1"></a>crescimento <span class="op">=</span> <span class="fl">32.048701</span></span>
+<span id="cb119-2"><a href="variáveis-compostas-listas-e-dicionários.html#cb119-2" tabindex="-1"></a></span>
+<span id="cb119-3"><a href="variáveis-compostas-listas-e-dicionários.html#cb119-3" tabindex="-1"></a><span class="co"># O código :.2f indica: float com 2 casas decimais</span></span>
+<span id="cb119-4"><a href="variáveis-compostas-listas-e-dicionários.html#cb119-4" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;O sucesso da aula de hoje aumentou em </span><span class="sc">{</span>crescimento<span class="sc">:.2f}</span><span class="ss">% nosso conhecimento!&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="procedimentos-e-funções.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="entrada-e-saída.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/miguel7penteado/2026-1sem-ADS-PensamentoLogicoComputacional/edit/main/06-2026-04-08_Listas_e_Dicionarios.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["2026-1sem-ADS-PensamentoLogicoComputacional.pdf", "2026-1sem-ADS-PensamentoLogicoComputacional.epub", "2026-1sem-ADS-PensamentoLogicoComputacional.word", "2026-1sem-ADS-PensamentoLogicoComputacional.html"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

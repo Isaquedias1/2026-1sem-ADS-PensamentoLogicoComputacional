@@ -1,1 +1,343 @@
+---
+output: 
+  html_document: 
+    highlight: tango
+    theme: flatly
+    css: style.css
+---
+
 ## Exercícios de Listas e Dicionários
+
+### Exercícios Resolvidos
+
+#### Listas (Dinâmicas e Ordenadas)
+
+**Exercicio 1: Filtragem de Geocódigos**
+
+Dada uma lista de geocódigos, crie uma nova lista apenas com os que começam com "35" (São Paulo).
+
+OBS: você pode utilizar a função .**startwith('valor')** que **existe embutida** em toda variável do tipo *Lista* no python.
+
+``` python
+geocodigos = ["3501", "3302", "3505", "4101"]
+sp_codes = [code for code in geocodigos if code.startswith("35")]
+# Resultado: ['3501', '3505']
+```
+
+------------------------------------------------------------------------
+
+**Exercicio 2: Média de População** Calcule a **média aritmética** de uma **lista de populações** de **setores censitários**.
+
+OBS: você pode utilizar a funções matemáticas
+
+-   **sum('variável')** para retornar a soma dos conteúdos da variável lista;
+
+-   **len('variável')** para retornar quantos elementos existem na lista;
+
+``` python
+populacoes = [120, 450, 300, 210]
+media = sum(populacoes) / len(populacoes)
+# Resultado: 270.0
+```
+
+**Exercicio 3: Inversão de Ordem** Inverta a ordem de uma lista de nomes de municípios.
+
+OBS: você pode utilizar a função .**reverse()** que **existe embutida** em toda variável do tipo *Lista* no python.
+
+``` python
+municipios = ["Botucatu", "São Paulo", "Bauru"]
+municipios.reverse() 
+# Resultado: ['Bauru', 'São Paulo', 'Botucatu']
+```
+
+------------------------------------------------------------------------
+
+#### Dicionários (Chave-Valor)
+
+**Exercicio 1: Mapeamento de SRID** Crie um dicionário onde a chave é o nome da projeção e o valor é o SRID. Acesse o valor de "SIRGAS 2000".
+
+``` python
+projecoes = {"WGS84": 4326, "SIRGAS 2000": 4674}
+srid = projecoes["SIRGAS 2000"]
+# Resultado: 4674
+```
+
+**Exercicio 2: Contagem de Ocorrências** Conte quantas vezes cada tipo de setor aparece.
+
+OBS: você pode utilizar a função **count('variavel')** para contar quantas vezes um determinado aparece dentro de uma lista em python. A função count também é uma função embutida em toda variável do tipo *Lista* no python.
+
+``` python
+denominacoes = ["Urbano", "Rural", "Urbano", "Urbano"]
+contagem = {t: denominacoes.count(t) for t in set(denominacoes)}
+# Resultado: {'Urbano': 3, 'Rural': 1}
+```
+
+**Exercicio 3: Mesclagem de Metadados** Atualize um dicionário de metadados com novas informações técnicas.
+
+OBS: você pode utilizar a função .**update('variavel')** que existe embutida em toda variável do tipo *Dicionário* no python.
+
+``` python
+meta = {"tabela": "municipios"}
+novos_dados = {"formato": "parquet", "ano": 2010}
+meta.update(novos_dados)
+# Resultado: {'tabela': 'municipios', 'formato': 'parquet', 'ano': 2010}
+```
+
+------------------------------------------------------------------------
+
+#### Tuplas (Imutáveis)
+
+**Exercicio 1: Coordenadas Geográficas** Armazene uma coordenada (latitude, longitude) e desempacote-a em duas variáveis.
+
+``` python
+ponto = (-23.5505, -46.6333)
+lat, lon = ponto
+# lat = -23.5505, lon = -46.6333
+```
+
+**Exercicio 2: Chaves Compostas** Use uma tupla como chave de um dicionário (útil para índices compostos).
+
+``` python
+setores = { (35, 123): "Setor A", (35, 124): "Setor B" }
+# Acessando via (UF, ID)
+nome = setores[(35, 123)]
+# Resultado: "Setor A"
+```
+
+**Exercicio 3: Verificação de Existência** Verifique se o formato "PDF" está na tupla de formatos permitidos.
+
+``` python
+formatos = ("csv", "parquet", "json")
+existe = "pdf" in formatos
+# Resultado: False
+```
+
+------------------------------------------------------------------------
+
+#### Conjuntos/Sets (Valores Únicos)
+
+**Exercicio 1: Remoção de Duplicatas** Remova IDs duplicados de uma lista de importação do Censo.
+
+``` python
+ids_brutos = [101, 102, 101, 103, 102]
+ids_unicos = list(set(ids_brutos))
+# Resultado: [101, 102, 103] (ordem pode variar)
+```
+
+**Exercicio 2: Interseção de Áreas** Encontre municípios que aparecem em dois levantamentos diferentes.
+
+``` python
+lista_2010 = {"São Paulo", "Rio", "Curitiba"}
+lista_2026 = {"São Paulo", "Belo Horizonte", "Curitiba"}
+comuns = lista_2010.intersection(lista_2026)
+# Resultado: {'São Paulo', 'Curitiba'}
+```
+
+**Exercicio 3: Diferença de Conjuntos** Identifique quais colunas do `schema.json` original não estão no seu banco de dados atual.
+
+``` python
+cols_json = {"id", "nome", "geom", "populacao"}
+cols_db = {"id", "nome", "geom"}
+faltando = cols_json.difference(cols_db)
+# Resultado: {'populacao'}
+```
+
+#### Misturando tudo
+
+Crie um programa que combine os dois: Uma lista que contenha três dicionários, onde cada dicionário representa um carro (marca e modelo).
+
+Exemplo de estrutura:
+
+``` python
+carros = [{"marca": "Ford", "modelo": "Ka"}, {"marca": "Fiat", "modelo": "Uno"}]
+```
+
+------------------------------------------------------------------------
+
+### Exercícios
+
+#### Exercício - 01
+
+O Python funciona como uma poderosa calculadora. Além das operações básicas, o uso de f-strings (formatated strings) facilita a exibição de resultados. Crie duas variáveis e exiba as quatro operações básicas entre elas.
+
+``` python
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+```
+
+------------------------------------------------------------------------
+
+#### Exercício - 02
+
+Listas são coleções de dados. Podemos usar funções como sum(), max() e min() para extrair informações rápidas dessas coleções. Dadas as listas de gastos de dois usuários, quem foi o mais econômico?
+
+``` python
+
+
+
+
+
+
+
+
+```
+
+------------------------------------------------------------------------
+
+#### Exercício - 03
+
+Strings em Python podem ser tratadas quase como listas de caracteres. Podemos medir seu tamanho com len() e manipulá-las facilmente. Dada uma lista de tecnologias, qual o maior e o menor nome?
+
+``` python
+
+
+
+
+
+```
+
+------------------------------------------------------------------------
+
+#### Exercício - 04
+
+Muitas vezes precisamos encontrar valores específicos em um conjunto desordenado. Como encontrar o segundo maior valor de uma lista?
+
+``` python
+
+
+
+
+
+```
+
+------------------------------------------------------------------------
+
+#### Exercício - 05
+
+Funções permitem reaproveitar código e criar ferramentas personalizadas, como filtros de segurança. Crie uma função que bloqueie e-mails de um domínio específico.
+
+``` python
+
+
+
+```
+
+------------------------------------------------------------------------
+
+#### Exercício - 06
+
+A apresentação visual do dado é tão importante quanto o cálculo. Arredonde um número complexo para exibição em relatório financeiro.
+
+``` python
+
+
+
+```
+
+------------------------------------------------------------------------
+
+### Respostas aos Exercícios Propostos:
+
+#### Resposta Exercício - 01
+
+``` python
+# Definindo os valores
+num1 = 10
+num2 = 5
+
+# Processamento e Saída
+print(f"Soma:          {num1 + num2}")
+print(f"Subtração:     {num1 - num2}")
+print(f"Multiplicação: {num1 * num2}")
+print(f"Divisão:       {num1 / num2}")
+```
+
+------------------------------------------------------------------------
+
+#### Resposta Exercício - 02
+
+``` python
+carolina = [300, 500, 200, 800]
+manoel = [200, 400, 500, 700]
+
+total_carolina = sum(carolina)
+total_manoel = sum(manoel)
+
+if total_carolina > total_manoel:
+    resultado = "Carolina gastou mais."
+elif total_manoel > total_carolina:
+    resultado = "manoel gastou mais."
+else:
+    resultado = "Empate nos gastos."
+
+print(f"Total Carolina: R$ {total_carolina}")
+print(f"Total manoel: R$ {total_manoel}")
+print(f"Veredito: {resultado}")
+```
+
+------------------------------------------------------------------------
+
+#### Resposta Exercício - 03
+
+``` python
+techs = ["Python", "Logica Computacional", "R", "Markdown", "html"]
+
+# Usamos a função len como chave para encontrar o extremo por comprimento
+maior = max(techs, key=len)
+menor = min(techs, key=len)
+
+print(f"A maior palavra é '{maior}' com {len(maior)} letras.")
+print(f"A menor palavra é '{menor}' com {len(menor)} letras.")
+```
+
+------------------------------------------------------------------------
+
+#### Resposta Exercício - 04
+
+``` python
+numeros = [32, 10, 58, 30, 55, 12, 28, 51]
+
+# 1. Convertemos em set para remover duplicatas
+# 2. Ordenamos a lista
+ordenados = sorted(list(set(numeros)))
+
+# O índice -2 pega o segundo elemento de trás para frente
+print(f"Lista ordenada: {ordenados}")
+print(f"O segundo maior valor é: {ordenados[-2]}")
+```
+
+------------------------------------------------------------------------
+
+#### Resposta Exercício - 05
+
+``` python
+def funcao_checa_spam(email):
+    dominio_bloqueado = "@xyz.com"
+    if dominio_bloqueado in email:
+        return "⚠️ ALERTA: Spam detectado!"
+    return "✅ E-mail seguro."
+
+# Testando a função
+print(funcao_checa_spam("miguel.penteado@docente.unip.br"))
+print(funcao_checa_spam("xxx@xyz.com"))
+```
+
+------------------------------------------------------------------------
+
+#### Resposta Exercício - 06
+
+``` python
+crescimento = 32.048701
+
+# O código :.2f indica: float com 2 casas decimais
+print(f"O sucesso da aula de hoje aumentou em {crescimento:.2f}% nosso conhecimento!")
+```
+
+```{r  aula-listas_e_dicionarios-06-exercicio-html, eval=FALSE, include=FALSE}
+rmarkdown::render("06-2026-04-08_Listas_e_Dicionarios-exercicios.Rmd", output_dir="docs", output_file ="temporario.html" , output_format = "html_document") ; utils::browseURL("docs/temporario.html")
+```
